@@ -1,6 +1,7 @@
 import express from "express"
 import {} from 'dotenv/config'
-import router from "./routes/index.js"
+import apiRouter from "./routes/index.js"
+import docRouter from "./routes/docs.js"
 import cookieParser from "cookie-parser"
 import cors from "cors"
 import  { databaseFKTP, databaseFKRTL  } from "./config/Database.js"
@@ -18,8 +19,9 @@ try {
 app.use(cors( {credentials: true, origin: [process.env.ORIGIN]}))
 app.use(cookieParser())
 app.use(express.json())
-app.use(router)
+app.use(apiRouter)
+app.use(docRouter)
 
-app.listen(5000, () => {
-    console.log("server running at port 5000")
+app.listen(4001, () => {
+    console.log("server running at port 4001")
 })

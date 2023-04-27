@@ -1,5 +1,5 @@
 ### Login
-POST http://localhost:5000/faskes/login
+POST http://localhost/faskes/login
 Content-Type: application/json
 
 {
@@ -7,9 +7,13 @@ Content-Type: application/json
     "password": "p5fuNGds"
 }
 
+### Rumah Sakit
+GET http://localhost/faskes/rumahsakit
+
+
 ### Praktek Mandiri
-GET http://localhost:5000/faskes/praktekmandiri?nama=DOKTER
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoia290YWtlbGVrdHJvbmlrQGdtYWlsLmNvbSIsImlhdCI6MTY4MjYwMDY4NSwiZXhwIjoxNjgyNjAxNTg1fQ.4zn6U7EH_pdCnGa8dzJIRHjhRBP0s1HjJ6OCABpIuQk
+GET http://localhost/faskes/praktekmandiri?nama=DOKTER
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoia290YWtlbGVrdHJvbmlrQGdtYWlsLmNvbSIsImlhdCI6MTY4MjYwMjkxOCwiZXhwIjoxNjgyNjAzODE4fQ.vivLZdIa2-4pdtLVCuI9avGx9IdFkUzo2CpKYcUZvj8
 
 ### Show Praktek Mandiri
 GET http://localhost:5000/faskes/praktekmandiri/11010100006

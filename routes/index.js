@@ -1,6 +1,7 @@
 import express from 'express'
 import { login } from '../controllers/UserController.js'
 import { verifyToken } from '../middleware/VerifyToken.js'
+import { getRumahSakit, showRumahSakit } from '../controllers/RumahSakitController.js'
 import { getPraktekMandiri, showPraktekMandiri  } from '../controllers/PraktekMandiriController.js'
 import { getKlinik, showKlinik  } from '../controllers/KlinikController.js'
 import { getLabKes, showLabKes } from '../controllers/LabKesController.js'
@@ -11,6 +12,9 @@ const router = express.Router()
 
 // Token
 router.post('/faskes/login', login)
+
+// Rumah Sakit
+router.get('/faskes/rumahsakit', verifyToken, getRumahSakit)
 
 // Praktek Mandiri
 router.get('/faskes/praktekmandiri', verifyToken, getPraktekMandiri)
