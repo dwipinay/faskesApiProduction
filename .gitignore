@@ -11,6 +11,9 @@
 # production
 /build
 
+# Ignoere Documentation
+apiDocs-1.json
+
 # misc
 .DS_Store
 .env
