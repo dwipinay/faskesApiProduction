@@ -22,6 +22,6 @@ app.use(express.json())
 app.use(apiRouter)
 app.use(docRouter)
 
-app.listen(4001, () => {
-    console.log("server running at port 4001")
+app.listen(4003, () => {
+    console.log("server running at port 4003")
 })
