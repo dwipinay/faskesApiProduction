@@ -15,8 +15,8 @@ export const get = (req, callback) => {
         'dbfaskes.data_sisdmk_pekerjaan.SIP, ' +
         'dbfaskes.data_sisdmk_pekerjaan.STR, ' +
         'dbfaskes.data_sisdmk_pekerjaan.JENIS_SDMK as jenisSDMK, ' +
-        'dbfaskes.data_sisdmk_pekerjaan.created_at as createdAt, ' +
-        'dbfaskes.data_sisdmk_pekerjaan.modified_at as modifiedAt '
+        'dbfaskes.data_sisdmk_pekerjaan.created_at as created_at, ' +
+        'dbfaskes.data_sisdmk_pekerjaan.modified_at as modified_at '
 
     const sqlFrom = 'FROM ' +
         'dbfaskes.data_sisdmk INNER JOIN dbfaskes.data_sisdmk_pekerjaan ON dbfaskes.data_sisdmk_pekerjaan.data_sisdmk_id = dbfaskes.data_sisdmk.id ' +
