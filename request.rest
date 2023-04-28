@@ -12,12 +12,12 @@ GET http://localhost/faskes/rumahsakit
 
 
 ### Praktek Mandiri
-GET http://localhost/faskes/praktekmandiri?nama=DOKTER
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoia290YWtlbGVrdHJvbmlrQGdtYWlsLmNvbSIsImlhdCI6MTY4MjYwMjkxOCwiZXhwIjoxNjgyNjAzODE4fQ.vivLZdIa2-4pdtLVCuI9avGx9IdFkUzo2CpKYcUZvj8
+GET http://localhost/faskes/praktekmandiri
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoia290YWtlbGVrdHJvbmlrQGdtYWlsLmNvbSIsImlhdCI6MTY4MjY0OTg2NCwiZXhwIjoxNjgyNjUwNzY0fQ.TprPDO_wKxCC-VrpzUdCfJ-o1i0-WHC3LBySruZWUSM
 
 ### Show Praktek Mandiri
-GET http://localhost:5000/faskes/praktekmandiri/11010100006
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoia290YWtlbGVrdHJvbmlrQGdtYWlsLmNvbSIsImlhdCI6MTY4MjYwMDY4NSwiZXhwIjoxNjgyNjAxNTg1fQ.4zn6U7EH_pdCnGa8dzJIRHjhRBP0s1HjJ6OCABpIuQk
+GET http://localhost/faskes/praktekmandiri/11010100006
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoia290YWtlbGVrdHJvbmlrQGdtYWlsLmNvbSIsImlhdCI6MTY4MjY0OTg2NCwiZXhwIjoxNjgyNjUwNzY0fQ.TprPDO_wKxCC-VrpzUdCfJ-o1i0-WHC3LBySruZWUSM
 
 ### Praktek Mandiri Review
 POST http://localhost/faskes/praktekmandirireview
