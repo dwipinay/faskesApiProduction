@@ -7,6 +7,7 @@ import { getKlinik, showKlinik  } from '../controllers/KlinikController.js'
 import { getLabKes, showLabKes } from '../controllers/LabKesController.js'
 import { getUTD,showUTD } from '../controllers/UTDController.js'
 import { getPraktekMandiriNakes } from '../controllers/PraktekMandiriNakesController.js'
+import { insertPraktekMandiriReview } from '../controllers/PraktekMandiriReview.js'
 
 const router = express.Router()
 
@@ -19,6 +20,9 @@ router.get('/faskes/rumahsakit', verifyToken, getRumahSakit)
 // Praktek Mandiri
 router.get('/faskes/praktekmandiri', verifyToken, getPraktekMandiri)
 router.get('/faskes/praktekmandiri/:id', verifyToken, showPraktekMandiri)
+
+// Praktek Mandiri Review
+router.post('/faskes/praktekmandirireview', verifyToken, insertPraktekMandiriReview)
 
 // Klinik
 router.get('/faskes/klinik', verifyToken, getKlinik)

@@ -19,6 +19,48 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uY
 GET http://localhost:5000/faskes/praktekmandiri/11010100006
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoia290YWtlbGVrdHJvbmlrQGdtYWlsLmNvbSIsImlhdCI6MTY4MjYwMDY4NSwiZXhwIjoxNjgyNjAxNTg1fQ.4zn6U7EH_pdCnGa8dzJIRHjhRBP0s1HjJ6OCABpIuQk
 
+### Praktek Mandiri Review
+POST http://localhost/faskes/praktekmandirireview
+Content-Type: application/json
+
+{
+    "doctor": {
+        "fasyankes_code": "36740100AAA",
+        "str_code": "212118181383",
+        "health_worker_name": "dr. Ujang",
+        "specialization": "Dokter Hewan"
+    },
+    "info": {
+        "checkin-time": "2021-01-01T00:00:00Z",
+        "review-time": "2021-01-01T00:00:00Z"
+    },
+    "reviews": [
+        {
+            "question": "Ketepatan Waktu",
+            "description": "Kesesuaian waktu pelayanan dengan jadwal praktik",
+            "answer": "Tepat Waktu"
+        },
+        {
+            "question": "Komunikasi",
+            "description": "Kualitas informasi yang disampaikan pada Anda",
+            "answer": "Mudah Dipahami"
+        },
+        {
+            "question": "Kebersihan",
+            "description": "Kebersihan tempat dan peralatan",
+            "answer": "Bersih"
+        },
+        {
+            "question": "Pelayanan",
+            "description": "Keseluruhan pelayanan dokter",
+            "answer": "Bersih"
+        }
+    ]
+}
+
+
+
+
 ### Klinik
 GET  http://localhost:5000/klinik?page=2
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoia290YWtlbGVrdHJvbmlrQGdtYWlsLmNvbSIsImlhdCI6MTY4MjM5NjYzMiwiZXhwIjoxNjgyMzk3NTMyfQ.64Xi4BmYzO_amr-qPIs3c9d85ZVpMadXR8-jvqg3Xbg

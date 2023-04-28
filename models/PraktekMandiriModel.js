@@ -12,6 +12,7 @@ export const get = (req, callback) => {
         'dbfaskes.trans_final.kode_faskes as id, ' +
         'dbfaskes.trans_final.kode_faskes_baru as idBaru, ' +
         'dbfaskes.data_pm.nama_pm as nama, ' +
+        'dbfaskes.kategori_pm.kategori_user as kategori, ' +
         'dbfaskes.data_pm.no_sip as noSIP, ' +
         'dbfaskes.data_pm.tgl_berakhir_sip as tanggalBerakhirSIP, ' +
         'dbfaskes.data_pm.kepemilikan_tempat as kepemilikanTempat, ' +
@@ -33,10 +34,11 @@ export const get = (req, callback) => {
         'dbfaskes.data_pm.created_at, ' +
         'dbfaskes.data_pm.modified_at '
 
-        const sqlFrom = 'FROM ' +
-        'dbfaskes.data_pm INNER JOIN dbfaskes.trans_final ON dbfaskes.trans_final.id_faskes = dbfaskes.data_pm.id_faskes ' +
+        const sqlFrom = 'FROM dbfaskes.data_pm ' +
+        'INNER JOIN dbfaskes.trans_final ON dbfaskes.trans_final.id_faskes = dbfaskes.data_pm.id_faskes ' +
         'INNER JOIN dbfaskes.propinsi ON dbfaskes.propinsi.id_prop = dbfaskes.data_pm.id_prov_pm ' +
-        'INNER JOIN dbfaskes.kota ON dbfaskes.kota.id_kota = dbfaskes.data_pm.id_kota_pm '
+        'INNER JOIN dbfaskes.kota ON dbfaskes.kota.id_kota = dbfaskes.data_pm.id_kota_pm ' +
+        'INNER JOIN dbfaskes.kategori_pm ON dbfaskes.kategori_pm.id = dbfaskes.data_pm.id_kategori '
 
     const sqlOrder = ' ORDER BY dbfaskes.data_pm.id_prov_pm,' +
         'dbfaskes.data_pm.id_kota_pm '
@@ -124,6 +126,7 @@ export const show = (id, callback) => {
         'dbfaskes.trans_final.kode_faskes as id, ' +
         'dbfaskes.trans_final.kode_faskes_baru as idBaru, ' +
         'dbfaskes.data_pm.nama_pm as nama, ' +
+        'dbfaskes.kategori_pm.kategori_user as kategori, ' +
         'dbfaskes.data_pm.no_sip as noSIP, ' +
         'dbfaskes.data_pm.tgl_berakhir_sip as tanggalBerakhirSIP, ' +
         'dbfaskes.data_pm.kepemilikan_tempat as kepemilikanTempat, ' +
