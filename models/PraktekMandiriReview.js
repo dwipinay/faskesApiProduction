@@ -3,19 +3,22 @@ import { databaseFKTP } from '../config/Database.js'
 import dateFormat from 'dateformat'
 
 export const insert = async (req, callback) => {
-    // const now = new Date()
-    // const current = '2021-01-01T00:00:00Z'
-    // console.log(dateFormat(current,'yyyy-mm-dd HH:MM:ss'))
-    
     const trans = await databaseFKTP.transaction();
     try {
+        // Ubah Tanggal Waktu ISO UTC ke Zona WIB
+        const checkInTime = new Date(req.body.info['checkin-time'])
+        const checkInTimeLocaleDateTime = checkInTime.toLocaleString('en-US', {timeZone: 'Asia/Jakarta'})
+
+        const reviewTime = new Date(req.body.info['review-time'])
+        const reviewTimeLocaleDateTime = reviewTime.toLocaleString('en-US', {timeZone: 'Asia/Jakarta'})
+
         const header = [
             req.body.doctor.fasyankes_code,
             req.body.doctor.str_code,
             req.body.doctor.health_worker_name,
             req.body.doctor.specialization,
-            dateFormat(req.body.info['checkin-time'], 'yyyy-mm-dd HH:MM:ss'),
-            dateFormat(req.body.info['review-time'], 'yyyy-mm-dd HH:MM:ss')
+            dateFormat(checkInTimeLocaleDateTime, 'yyyy-mm-dd HH:MM:ss'),
+            dateFormat(reviewTimeLocaleDateTime, 'yyyy-mm-dd HH:MM:ss')
         ]
 
         const sqlInsertHeader = 'INSERT INTO dbfaskes.review ' +

@@ -48,8 +48,8 @@ export const login = (req, res) => {
 
             jsonWebToken.verify(accessToken, process.env.ACCESS_TOKEN_SECRET, (err, result) => {
                 const refreshToken = jsonWebToken.sign(payLoad, process.env.REFRESH_TOKEN_SECRET, {expiresIn: process.env.REFRESH_TOKEN_EXPIRESIN})
-                const iat = dateFormat(new Date(result.iat * 1000), "yyyy-mm-dd hh:MM:ss TT Z")
-                const exp = dateFormat(new Date(result.exp * 1000), "yyyy-mm-dd hh:MM:ss TT Z")
+                const iat = dateFormat(new Date(result.iat * 1000), "yyyy-mm-dd HH:MM:ss Z")
+                const exp = dateFormat(new Date(result.exp * 1000), "yyyy-mm-dd HH:MM:ss Z")
 
                 res.cookie('refreshToken', refreshToken, {
                     httpOnly: true,

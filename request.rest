@@ -1,5 +1,5 @@
 ### Login
-POST http://localhost/faskes/login
+POST http://localhost:8000/faskes/login
 Content-Type: application/json
 
 {
@@ -8,20 +8,22 @@ Content-Type: application/json
 }
 
 ### Rumah Sakit
-GET http://localhost/faskes/rumahsakit
+GET http://192.168.49.40:8000/faskes/rumahsakit
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoia290YWtlbGVrdHJvbmlrQGdtYWlsLmNvbSIsImlhdCI6MTY4Mjc1MTY2NSwiZXhwIjoxNjgyNzUyNTY1fQ._qHWI9BpA-1pugB9cRH7GWubmY7mqPhy3XpN-3ewrCQ
 
 
 ### Praktek Mandiri
-GET http://localhost/faskes/praktekmandiri
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoia290YWtlbGVrdHJvbmlrQGdtYWlsLmNvbSIsImlhdCI6MTY4MjY0OTg2NCwiZXhwIjoxNjgyNjUwNzY0fQ.TprPDO_wKxCC-VrpzUdCfJ-o1i0-WHC3LBySruZWUSM
+GET http://192.168.49.40:8000/faskes/praktekmandiri
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoia290YWtlbGVrdHJvbmlrQGdtYWlsLmNvbSIsImlhdCI6MTY4Mjc1MTMxMSwiZXhwIjoxNjgyNzUyMjExfQ.sTmu0JAVsyERMQrBRlCfDguik-M92_zlT396ZxgOpko
 
 ### Show Praktek Mandiri
-GET http://localhost/faskes/praktekmandiri/11010100006
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoia290YWtlbGVrdHJvbmlrQGdtYWlsLmNvbSIsImlhdCI6MTY4MjY0OTg2NCwiZXhwIjoxNjgyNjUwNzY0fQ.TprPDO_wKxCC-VrpzUdCfJ-o1i0-WHC3LBySruZWUSM
+GET http://192.168.49.40:8000/faskes/praktekmandiri/11010100006
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoia290YWtlbGVrdHJvbmlrQGdtYWlsLmNvbSIsImlhdCI6MTY4Mjc1MTMxMSwiZXhwIjoxNjgyNzUyMjExfQ.sTmu0JAVsyERMQrBRlCfDguik-M92_zlT396ZxgOpko
 
 ### Praktek Mandiri Review
-POST http://localhost/faskes/praktekmandirireview
+POST http://localhost:8000/faskes/praktekmandirireview
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoia290YWtlbGVrdHJvbmlrQGdtYWlsLmNvbSIsImlhdCI6MTY4MjkxNTYxOCwiZXhwIjoxNjgyOTE2NTE4fQ.BVkaqvABnqXzqhBh5464lnYIDhfpcd9H5dtozveXPkc
 
 {
     "doctor": {
@@ -32,7 +34,7 @@ Content-Type: application/json
     },
     "info": {
         "checkin-time": "2021-01-01T00:00:00Z",
-        "review-time": "2021-01-01T00:00:00Z"
+        "review-time": "2021-01-01T02:00:00Z"
     },
     "reviews": [
         {
@@ -58,9 +60,6 @@ Content-Type: application/json
     ]
 }
 
-
-
-
 ### Klinik
 GET  http://localhost:5000/klinik?page=2
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoia290YWtlbGVrdHJvbmlrQGdtYWlsLmNvbSIsImlhdCI6MTY4MjM5NjYzMiwiZXhwIjoxNjgyMzk3NTMyfQ.64Xi4BmYzO_amr-qPIs3c9d85ZVpMadXR8-jvqg3Xbg
@@ -84,4 +83,5 @@ GET http://localhost:5000/utd/11010600001
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoia290YWtlbGVrdHJvbmlrQGdtYWlsLmNvbSIsImlhdCI6MTY4MjM5ODQzMywiZXhwIjoxNjgyMzk5MzMzfQ.iGHZc2U5dl3_TyakT1Dy6RVcR1FjNuK2B8F3dVv92zg
 
 ### Praktek Mandiri Nakes
-GET http://localhost:5000/faskes/praktekmandirinakes?praktekMandiriId=11020100001
+GET http://192.168.49.40:8000/faskes/praktekmandirinakes?praktekMandiriId=11020100001
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoia290YWtlbGVrdHJvbmlrQGdtYWlsLmNvbSIsImlhdCI6MTY4Mjc1MTMxMSwiZXhwIjoxNjgyNzUyMjExfQ.sTmu0JAVsyERMQrBRlCfDguik-M92_zlT396ZxgOpko
