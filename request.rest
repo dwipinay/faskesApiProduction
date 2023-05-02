@@ -23,7 +23,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uY
 ### Praktek Mandiri Review
 POST http://localhost:8000/faskes/praktekmandirireview
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoia290YWtlbGVrdHJvbmlrQGdtYWlsLmNvbSIsImlhdCI6MTY4MjkxNTYxOCwiZXhwIjoxNjgyOTE2NTE4fQ.BVkaqvABnqXzqhBh5464lnYIDhfpcd9H5dtozveXPkc
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoia290YWtlbGVrdHJvbmlrQGdtYWlsLmNvbSIsImlhdCI6MTY4Mjk5Nzk5NCwiZXhwIjoxNjgyOTk4ODk0fQ.m4uwM8Sxeync7Zn7NBRYKnoPQeQ_wN17PucoR0V6OAA
 
 {
     "doctor": {
@@ -38,24 +38,34 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uY
     },
     "reviews": [
         {
+            "question": "Jadwal Praktek",
+            "description": "Ada jadwal pelayanan di tempat praktik",
+            "answer": "1=Ya"
+        },
+        {
             "question": "Ketepatan Waktu",
-            "description": "Kesesuaian waktu pelayanan dengan jadwal praktik",
-            "answer": "Tepat Waktu"
+            "description": "Dokter buka praktik seperti jadwal yang ditentukan",
+            "answer": "0=Tidak"
+        },
+        {
+            "question": "Waktu Tunggu",
+            "description": "Saya tidak menunggu lama untuk mendapatkan pelayanan",
+            "answer": "0=saya menunggu lama"
         },
         {
             "question": "Komunikasi",
-            "description": "Kualitas informasi yang disampaikan pada Anda",
-            "answer": "Mudah Dipahami"
-        },
-        {
-            "question": "Kebersihan",
-            "description": "Kebersihan tempat dan peralatan",
-            "answer": "Bersih"
+            "description": "Dokter memberikan edukasi terkait penyakit yang diderita",
+            "answer": "1=Ya"
         },
         {
             "question": "Pelayanan",
-            "description": "Keseluruhan pelayanan dokter",
-            "answer": "Bersih"
+            "description": "Dokter memberikan penjelasan dan meminta persetujuan sayan dalam pelayanan kesehatan",
+            "answer": "1=Ya"
+        },
+        {
+            "question": "Kebersihan",
+            "description": "Kebersihan ruang tunggu dan ruang periksa",
+            "answer": "1=Bersih"
         }
     ]
 }

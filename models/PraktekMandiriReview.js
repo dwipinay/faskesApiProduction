@@ -12,17 +12,24 @@ export const insert = async (req, callback) => {
         const reviewTime = new Date(req.body.info['review-time'])
         const reviewTimeLocaleDateTime = reviewTime.toLocaleString('en-US', {timeZone: 'Asia/Jakarta'})
 
+        // Hitung hasil penilaian
+        const positiveResponse = req.body.reviews.filter((record) => {
+            return record.answer.substring(0, 1) === '1'
+        })
+        const ratingResult = positiveResponse.length > 3 ? 1 : 0 
+
         const header = [
             req.body.doctor.fasyankes_code,
             req.body.doctor.str_code,
             req.body.doctor.health_worker_name,
             req.body.doctor.specialization,
             dateFormat(checkInTimeLocaleDateTime, 'yyyy-mm-dd HH:MM:ss'),
-            dateFormat(reviewTimeLocaleDateTime, 'yyyy-mm-dd HH:MM:ss')
+            dateFormat(reviewTimeLocaleDateTime, 'yyyy-mm-dd HH:MM:ss'),
+            ratingResult
         ]
 
         const sqlInsertHeader = 'INSERT INTO dbfaskes.review ' +
-            '(`fasyankes_code`,`str_code`,`health_worker_name`,`specialization`,`checkin_time`,`review_time`) ' +
+            '(`fasyankes_code`,`str_code`,`health_worker_name`,`specialization`,`checkin_time`,`review_time`,`rating_result`) ' +
             'VALUES (?)'
 
         const insertHeader = await databaseFKTP.query(sqlInsertHeader, { 
