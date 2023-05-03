@@ -25,8 +25,8 @@ export const insert = async (req, callback) => {
             req.body.doctor.specialization,
             dateFormat(checkInTimeLocaleDateTime, 'yyyy-mm-dd HH:MM:ss'),
             dateFormat(reviewTimeLocaleDateTime, 'yyyy-mm-dd HH:MM:ss'),
-            req.body.result.resultPoint,
-            req.body.result.resultDescription
+            req.body.result.resultDescription,
+            req.body.result.resultPoint
         ]
 
         const sqlInsertHeader = 'INSERT INTO dbfaskes.review ' +
