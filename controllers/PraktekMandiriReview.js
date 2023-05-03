@@ -14,14 +14,14 @@ export const insertPraktekMandiriReview = async (req, res) => {
             ['review-time']: Joi.string().required(),
         }),
         result: Joi.object().keys({
-            description: Joi.string().required(),
-            descriptionPoint: Joi.number().required(),
+            resultDescription: Joi.string().required(),
+            resultPoint: Joi.number().required(),
         }),
         reviews: Joi.array()
             .items(Joi.object().keys({
                 code: Joi.string().required(),
                 question: Joi.string().required(),
-                description: Joi.string().required(),
+                questionDescription: Joi.string().required(),
                 answer: Joi.string().required(),
                 answerPoint: Joi.number().required()
             })

@@ -25,8 +25,8 @@ export const insert = async (req, callback) => {
             req.body.doctor.specialization,
             dateFormat(checkInTimeLocaleDateTime, 'yyyy-mm-dd HH:MM:ss'),
             dateFormat(reviewTimeLocaleDateTime, 'yyyy-mm-dd HH:MM:ss'),
-            req.body.result.descriptionPoint,
-            req.body.result.description
+            req.body.result.resultPoint,
+            req.body.result.resultDescription
         ]
 
         const sqlInsertHeader = 'INSERT INTO dbfaskes.review ' +
@@ -44,14 +44,14 @@ export const insert = async (req, callback) => {
                 insertHeader[0],
                 value.code,
                 value.question,
-                value.description,
+                value.questionDescription,
                 value.answer,
                 value.answerPoint
             ]
         })
 
         const sqlInsertDetails = 'INSERT INTO dbfaskes.review_detail ' +
-        '(`review_id`,`qustionId`,`question`,`description`,`answer`,`answer_point`) ' +
+        '(`review_id`,`qustionId`,`question`,`question_description`,`answer`,`answer_point`) ' +
         'VALUES ?'
 
         const insertDetail = await databaseFKTP.query(sqlInsertDetails, {

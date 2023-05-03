@@ -23,7 +23,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uY
 ### Praktek Mandiri Review
 POST http://localhost:8000/faskes/praktekmandirireview
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoia290YWtlbGVrdHJvbmlrQGdtYWlsLmNvbSIsImlhdCI6MTY4MzA3NTYxOSwiZXhwIjoxNjgzMDc2NTE5fQ.UC8ZEQNgdMloChAr8UWVyc3chILY6ArWRb3WnykPVQk
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoia290YWtlbGVrdHJvbmlrQGdtYWlsLmNvbSIsImlhdCI6MTY4MzA3NzcwNCwiZXhwIjoxNjgzMDc4NjA0fQ.tW8IYZ23vD8jM6OnXG3V3VhiR5V9-f6SHk9OpeM_TYA
 
 {
     "doctor": {
@@ -37,49 +37,49 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uY
         "review-time": "2021-01-01T02:00:00Z"
     },
     "result": {
-        "description": "Puas",
-        "descriptionPoint": 1
+        "resultDescription": "Puas",
+        "resultPoint": 1
     },
     "reviews": [
         {
             "code": "question-01",
             "question": "Jadwal Praktek",
-            "description": "Ada jadwal pelayanan di tempat praktik",
+            "questionDescription": "Ada jadwal pelayanan di tempat praktik",
             "answer": "Tidak",
             "answerPoint": 0 
         },
         {
             "code": "question-02",
             "question": "Ketepatan Waktu",
-            "description": "Dokter buka praktik seperti jadwal yang ditentukan",
+            "questionDescription": "Dokter buka praktik seperti jadwal yang ditentukan",
             "answer": "Tidak",
             "answerPoint": 0
         },
         {
             "code": "question-03",
             "question": "Waktu Tunggu",
-            "description": "Saya tidak menunggu lama untuk mendapatkan pelayanan",
+            "questionDescription": "Saya tidak menunggu lama untuk mendapatkan pelayanan",
             "answer": "Saya menunggu lama",
             "answerPoint": 0 
         },
         {
             "code": "question-04",
             "question": "Komunikasi",
-            "description": "Dokter memberikan edukasi terkait penyakit yang diderita",
+            "questionDescription": "Dokter memberikan edukasi terkait penyakit yang diderita",
             "answer": "Ya",
             "answerPoint": 1 
         },
         {
             "code": "question-05",
             "question": "Pelayanan",
-            "description": "Dokter memberikan penjelasan dan meminta persetujuan sayan dalam pelayanan kesehatan",
+            "questionDescription": "Dokter memberikan penjelasan dan meminta persetujuan sayan dalam pelayanan kesehatan",
             "answer": "Ya",
             "answerPoint": 1 
         },
         {
             "code": "question-06",
             "question": "Kebersihan",
-            "description": "Kebersihan ruang tunggu dan ruang periksa",
+            "questionDescription": "Kebersihan ruang tunggu dan ruang periksa",
             "answer": "Ya",
             "answerPoint": 1
         }
