@@ -12,7 +12,8 @@
 /build
 
 # Ignoere Documentation
-apiDocs-1.json
+apiDocsDTO-1.json
+apiDocsDitjenNakes-1.json
 
 # misc
 .DS_Store

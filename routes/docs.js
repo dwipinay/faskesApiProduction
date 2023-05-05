@@ -5,22 +5,28 @@ import fs from "fs";
 import swaggerUi from 'swagger-ui-express'
 // import apiDocs from '../documentations/apiDocs-1.json' assert { type: "json" };
 
-const apiDocs = JSON.parse(
-    fs.readFileSync(new URL("../documentations/apiDocs-1.json", import.meta.url), {
+const apiDocsDTO1 = JSON.parse(
+    fs.readFileSync(new URL("../documentations/apiDocsDTO-1.json", import.meta.url), {
+        encoding: "utf-8",
+    })
+)
+
+const apiDocsDitjenNakes1 = JSON.parse(
+    fs.readFileSync(new URL("../documentations/apiDocsDitjenNakes-1.json", import.meta.url), {
         encoding: "utf-8",
     })
 )
 
 // DTO-PUSDATIN
 router.use('/faskes/apidocs-1-dto', swaggerUi.serve, (req, res) => {
-    let html = swaggerUi.generateHTML(apiDocs);
+    let html = swaggerUi.generateHTML(apiDocsDTO1);
     res.send(html);
 })
 
 // Ditjen Nakes
-// router.use('/apidoc-dfasyankesonline-2023-03-01-ditjen-nakes', swaggerUi.serve, (req, res) => {
-//     let html = swaggerUi.generateHTML(apiDocs);
-//     res.send(html);
-// })
+router.use('/faskes/apidoc-1-ditjen-nakes', swaggerUi.serve, (req, res) => {
+    let html = swaggerUi.generateHTML(apiDocsDitjenNakes1);
+    res.send(html);
+})
 
 export default router
