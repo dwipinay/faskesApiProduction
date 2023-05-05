@@ -37,6 +37,6 @@ router.get('/faskes/utd', verifyToken, getUTD)
 router.get('/faskes/utd/:id', verifyToken, showUTD)
 
 // Praktek Mandiri Nakes
-router.get('/faskes/praktekmandirinakes', verifyToken, getPraktekMandiriNakes)
+// router.get('/faskes/praktekmandirinakes', verifyToken, getPraktekMandiriNakes)
 
 export default router

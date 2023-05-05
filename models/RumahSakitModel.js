@@ -10,13 +10,21 @@ export const get = (req, callback) => {
 
     const sqlSelect = 'SELECT db_fasyankes.`data`.Propinsi as kode, ' +
         'db_fasyankes.`data`.RUMAH_SAKIT AS nama, ' +
-        'db_fasyankes.`data`.ALAMAT AS alamat, ' +
-        'reference.provinsi.nama as provinsiNama, ' +
-        'reference.kab_kota.nama as kabKotaNama, ' +
         'db_fasyankes.m_jenis.alias AS jenis, ' +
         'db_fasyankes.m_kelas.kelas AS kelas, ' +
+        'db_fasyankes.`data`.TELEPON AS telepon, ' +
+        'db_fasyankes.`data`.WEBSITE AS website, ' +
+        'db_fasyankes.`m_blu`.blu AS statusBLU, ' +
         'db_fasyankes.m_kepemilikan.kepemilikan AS kepemilikan, ' +
-        'db_fasyankes.t_dok_tariflayanan_rs.url as urlTarif '
+        'db_fasyankes.m_blu.blu as statusBLU, ' +
+        'db_fasyankes.t_dok_tariflayanan_rs.url as urlTarif, ' +
+        'db_fasyankes.`data`.ALAMAT AS alamat, ' +
+        'db_fasyankes.`data`.provinsi_id, ' +
+        'reference.provinsi.nama as provinsiNama, ' +
+        'db_fasyankes.`data`.kab_kota_id, ' +
+        'reference.kab_kota.nama as kabKotaNama, ' +
+        'db_fasyankes.koordinat.long, ' +
+        'db_fasyankes.koordinat.alt '
 
         const sqlFrom = 'FROM db_fasyankes.`data` INNER JOIN reference.provinsi ' +
         'ON reference.provinsi.id = db_fasyankes.`data`.provinsi_id ' +
