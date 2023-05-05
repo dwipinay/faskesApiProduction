@@ -1,5 +1,5 @@
 ### Login
-POST http://localhost:8000/faskes/login
+POST http://localhost/faskes/login
 Content-Type: application/json
 
 {
@@ -8,8 +8,8 @@ Content-Type: application/json
 }
 
 ### Rumah Sakit
-GET http://192.168.49.40:8000/faskes/rumahsakit
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoia290YWtlbGVrdHJvbmlrQGdtYWlsLmNvbSIsImlhdCI6MTY4Mjc1MTY2NSwiZXhwIjoxNjgyNzUyNTY1fQ._qHWI9BpA-1pugB9cRH7GWubmY7mqPhy3XpN-3ewrCQ
+GET http://localhost/faskes/rumahsakit
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoia290YWtlbGVrdHJvbmlrQGdtYWlsLmNvbSIsImlhdCI6MTY4MzI2OTYzNywiZXhwIjoxNjgzMjcwNTM3fQ.yzrnORMydYJ1PKDxHpC6XpWIOwfMP1k8dDReXHKYRRE
 
 
 ### Praktek Mandiri

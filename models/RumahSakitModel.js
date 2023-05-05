@@ -15,6 +15,14 @@ export const get = (req, callback) => {
         'db_fasyankes.`data`.TELEPON AS telepon, ' +
         'db_fasyankes.`data`.WEBSITE AS website, ' +
         'db_fasyankes.`m_blu`.blu AS statusBLU, ' +
+
+        'db_fasyankes.`data`.NO_SURAT_IJIN AS noSuratIjinOperasional, ' +
+        'db_fasyankes.`data`.TANGGAL_SURAT_IJIN AS tanggalSuratIjinOperasional, ' +
+        'db_fasyankes.`data`.DIREKTUR_RS AS direktur, ' +
+        'db_fasyankes.m_simrs.simrs AS ketersediaanSIMRS, ' +
+        'db_fasyankes.`data`.LUAS_TANAH AS luasTanah, ' +
+        'db_fasyankes.`data`.LUAS_BANGUNAN AS luasBangunan, ' +
+
         'db_fasyankes.m_kepemilikan.kepemilikan AS kepemilikan, ' +
         'db_fasyankes.m_blu.blu as statusBLU, ' +
         'db_fasyankes.t_dok_tariflayanan_rs.url as urlTarif, ' +
@@ -38,6 +46,7 @@ export const get = (req, callback) => {
         'ON db_fasyankes.m_kepemilikan.id_kepemilikan = db_fasyankes.`data`.PENYELENGGARA ' +
         'INNER JOIN db_fasyankes.m_blu ON db_fasyankes.m_blu.id_blu = db_fasyankes.`data`.blu  ' +
         'INNER JOIN db_fasyankes.koordinat ON db_fasyankes.koordinat.koders = db_fasyankes.`data`.propinsi ' +
+        'INNER JOIN db_fasyankes.m_simrs ON db_fasyankes.m_simrs.id_simrs = db_fasyankes.`data`.simrs ' +
         'LEFT OUTER JOIN db_fasyankes.t_dok_tariflayanan_rs on db_fasyankes.t_dok_tariflayanan_rs.koders = db_fasyankes.`data`.Propinsi '
 
         const sqlOrder = ' ORDER BY db_fasyankes.`data`.RUMAH_SAKIT ' 
