@@ -7,11 +7,10 @@ export const insert = async (req, callback) => {
     try {
         // Ubah Tanggal Waktu ISO UTC ke Zona WIB
         const checkInTime = new Date(req.body.info['checkin-time'])
-        const checkInTimeLocaleDateTime = checkInTime.toLocaleString('en-US', {timeZone: 'Asia/Jakarta'})
+        const checkInTimeLocaleDateTime = checkInTime.toLocaleString('en-US', { timeZone: 'Asia/Jakarta' })
 
         const reviewTime = new Date(req.body.info['review-time'])
-        const reviewTimeLocaleDateTime = reviewTime.toLocaleString('en-US', {timeZone: 'Asia/Jakarta'})
-
+        const reviewTimeLocaleDateTime = reviewTime.toLocaleString('en-US', { timeZone: 'Asia/Jakarta' })
         // Hitung hasil penilaian
         // const positiveResponse = req.body.reviews.filter((record) => {
         //     return record.answer.substring(0, 1) === '1'
@@ -26,16 +25,17 @@ export const insert = async (req, callback) => {
             req.body.doctor.specialization,
             dateFormat(checkInTimeLocaleDateTime, 'yyyy-mm-dd HH:MM:ss'),
             dateFormat(reviewTimeLocaleDateTime, 'yyyy-mm-dd HH:MM:ss'),
-            req.body.info.visit_date,
+            req.body.info['visit-date'],
             req.body.result.resultDescription,
-            req.body.result.resultPoint
+            req.body.result.resultPoint,
+            req.body.userId
         ]
 
         const sqlInsertHeader = 'INSERT INTO dbfaskes.review ' +
-            '(`fasyankes_code`,`str_code`,`health_worker_name`,`specialization`,`checkin_time`,`review_time`,`result_description`,`result_point`) ' +
+            '(`fasyankes_code`,`nik`,`str_code`,`health_worker_name`,`specialization`,`checkin_time`,`review_time`,`visit_date`,`result_description`,`result_point`,`user_id`) ' +
             'VALUES (?)'
 
-        const insertHeader = await databaseFKTP.query(sqlInsertHeader, { 
+        const insertHeader = await databaseFKTP.query(sqlInsertHeader, {
             type: QueryTypes.INSERT,
             replacements: [header],
             transaction: trans
@@ -53,8 +53,8 @@ export const insert = async (req, callback) => {
         })
 
         const sqlInsertDetails = 'INSERT INTO dbfaskes.review_detail ' +
-        '(`review_id`,`qustionId`,`question`,`question_description`,`answer`,`answer_point`) ' +
-        'VALUES ?'
+            '(`review_id`,`qustionId`,`question`,`question_description`,`answer`,`answer_point`) ' +
+            'VALUES ?'
 
         const insertDetail = await databaseFKTP.query(sqlInsertDetails, {
             type: QueryTypes.INSERT,

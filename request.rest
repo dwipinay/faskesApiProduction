@@ -1,10 +1,10 @@
 ### Login
-POST http://localhost/faskes/login
+POST http://localhost:8000/faskes/login
 Content-Type: application/json
 
 {
     "userName": "kotakelektronik@gmail.com",
-    "password": "p5fuNGds"
+    "password": "12345"
 }
 
 ### Rumah Sakit
@@ -27,23 +27,26 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uY
 ### Praktek Mandiri Review
 POST http://localhost:8000/faskes/praktekmandirireview
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoia290YWtlbGVrdHJvbmlrQGdtYWlsLmNvbSIsImlhdCI6MTY4MzA3NzcwNCwiZXhwIjoxNjgzMDc4NjA0fQ.tW8IYZ23vD8jM6OnXG3V3VhiR5V9-f6SHk9OpeM_TYA
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoia290YWtlbGVrdHJvbmlrQGdtYWlsLmNvbSIsImlhdCI6MTY4MzcwMTgyNSwiZXhwIjoxNjgzNzAyNzI1fQ.XqT-mdxWpT1FItK2eCyruUyi5Cw_2ZowWHDFoBFHc18
 
 {
     "doctor": {
         "fasyankes_code": "36740100AAA",
+        "nik": "1234567890",
         "str_code": "212118181383",
         "health_worker_name": "dr. Ujang",
         "specialization": "Dokter Hewan"
     },
     "info": {
         "checkin-time": "2021-01-01T00:00:00Z",
-        "review-time": "2021-01-01T02:00:00Z"
+        "review-time": "2021-01-01T02:00:00Z",
+        "visit-date": "2021-01-01"
     },
     "result": {
         "resultDescription": "Puas",
         "resultPoint": 1
     },
+    "userId": "1",
     "reviews": [
         {
             "code": "question-01",
