@@ -20,11 +20,13 @@ export const insert = async (req, callback) => {
 
         const header = [
             req.body.doctor.fasyankes_code,
+            req.body.doctor.nik,
             req.body.doctor.str_code,
             req.body.doctor.health_worker_name,
             req.body.doctor.specialization,
             dateFormat(checkInTimeLocaleDateTime, 'yyyy-mm-dd HH:MM:ss'),
             dateFormat(reviewTimeLocaleDateTime, 'yyyy-mm-dd HH:MM:ss'),
+            req.body.info.visit_date,
             req.body.result.resultDescription,
             req.body.result.resultPoint
         ]

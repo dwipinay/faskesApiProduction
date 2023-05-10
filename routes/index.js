@@ -16,6 +16,7 @@ router.post('/faskes/login', login)
 
 // Rumah Sakit
 router.get('/faskes/rumahsakit', verifyToken, getRumahSakit)
+router.get('/faskes/rumahsakit/:id', verifyToken, showRumahSakit)
 
 // Praktek Mandiri
 router.get('/faskes/praktekmandiri', verifyToken, getPraktekMandiri)
