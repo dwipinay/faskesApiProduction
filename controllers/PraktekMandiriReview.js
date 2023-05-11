@@ -42,11 +42,19 @@ export const insertPraktekMandiriReview = async (req, res) => {
     }
 
     insert(req, (err, results) => {
+
         if (err) {
-            res.status(400).send({
-                success: false,
-                message: err
-            })
+            if (err.name == "SequelizeUniqueConstraintError") {
+                res.status(409).send({
+                    success: false,
+                    message: 'duplicate entry'
+                })
+            } else {
+                res.status(400).send({
+                    success: false,
+                    message: err
+                })
+            }
             return
         }
 
