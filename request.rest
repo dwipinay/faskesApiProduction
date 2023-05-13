@@ -4,7 +4,7 @@ Content-Type: application/json
 
 {
     "userName": "kotakelektronik@gmail.com",
-    "password": "12345"
+    "password": "p5fuNGds"
 }
 
 ### Rumah Sakit
@@ -27,7 +27,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uY
 ### Praktek Mandiri Review
 POST http://localhost:8000/faskes/praktekmandirireview
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoia290YWtlbGVrdHJvbmlrQGdtYWlsLmNvbSIsImlhdCI6MTY4MzcwMTgyNSwiZXhwIjoxNjgzNzAyNzI1fQ.XqT-mdxWpT1FItK2eCyruUyi5Cw_2ZowWHDFoBFHc18
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoia290YWtlbGVrdHJvbmlrQGdtYWlsLmNvbSIsImlhdCI6MTY4Mzk5MzY3OSwiZXhwIjoxNjgzOTk0NTc5fQ.InsEQAlzumPKHHl1PDLCZvGKMmL99ClZjB5CM1GLbSk
 
 {
     "doctor": {
