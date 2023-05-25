@@ -31,7 +31,7 @@ export const get = (req, callback) => {
         'reference.kab_kota.nama as kabKotaNama, ' +
         'db_fasyankes.koordinat.long as longitude, ' +
         'db_fasyankes.koordinat.alt as latitude, ' +
-        'db_fasyankes.`data`.aktive, ' +
+        'db_fasyankes.`data`.aktive as statusAktivasi, ' +
         'db_fasyankes.`data`.TANGGAL_UPDATE as modified_at '
 
         const sqlFrom = 'FROM db_fasyankes.`data` INNER JOIN reference.provinsi ' +
@@ -152,7 +152,9 @@ export const show = (id, callback) => {
         'db_fasyankes.`data`.kab_kota_id, ' +
         'reference.kab_kota.nama as kabKotaNama, ' +
         'db_fasyankes.koordinat.long as longitude, ' +
-        'db_fasyankes.koordinat.alt as latitude ' +
+        'db_fasyankes.koordinat.alt as latitude, ' +
+        'db_fasyankes.`data`.aktive as statusAktivasi, ' +
+        'db_fasyankes.`data`.TANGGAL_UPDATE as modified_at '
     'FROM ' +
         'db_fasyankes.`data` INNER JOIN reference.provinsi ' +
         'ON reference.provinsi.id = db_fasyankes.`data`.provinsi_id ' +
