@@ -47,7 +47,7 @@ export const get = (req, callback) => {
     
     const sqlOffSet = 'OFFSET ?'
     
-    const sqlWhere = 'WHERE dbfaskes.trans_final.kode_faskes IS NOT NULL AND '
+    const sqlWhere = 'WHERE dbfaskes.trans_final.kode_faskes IS NOT NULL AND dbfaskes.trans_final.kode_faskes <> "" AND '
 
     const filter = []
     const sqlFilterValue = []
