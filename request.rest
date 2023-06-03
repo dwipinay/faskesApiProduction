@@ -8,8 +8,8 @@ Content-Type: application/json
 }
 
 ### Rumah Sakit
-GET http://localhost/faskes/rumahsakit
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoia290YWtlbGVrdHJvbmlrQGdtYWlsLmNvbSIsImlhdCI6MTY4MzY5MDYzOCwiZXhwIjoxNjgzNjkxNTM4fQ.JBtwAB6xXxwG65Jq8vDw4dWX7Wr4l6_oL7Bq6EBbwis
+GET http://localhost/faskes/rumahsakit?page=30
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoia290YWtlbGVrdHJvbmlrQGdtYWlsLmNvbSIsImlhdCI6MTY4NTUxMzk4OCwiZXhwIjoxNjg1NTE0ODg4fQ.hSwKx52UNZp0Zh3LTwXpLnQhx7uvVObodnCARPidlfM
 
 ### Rumah Sakit Specified
 GET http://localhost/faskes/rumahsakit/3372253
