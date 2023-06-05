@@ -45,7 +45,7 @@ export const insert = async (req, callback) => {
             return [
                 insertHeader[0],
                 value.code,
-                value.question,
+                value.aspect,
                 value.questionDescription,
                 value.answer,
                 value.answerPoint
@@ -53,7 +53,7 @@ export const insert = async (req, callback) => {
         })
 
         const sqlInsertDetails = 'INSERT INTO dbfaskes.review_detail ' +
-            '(`review_id`,`qustionId`,`question`,`question_description`,`answer`,`answer_point`) ' +
+            '(`review_id`,`qustionId`,`aspect`,`question_description`,`answer`,`answer_point`) ' +
             'VALUES ?'
 
         const insertDetail = await databaseFKTP.query(sqlInsertDetails, {

@@ -23,7 +23,7 @@ export const insertPraktekMandiriReview = async (req, res) => {
         reviews: Joi.array()
             .items(Joi.object().keys({
                 code: Joi.string().required(),
-                question: Joi.string().required(),
+                aspect: Joi.string().required(),
                 questionDescription: Joi.string().required(),
                 answer: Joi.string().required(),
                 answerPoint: Joi.number().required()
