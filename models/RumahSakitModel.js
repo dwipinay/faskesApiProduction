@@ -34,7 +34,7 @@ export const get = (req, callback) => {
         'db_fasyankes.`data`.aktive as statusAktivasi, ' +
         'db_fasyankes.`data`.TANGGAL_UPDATE as modified_at '
 
-        const sqlFrom = 'FROM db_fasyankes.`data` LEFT OUTER JOIN reference.provinsi ' +
+        const sqlFrom = 'FROM db_fasyankes.`data` INNER JOIN reference.provinsi ' +
         'ON reference.provinsi.id = db_fasyankes.`data`.provinsi_id ' +
         'LEFT OUTER JOIN reference.kab_kota ' +
         'ON reference.kab_kota.id = db_fasyankes.`data`.kab_kota_id ' +
@@ -55,7 +55,7 @@ export const get = (req, callback) => {
             
         const sqlOffSet = 'OFFSET ?'
 
-        const sqlWhere = 'WHERE db_fasyankes.`data`.aktive = 1 AND db_fasyankes.`data`.JENIS <> 20 AND db_fasyankes.`data`.Propinsi NOT IN ("9999999","7371435","7371121","") AND '
+        const sqlWhere = 'WHERE db_fasyankes.`data`.JENIS <> 20 AND db_fasyankes.`data`.Propinsi NOT IN ("9999999","7371435","7371121","") AND '
 
         const filter = []
         const sqlFilterValue = []
@@ -63,6 +63,7 @@ export const get = (req, callback) => {
         const provinsiId = req.query.provinsiId || null
         const kabKotaId = req.query.kabKotaId || null
         const nama = req.query.nama || null
+        const aktive = req.query.aktive || null
 
         if (provinsiId != null) {
             filter.push("db_fasyankes.`data`.provinsi_id = ?")
@@ -79,12 +80,17 @@ export const get = (req, callback) => {
             sqlFilterValue.push('%'.concat(nama).concat('%'))
         }
 
+        if (aktive != null) {
+            filter.push("db_fasyankes.`data`.aktive = ?")
+            sqlFilterValue.push(aktive)
+        }
+
         sqlFilterValue.push(endIndex)
         sqlFilterValue.push(startIndex)
 
         let sqlFilter = ''
         if (filter.length == 0) {
-            sqlFilter = 'WHERE db_fasyankes.`data`.aktive = 1 AND db_fasyankes.`data`.JENIS <> 20 AND db_fasyankes.`data`.Propinsi NOT IN ("9999999","7371435","7371121","")'
+            sqlFilter = 'WHERE db_fasyankes.`data`.JENIS <> 20 AND db_fasyankes.`data`.Propinsi NOT IN ("9999999","7371435","7371121","")'
         } else {
             filter.forEach((value, index) => {
                 if (index == 0) {

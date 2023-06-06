@@ -7,6 +7,7 @@ export const getRumahSakit = (req, res) => {
         provinsiId: Joi.string().allow(''),
         kabKotaId: Joi.string().allow('').allow(null),
         nama: Joi.string().allow(''),
+        aktive: Joi.number(),
         page: Joi.number()
     })
 

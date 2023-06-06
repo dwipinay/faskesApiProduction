@@ -4,12 +4,12 @@ Content-Type: application/json
 
 {
     "userName": "kotakelektronik@gmail.com",
-    "password": "12345"
+    "password": "p5fuNGds"
 }
 
 ### Rumah Sakit
-GET http://localhost/faskes/rumahsakit?page=30
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoia290YWtlbGVrdHJvbmlrQGdtYWlsLmNvbSIsImlhdCI6MTY4NTUxMzk4OCwiZXhwIjoxNjg1NTE0ODg4fQ.hSwKx52UNZp0Zh3LTwXpLnQhx7uvVObodnCARPidlfM
+GET http://localhost/faskes/rumahsakit?page=1&aktive=0
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoia290YWtlbGVrdHJvbmlrQGdtYWlsLmNvbSIsImlhdCI6MTY4NjAzNTQwOSwiZXhwIjoxNjg2MDM2MzA5fQ.C5JIN1Z1VlQn8B53vbOoTvt6UW19ygRHcFQ12VZkD5E
 
 ### Rumah Sakit Specified
 GET http://localhost/faskes/rumahsakit/3372253
@@ -27,7 +27,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uY
 ### Praktek Mandiri Review
 POST http://localhost:8000/faskes/praktekmandirireview
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoia290YWtlbGVrdHJvbmlrQGdtYWlsLmNvbSIsImlhdCI6MTY4NTkzOTE3MywiZXhwIjoxNjg1OTQwMDczfQ.KBWNbsLoOTYk9EMY6k_5RLvUf0FgMGeMXGxCyWt4lr4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoia290YWtlbGVrdHJvbmlrQGdtYWlsLmNvbSIsImlhdCI6MTY4NTk0NTY5MCwiZXhwIjoxNjg1OTQ2NTkwfQ.2XJ5IYF4YHhm1ovihMlK4mU0l_N7hZUBUXQAE3PpaCI
 
 {
     "doctor": {
