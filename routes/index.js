@@ -8,6 +8,7 @@ import { getLabKes, showLabKes } from '../controllers/LabKesController.js'
 import { getUTD,showUTD } from '../controllers/UTDController.js'
 import { getPraktekMandiriNakes } from '../controllers/PraktekMandiriNakesController.js'
 import { insertPraktekMandiriReview } from '../controllers/PraktekMandiriReview.js'
+import { getProvinsi } from '../controllers/ProvinsiController.js'
 
 const router = express.Router()
 
@@ -36,6 +37,9 @@ router.get('/faskes/labkes/:id', verifyToken, showLabKes)
 // UTD
 router.get('/faskes/utd', verifyToken, getUTD)
 router.get('/faskes/utd/:id', verifyToken, showUTD)
+
+// Provinsi
+router.get('/faskes/provinsi', verifyToken, getProvinsi)
 
 // Praktek Mandiri Nakes
 // router.get('/faskes/praktekmandirinakes', verifyToken, getPraktekMandiriNakes)
