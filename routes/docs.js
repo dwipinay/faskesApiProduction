@@ -17,6 +17,12 @@ const apiDocsDitjenNakes1 = JSON.parse(
     })
 )
 
+const apiDocsInfoHumas1 = JSON.parse(
+    fs.readFileSync(new URL("../documentations/apiDocsInfoHumas-1.json", import.meta.url), {
+        encoding: "utf-8",
+    })
+)
+
 // DTO-PUSDATIN
 router.use('/faskes/apidocs-1-dto', swaggerUi.serve, (req, res) => {
     let html = swaggerUi.generateHTML(apiDocsDTO1);
@@ -26,6 +32,12 @@ router.use('/faskes/apidocs-1-dto', swaggerUi.serve, (req, res) => {
 // Ditjen Nakes
 router.use('/faskes/apidoc-1-ditjen-nakes', swaggerUi.serve, (req, res) => {
     let html = swaggerUi.generateHTML(apiDocsDitjenNakes1);
+    res.send(html);
+})
+
+// Ditjen Nakes
+router.use('/faskes/apidoc-1-info-humas', swaggerUi.serve, (req, res) => {
+    let html = swaggerUi.generateHTML(apiDocsInfoHumas1);
     res.send(html);
 })
 
