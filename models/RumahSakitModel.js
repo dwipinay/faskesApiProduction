@@ -160,21 +160,21 @@ export const show = (id, callback) => {
         'db_fasyankes.koordinat.long as longitude, ' +
         'db_fasyankes.koordinat.alt as latitude, ' +
         'db_fasyankes.`data`.aktive as statusAktivasi, ' +
-        'db_fasyankes.`data`.TANGGAL_UPDATE as modified_at '
+        'db_fasyankes.`data`.TANGGAL_UPDATE as modified_at ' +
     'FROM ' +
         'db_fasyankes.`data` INNER JOIN reference.provinsi ' +
         'ON reference.provinsi.id = db_fasyankes.`data`.provinsi_id ' +
-        'INNER JOIN reference.kab_kota ' +
+        'LEFT OUTER JOIN reference.kab_kota ' +
         'ON reference.kab_kota.id = db_fasyankes.`data`.kab_kota_id ' +
-        'INNER JOIN db_fasyankes.m_jenis ' +
+        'LEFT OUTER JOIN db_fasyankes.m_jenis ' +
         'ON db_fasyankes.m_jenis.id_jenis = db_fasyankes.`data`.JENIS ' +
-        'INNER JOIN db_fasyankes.m_kelas ' +
+        'LEFT OUTER JOIN db_fasyankes.m_kelas ' +
         'ON db_fasyankes.m_kelas.id_kelas = db_fasyankes.`data`.KLS_RS ' +
-        'INNER JOIN db_fasyankes.m_kepemilikan ' +
+        'LEFT OUTER JOIN db_fasyankes.m_kepemilikan ' +
         'ON db_fasyankes.m_kepemilikan.id_kepemilikan = db_fasyankes.`data`.PENYELENGGARA ' +
-        'INNER JOIN db_fasyankes.m_blu ON db_fasyankes.m_blu.id_blu = db_fasyankes.`data`.blu  ' +
-        'INNER JOIN db_fasyankes.koordinat ON db_fasyankes.koordinat.koders = db_fasyankes.`data`.propinsi ' +
-        'INNER JOIN db_fasyankes.m_simrs ON db_fasyankes.m_simrs.id_simrs = db_fasyankes.`data`.simrs ' +
+        'LEFT OUTER JOIN db_fasyankes.m_blu ON db_fasyankes.m_blu.id_blu = db_fasyankes.`data`.blu  ' +
+        'LEFT OUTER JOIN db_fasyankes.koordinat ON db_fasyankes.koordinat.koders = db_fasyankes.`data`.propinsi ' +
+        'LEFT OUTER JOIN db_fasyankes.m_simrs ON db_fasyankes.m_simrs.id_simrs = db_fasyankes.`data`.simrs ' +
         'LEFT OUTER JOIN db_fasyankes.t_dok_tariflayanan_rs on db_fasyankes.t_dok_tariflayanan_rs.koders = db_fasyankes.`data`.Propinsi ' +
     'WHERE db_fasyankes.`data`.Propinsi = ?'
 
