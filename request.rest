@@ -88,11 +88,15 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uY
 }
 
 ### Klinik
-GET  https://api-yankes.kemkes.go.id/faskes/klinik?provinsiId=12&kabKotaId=&nama=&page=1&limit=6
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoia290YWtlbGVrdHJvbmlrQGdtYWlsLmNvbSIsImlhdCI6MTY4NjIzMDg3OSwiZXhwIjoxNjg2MjMxNzc5fQ.8YroBuCX3GEqQeLqM9t8FCjgdG5uLR33b2hOONr-k68
+GET  https://api-yankes.kemkes.go.id/faskes/klinik?provinsiId=12&kabKotaId=&jenis=Pratama&nama=&page=1&limit=6
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoia290YWtlbGVrdHJvbmlrQGdtYWlsLmNvbSIsImlhdCI6MTY4NjIzMjUxMywiZXhwIjoxNjg2MjMzNDEzfQ.6MGxJYvidIOnTButw3bFqRFxgKbVNnXKCWbQ06QY2-Y
 
 ### Show Klinik
-GET http://localhost:5000/klinik/11080300006
+GET https://api-yankes.kemkes.go.id/faskes/klinik/12010300004
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoia290YWtlbGVrdHJvbmlrQGdtYWlsLmNvbSIsImlhdCI6MTY4NjIzMzYyMiwiZXhwIjoxNjg2MjM0NTIyfQ.8OaIFXykRvcC37bqidy_E6dZ6We9FibXUOa0pOI7Vus
+
+### Klinik Pelayanan
+GET http://localhost/faskes/klinikpelayanan?klinikId=12010300004
 
 ### LabKes
 GET http://localhost:5000/labkes

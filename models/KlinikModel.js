@@ -32,14 +32,14 @@ export const get = (req, callback) => {
             'dbfaskes.data_klinik.created_at, ' +
             'dbfaskes.data_klinik.modified_at '
 
-        const sqlFrom = 'FROM dbfaskes.data_klinik ' +
-            'INNER JOIN dbfaskes.trans_final ON dbfaskes.trans_final.id_faskes = dbfaskes.data_klinik.id_faskes ' +
-            'INNER JOIN dbfaskes.propinsi ON dbfaskes.propinsi.id_prop = dbfaskes.data_klinik.id_prov ' +
-            'INNER JOIN dbfaskes.kota ON dbfaskes.kota.id_kota = dbfaskes.data_klinik.id_kota '
+    const sqlFrom = 'FROM dbfaskes.data_klinik ' +
+        'INNER JOIN dbfaskes.trans_final ON dbfaskes.trans_final.id_faskes = dbfaskes.data_klinik.id_faskes ' +
+        'INNER JOIN dbfaskes.propinsi ON dbfaskes.propinsi.id_prop = dbfaskes.data_klinik.id_prov ' +
+        'INNER JOIN dbfaskes.kota ON dbfaskes.kota.id_kota = dbfaskes.data_klinik.id_kota '
 
-        const sqlOrder = ' ORDER BY dbfaskes.data_klinik.id_prov,' +
-            'dbfaskes.data_klinik.id_kota,' +
-            'dbfaskes.data_klinik.id_camat ' 
+    const sqlOrder = ' ORDER BY dbfaskes.data_klinik.id_prov,' +
+        'dbfaskes.data_klinik.id_kota,' +
+        'dbfaskes.data_klinik.id_camat ' 
 
     const sqlLimit = 'LIMIT ? '
     
