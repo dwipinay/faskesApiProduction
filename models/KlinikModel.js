@@ -52,6 +52,7 @@ export const get = (req, callback) => {
 
     const provinsiId = req.query.provinsiId || null
     const kabKotaId = req.query.kabKotaId || null
+    const jenis = req.query.jenis|| null
     const nama = req.query.nama || null
 
     if (provinsiId != null) {
@@ -62,6 +63,11 @@ export const get = (req, callback) => {
     if (kabKotaId != null) {
         filter.push("dbfaskes.data_klinik.id_kota = ?")
         sqlFilterValue.push(kabKotaId)
+    }
+
+    if (jenis != null) {
+        filter.push("dbfaskes.data_klinik.jenis_klinik = ?")
+        sqlFilterValue.push(jenis)
     }
 
     if (nama != null) {

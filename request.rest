@@ -88,8 +88,8 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uY
 }
 
 ### Klinik
-GET  http://localhost/faskes/klinik?page=2&limit=5
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoia290YWtlbGVrdHJvbmlrQGdtYWlsLmNvbSIsImlhdCI6MTY4NjIyODczOSwiZXhwIjoxNjg2MjI5NjM5fQ.eDgiNn5xr25ACRnCch9NRFRk2oQD0F0yLqF2r0yqVv4
+GET  https://api-yankes.kemkes.go.id/faskes/klinik?provinsiId=12&kabKotaId=&nama=&page=1&limit=6
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoia290YWtlbGVrdHJvbmlrQGdtYWlsLmNvbSIsImlhdCI6MTY4NjIzMDg3OSwiZXhwIjoxNjg2MjMxNzc5fQ.8YroBuCX3GEqQeLqM9t8FCjgdG5uLR33b2hOONr-k68
 
 ### Show Klinik
 GET http://localhost:5000/klinik/11080300006

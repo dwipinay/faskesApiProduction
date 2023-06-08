@@ -6,6 +6,7 @@ export const getKlinik = (req, res) => {
     const schema = Joi.object({
         provinsiId: Joi.string().allow(''),
         kabKotaId: Joi.string().allow('').allow(null),
+        jenis: Joi.string().allow(''),
         nama: Joi.string().allow(''),
         page: Joi.number(),
         limit: Joi.number()
