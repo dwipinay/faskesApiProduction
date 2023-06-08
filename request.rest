@@ -1,5 +1,5 @@
 ### Login
-POST http://localhost:8000/faskes/login
+POST http://localhost/faskes/login
 Content-Type: application/json
 
 {
@@ -9,8 +9,11 @@ Content-Type: application/json
 
 ### Provinsi
 GET https://api-yankes.kemkes.go.id/faskes/provinsi
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoia290YWtlbGVrdHJvbmlrQGdtYWlsLmNvbSIsImlhdCI6MTY4NjEyMDU2NCwiZXhwIjoxNjg2MTIxNDY0fQ.dh0A4KevNu1ovLz2wg7RLoJk1EHMO_DuYklsZCR7E1I
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoia290YWtlbGVrdHJvbmlrQGdtYWlsLmNvbSIsImlhdCI6MTY4NjIxMTA3MiwiZXhwIjoxNjg2MjExOTcyfQ.e43k5J9SNNhNBWhyKoq_jw1xCZVpB3f_44onsmtjU0k
 
+### KabKota
+GET https://api-yankes.kemkes.go.id/faskes/kabkota?provinsiId=31
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoia290YWtlbGVrdHJvbmlrQGdtYWlsLmNvbSIsImlhdCI6MTY4NjIxMjExNCwiZXhwIjoxNjg2MjEzMDE0fQ.1nf0R9nVHS-GYJU-e5dHw7clrDirBcyosusK7jMqrCE
 
 ### Rumah Sakit
 GET http://localhost/faskes/rumahsakit?page=1&aktive=0
@@ -85,8 +88,8 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uY
 }
 
 ### Klinik
-GET  http://localhost:5000/klinik?page=2
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoia290YWtlbGVrdHJvbmlrQGdtYWlsLmNvbSIsImlhdCI6MTY4MjM5NjYzMiwiZXhwIjoxNjgyMzk3NTMyfQ.64Xi4BmYzO_amr-qPIs3c9d85ZVpMadXR8-jvqg3Xbg
+GET  http://localhost/faskes/klinik?page=2&limit=5
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoia290YWtlbGVrdHJvbmlrQGdtYWlsLmNvbSIsImlhdCI6MTY4NjIyODczOSwiZXhwIjoxNjg2MjI5NjM5fQ.eDgiNn5xr25ACRnCch9NRFRk2oQD0F0yLqF2r0yqVv4
 
 ### Show Klinik
 GET http://localhost:5000/klinik/11080300006
