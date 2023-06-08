@@ -8,7 +8,7 @@ Content-Type: application/json
 }
 
 ### Provinsi
-GET http://localhost/faskes/provinsi
+GET https://api-yankes.kemkes.go.id/faskes/provinsi
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoia290YWtlbGVrdHJvbmlrQGdtYWlsLmNvbSIsImlhdCI6MTY4NjEyMDU2NCwiZXhwIjoxNjg2MTIxNDY0fQ.dh0A4KevNu1ovLz2wg7RLoJk1EHMO_DuYklsZCR7E1I
 
 

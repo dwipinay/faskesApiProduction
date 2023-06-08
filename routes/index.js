@@ -9,6 +9,7 @@ import { getUTD,showUTD } from '../controllers/UTDController.js'
 import { getPraktekMandiriNakes } from '../controllers/PraktekMandiriNakesController.js'
 import { insertPraktekMandiriReview } from '../controllers/PraktekMandiriReview.js'
 import { getProvinsi } from '../controllers/ProvinsiController.js'
+import { getKabKota } from '../controllers/KabKotaController.js'
 
 const router = express.Router()
 
@@ -40,6 +41,9 @@ router.get('/faskes/utd/:id', verifyToken, showUTD)
 
 // Provinsi
 router.get('/faskes/provinsi', verifyToken, getProvinsi)
+
+// KabKota
+router.get('/faskes/kabkota', verifyToken, getKabKota)
 
 // Praktek Mandiri Nakes
 // router.get('/faskes/praktekmandirinakes', verifyToken, getPraktekMandiriNakes)
