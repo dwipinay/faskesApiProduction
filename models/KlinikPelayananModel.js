@@ -27,7 +27,7 @@ export const get = (req, callback) => {
     const klinikId = req.query.klinikId || null
 
     if (klinikId != null) {
-        filter.push("dbfaskes.trans_final.kode_faskes_baru = ?")
+        filter.push("dbfaskes.trans_final.kode_faskes_baru = ? ")
         sqlFilterValue.push(klinikId)
     }
 
@@ -71,7 +71,13 @@ export const get = (req, callback) => {
                     }
                     callback(null, data)
                 } else if (res[0].pelayanan_klinik == null) {
-                    callback(null, [])
+                    const data = {
+                        totalRowCount: resCount[0].total_row_count,
+                        page: page,
+                        limit: limit,
+                        data: []
+                    }
+                    callback(null, data)
                 }
             },(error) => {
                 throw error

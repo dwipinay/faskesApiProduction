@@ -96,7 +96,8 @@ GET https://api-yankes.kemkes.go.id/faskes/klinik/12010300004
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoia290YWtlbGVrdHJvbmlrQGdtYWlsLmNvbSIsImlhdCI6MTY4NjIzMzYyMiwiZXhwIjoxNjg2MjM0NTIyfQ.8OaIFXykRvcC37bqidy_E6dZ6We9FibXUOa0pOI7Vus
 
 ### Klinik Pelayanan
-GET http://localhost/faskes/klinikpelayanan?klinikId=12010300004
+GET http://api-yankes.kemkes.go.id/faskes/klinikpelayanan?klinikId=12010300004
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoia290YWtlbGVrdHJvbmlrQGdtYWlsLmNvbSIsImlhdCI6MTY4NjIzNTI2NiwiZXhwIjoxNjg2MjM2MTY2fQ.dSQMVoU9ANLs9SUzXnNcASSDKRQ_dePa8FRTKPL8Eso
 
 ### LabKes
 GET http://localhost:5000/labkes
