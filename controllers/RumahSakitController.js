@@ -8,7 +8,8 @@ export const getRumahSakit = (req, res) => {
         kabKotaId: Joi.string().allow('').allow(null),
         nama: Joi.string().allow(''),
         aktive: Joi.number(),
-        page: Joi.number()
+        page: Joi.number(),
+        limit: Joi.number()
     })
 
     const { error, value } =  schema.validate(req.query)
