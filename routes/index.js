@@ -30,7 +30,7 @@ router.get('/faskes/praktekmandiri/:id', verifyToken, showPraktekMandiri)
 router.post('/faskes/praktekmandirireview', verifyToken, insertPraktekMandiriReview)
 
 // Prakek Mandiri Kategori
-router.get('/faskes/praktekmandirikategori', getPraktekMandiriKategori)
+router.get('/faskes/praktekmandirikategori', verifyToken, getPraktekMandiriKategori)
 
 // Klinik
 router.get('/faskes/klinik', verifyToken, getKlinik)
