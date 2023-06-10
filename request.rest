@@ -25,8 +25,8 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uY
 
 
 ### Praktek Mandiri
-GET http://192.168.49.40:8000/faskes/praktekmandiri
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoia290YWtlbGVrdHJvbmlrQGdtYWlsLmNvbSIsImlhdCI6MTY4Mjc1MTMxMSwiZXhwIjoxNjgyNzUyMjExfQ.sTmu0JAVsyERMQrBRlCfDguik-M92_zlT396ZxgOpko
+GET http://localhost/faskes/praktekmandiri
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoia290YWtlbGVrdHJvbmlrQGdtYWlsLmNvbSIsImlhdCI6MTY4NjM2NDAxMCwiZXhwIjoxNjg2MzY0OTEwfQ.rxPdXGZugNRvcaco-0g0k6BZWx3GM3UpDA3dDqljFUw
 
 ### Show Praktek Mandiri
 GET http://192.168.49.40:8000/faskes/praktekmandiri/11010100006
@@ -88,16 +88,16 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uY
 }
 
 ### Klinik
-GET  https://api-yankes.kemkes.go.id/faskes/klinik?provinsiId=12&kabKotaId=&jenis=Pratama&nama=&page=1&limit=6
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoia290YWtlbGVrdHJvbmlrQGdtYWlsLmNvbSIsImlhdCI6MTY4NjIzMjUxMywiZXhwIjoxNjg2MjMzNDEzfQ.6MGxJYvidIOnTButw3bFqRFxgKbVNnXKCWbQ06QY2-Y
+GET  https://api-yankes.kemkes.go.id/faskes/klinik?provinsiId=31&kabKotaId=&jenis=&nama=koperasi&page=1&limit=6
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoia290YWtlbGVrdHJvbmlrQGdtYWlsLmNvbSIsImlhdCI6MTY4NjIzNjQ5OCwiZXhwIjoxNjg2MjM3Mzk4fQ.WN83yGRziG-VM7OrEWHJ_ht_kRzQk5ZRGhmqb4mMVEo
 
 ### Show Klinik
 GET https://api-yankes.kemkes.go.id/faskes/klinik/12010300004
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoia290YWtlbGVrdHJvbmlrQGdtYWlsLmNvbSIsImlhdCI6MTY4NjIzMzYyMiwiZXhwIjoxNjg2MjM0NTIyfQ.8OaIFXykRvcC37bqidy_E6dZ6We9FibXUOa0pOI7Vus
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoia290YWtlbGVrdHJvbmlrQGdtYWlsLmNvbSIsImlhdCI6MTY4NjIzNjMzMywiZXhwIjoxNjg2MjM3MjMzfQ.xj-rjwBf4fcDKOA7V8H8lyMoizaH_u6OILUm0lh1mZ8
 
 ### Klinik Pelayanan
-GET http://api-yankes.kemkes.go.id/faskes/klinikpelayanan?klinikId=12010300004
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoia290YWtlbGVrdHJvbmlrQGdtYWlsLmNvbSIsImlhdCI6MTY4NjIzNTI2NiwiZXhwIjoxNjg2MjM2MTY2fQ.dSQMVoU9ANLs9SUzXnNcASSDKRQ_dePa8FRTKPL8Eso
+GET http://localhost/faskes/klinikpelayanan?klinikId=31740300103
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoia290YWtlbGVrdHJvbmlrQGdtYWlsLmNvbSIsImlhdCI6MTY4NjIzNjMzMywiZXhwIjoxNjg2MjM3MjMzfQ.xj-rjwBf4fcDKOA7V8H8lyMoizaH_u6OILUm0lh1mZ8
 
 ### LabKes
 GET http://localhost:5000/labkes

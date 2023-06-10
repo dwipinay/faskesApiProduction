@@ -7,7 +7,8 @@ export const getPraktekMandiri = (req, res) => {
         provinsiId: Joi.string().allow(''),
         kabKotaId: Joi.string().allow('').allow(null),
         nama: Joi.string().allow(''),
-        page: Joi.number()
+        page: Joi.number(),
+        limit: Joi.number()
     })
 
     const { error, value } =  schema.validate(req.query)
