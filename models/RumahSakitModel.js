@@ -32,6 +32,7 @@ export const get = (req, callback) => {
         'db_fasyankes.koordinat.long as longitude, ' +
         'db_fasyankes.koordinat.alt as latitude, ' +
         'db_fasyankes.`data`.aktive as statusAktivasi, ' +
+        'derivedtable1.url as urlFotoDepan, ' +
         'db_fasyankes.`data`.TANGGAL_UPDATE as modified_at '
 
         const sqlFrom = 'FROM db_fasyankes.`data` INNER JOIN reference.provinsi ' +
@@ -47,7 +48,12 @@ export const get = (req, callback) => {
         'LEFT OUTER JOIN db_fasyankes.m_blu ON db_fasyankes.m_blu.id_blu = db_fasyankes.`data`.blu  ' +
         'LEFT OUTER JOIN db_fasyankes.koordinat ON db_fasyankes.koordinat.koders = db_fasyankes.`data`.propinsi ' +
         'LEFT OUTER JOIN db_fasyankes.m_simrs ON db_fasyankes.m_simrs.id_simrs = db_fasyankes.`data`.simrs ' +
-        'LEFT OUTER JOIN db_fasyankes.t_dok_tariflayanan_rs on db_fasyankes.t_dok_tariflayanan_rs.koders = db_fasyankes.`data`.Propinsi '
+        'LEFT OUTER JOIN db_fasyankes.t_dok_tariflayanan_rs on db_fasyankes.t_dok_tariflayanan_rs.koders = db_fasyankes.`data`.Propinsi ' +
+        'LEFT OUTER JOIN ( ' +
+            'SELECT db_fasyankes.t_images.koders, db_fasyankes.t_images.url ' +
+            'FROM db_fasyankes.t_images ' +
+            'WHERE db_fasyankes.t_images.keterangan = "depan" ' +
+        ') derivedtable1 ON derivedtable1.koders = db_fasyankes.`data`.Propinsi '
 
         const sqlOrder = ' ORDER BY db_fasyankes.`data`.RUMAH_SAKIT ' 
 
@@ -55,7 +61,7 @@ export const get = (req, callback) => {
             
         const sqlOffSet = 'OFFSET ?'
 
-        const sqlWhere = 'WHERE db_fasyankes.`data`.JENIS <> 20 AND db_fasyankes.`data`.Propinsi NOT IN ("9999999","7371435","7371121","") AND '
+        const sqlWhere = 'WHERE db_fasyankes.`data`.Propinsi NOT IN ("9999999","7371435","7371121","") AND db_fasyankes.`data`.JENIS <> 20 AND '
 
         const filter = []
         const sqlFilterValue = []
