@@ -6,6 +6,7 @@ export const getPraktekMandiri = (req, res) => {
     const schema = Joi.object({
         provinsiId: Joi.string().allow(''),
         kabKotaId: Joi.string().allow('').allow(null),
+        kategoriId: Joi.number().allow('').allow(null),
         nama: Joi.string().allow(''),
         page: Joi.number(),
         limit: Joi.number()

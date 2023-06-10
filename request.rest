@@ -32,7 +32,8 @@ GET http://192.168.49.40:8000/faskes/praktekmandiri/11010100006
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoia290YWtlbGVrdHJvbmlrQGdtYWlsLmNvbSIsImlhdCI6MTY4Mjc1MTMxMSwiZXhwIjoxNjgyNzUyMjExfQ.sTmu0JAVsyERMQrBRlCfDguik-M92_zlT396ZxgOpko
 
 ### Praktek Mandiri Kategori
-GET http://localhost/faskes/praktekmandirikategori
+GET https://api-yankes.kemkes.go.id/faskes/praktekmandirikategori
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoia290YWtlbGVrdHJvbmlrQGdtYWlsLmNvbSIsImlhdCI6MTY4NjM2NjMzNiwiZXhwIjoxNjg2MzY3MjM2fQ.7CPmDlHYK1c_4mZQxuLuwLmPM3Zb8P_5ee3slS05pUQ
 
 ### Praktek Mandiri Review
 POST http://localhost:8000/faskes/praktekmandirireview
