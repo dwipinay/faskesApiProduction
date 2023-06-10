@@ -29,6 +29,20 @@ export const get = (req, callback) => {
         'dbfaskes.data_pm.puskesmas_pembina as puskesmasPembina, ' +
         'dbfaskes.data_pm.kerja_sama_bpjs_kesehatan as kerjaSamaBPJSKesehatan, ' +
         'dbfaskes.data_pm.berjejaring_fktp as berjejaringFKTP, ' +
+        'dbfaskes.data_pm.jam_praktik_senin_pagi as jamPraktikSeninPagi, ' +
+        'dbfaskes.data_pm.jam_praktik_senin_sore as jamPraktikSeninSore, ' +
+        'dbfaskes.data_pm.jam_praktik_selasa_pagi as jamPraktikSelasaPagi, ' +
+        'dbfaskes.data_pm.jam_praktik_selasa_sore as jamPraktikSelasaSore, ' +
+        'dbfaskes.data_pm.jam_praktik_rabu_pagi as jamPraktikRabuPagi, ' +
+        'dbfaskes.data_pm.jam_praktik_rabu_sore as jamPraktikRabuSore, ' +
+        'dbfaskes.data_pm.jam_praktik_kamis_pagi as jamPraktikKamisPagi, ' +
+        'dbfaskes.data_pm.jam_praktik_kamis_sore as jamPraktikKamisSore, ' +
+        'dbfaskes.data_pm.jam_praktik_jumat_pagi as jamPraktikJumatPagi, ' +
+        'dbfaskes.data_pm.jam_praktik_jumat_sore as jamPraktikJumatSore, ' +
+        'dbfaskes.data_pm.jam_praktik_sabtu_pagi as jamPraktikSabtuPagi, ' +
+        'dbfaskes.data_pm.jam_praktik_sabtu_sore as jamPraktikSabtuSore, ' +
+        'dbfaskes.data_pm.jam_praktik_minggu_pagi as jamPraktikMingguPagi, ' +
+        'dbfaskes.data_pm.jam_praktik_minggu_sore as jamPraktikMingguSore, ' +
         'dbfaskes.data_pm.latitude, ' +
         'dbfaskes.data_pm.longitude, ' +
         'dbfaskes.data_pm.created_at, ' +
@@ -149,6 +163,20 @@ export const show = (id, callback) => {
         'dbfaskes.data_pm.puskesmas_pembina as puskesmasPembina, ' +
         'dbfaskes.data_pm.kerja_sama_bpjs_kesehatan as kerjaSamaBPJSKesehatan, ' +
         'dbfaskes.data_pm.berjejaring_fktp as berjejaringFKTP, ' +
+        'dbfaskes.data_pm.jam_praktik_senin_pagi as jamPraktikSeninPagi, ' +
+        'dbfaskes.data_pm.jam_praktik_senin_sore as jamPraktikSeninSore, ' +
+        'dbfaskes.data_pm.jam_praktik_selasa_pagi as jamPraktikSelasaPagi, ' +
+        'dbfaskes.data_pm.jam_praktik_selasa_sore as jamPraktikSelasaSore, ' +
+        'dbfaskes.data_pm.jam_praktik_rabu_pagi as jamPraktikRabuPagi, ' +
+        'dbfaskes.data_pm.jam_praktik_rabu_sore as jamPraktikRabuSore, ' +
+        'dbfaskes.data_pm.jam_praktik_kamis_pagi as jamPraktikKamisPagi, ' +
+        'dbfaskes.data_pm.jam_praktik_kamis_sore as jamPraktikKamisSore, ' +
+        'dbfaskes.data_pm.jam_praktik_jumat_pagi as jamPraktikJumatPagi, ' +
+        'dbfaskes.data_pm.jam_praktik_jumat_sore as jamPraktikJumatSore, ' +
+        'dbfaskes.data_pm.jam_praktik_sabtu_pagi as jamPraktikSabtuPagi, ' +
+        'dbfaskes.data_pm.jam_praktik_sabtu_sore as jamPraktikSabtuSore, ' +
+        'dbfaskes.data_pm.jam_praktik_minggu_pagi as jamPraktikMingguPagi, ' +
+        'dbfaskes.data_pm.jam_praktik_minggu_sore as jamPraktikMingguSore, ' +
         'dbfaskes.data_pm.latitude, ' +
         'dbfaskes.data_pm.longitude, ' +
         'dbfaskes.data_pm.created_at, ' +
