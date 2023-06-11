@@ -24,6 +24,7 @@ export const get = (req, callback) => {
         'db_fasyankes.m_kepemilikan.kepemilikan AS kepemilikan, ' +
         'db_fasyankes.m_blu.blu as statusBLU, ' +
         'db_fasyankes.t_dok_tariflayanan_rs.url as urlTarif, ' +
+        'db_fasyankes.t_dok_tariflayanan_rs.status_validasi as statusValidasiTarif, ' +
         'db_fasyankes.`data`.ALAMAT AS alamat, ' +
         'db_fasyankes.`data`.provinsi_id, ' +
         'db_fasyankes.provinsi.nama as provinsiNama, ' +
