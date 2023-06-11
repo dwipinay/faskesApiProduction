@@ -206,7 +206,7 @@ export const show = (id, callback) => {
     })
     .then(
         (res) => {
-            const fotoQuery = 'SELECT db_fasyankes.t_images.url as urlFoto ' +
+            const fotoQuery = 'SELECT db_fasyankes.t_images.url as urlFoto, db_fasyankes.t_images.keterangan ' +
             'FROM db_fasyankes.t_images ' +
             'WHERE db_fasyankes.t_images.koders = ?'
             databaseFKRTL.query(fotoQuery, {
@@ -241,8 +241,8 @@ export const show = (id, callback) => {
                             "longitude": value.longitude,
                             "latitude": value.latitude,
                             "statusAktivasi": value.statusAktivasi,
-                            "gambar": resFoto,
-                            "modified_at": value.modified_at
+                            "modified_at": value.modified_at,
+                            "gambar": resFoto
                         }
                     })
                     callback(null, results)
