@@ -16,12 +16,12 @@ GET https://api-yankes.kemkes.go.id/faskes/kabkota?provinsiId=31
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoia290YWtlbGVrdHJvbmlrQGdtYWlsLmNvbSIsImlhdCI6MTY4NjIxMjExNCwiZXhwIjoxNjg2MjEzMDE0fQ.1nf0R9nVHS-GYJU-e5dHw7clrDirBcyosusK7jMqrCE
 
 ### Rumah Sakit
-GET http://localhost/faskes/rumahsakit?pelayanan=jantung&page=1&limit=6
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoia290YWtlbGVrdHJvbmlrQGdtYWlsLmNvbSIsImlhdCI6MTY4NjQ1Nzk1MSwiZXhwIjoxNjg2NDU4ODUxfQ.z2esNBwOkSMy-jjlFm6PLBq7vIy-MLjPryVu54pbqSo
+GET http://localhost/faskes/rumahsakit?provinsiId=31&pelayanan=jantung&page=1&limit=6
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoia290YWtlbGVrdHJvbmlrQGdtYWlsLmNvbSIsImlhdCI6MTY4NjQ2MzYyNSwiZXhwIjoxNjg2NDY0NTI1fQ.ls9V_TuYT41Afqi-LZEYcmFhYhV3nIBPZFZY-WPMrQQ
 
 ### Rumah Sakit Specified
 GET http://localhost/faskes/rumahsakit/3372253
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoia290YWtlbGVrdHJvbmlrQGdtYWlsLmNvbSIsImlhdCI6MTY4NjEwODk1NSwiZXhwIjoxNjg2MTA5ODU1fQ.owSW8C3wpy7S2SiJm1f-xg7tjcNHDY8-iNhwJGIm6sE
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoia290YWtlbGVrdHJvbmlrQGdtYWlsLmNvbSIsImlhdCI6MTY4NjQ2MzYyNSwiZXhwIjoxNjg2NDY0NTI1fQ.ls9V_TuYT41Afqi-LZEYcmFhYhV3nIBPZFZY-WPMrQQ
 
 ### Praktek Mandiri
 GET https://api-yankes.kemkes.go.id/faskes/praktekmandiri?provinsiId=31&kabKotaId=&nama=&page=1&limit=6

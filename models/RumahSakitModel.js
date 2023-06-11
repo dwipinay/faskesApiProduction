@@ -174,9 +174,9 @@ export const show = (id, callback) => {
         'db_fasyankes.m_blu.blu as statusBLU, ' +
         'db_fasyankes.t_dok_tariflayanan_rs.url as urlTarif, ' +
         'db_fasyankes.`data`.ALAMAT AS alamat, ' +
-        'db_fasyankes.`data`.provinsi_id, ' +
+        'db_fasyankes.`data`.provinsi_id as provinsiId, ' +
         'reference.provinsi.nama as provinsiNama, ' +
-        'db_fasyankes.`data`.kab_kota_id, ' +
+        'db_fasyankes.`data`.kab_kota_id as kabKotaId, ' +
         'reference.kab_kota.nama as kabKotaNama, ' +
         'db_fasyankes.koordinat.long as longitude, ' +
         'db_fasyankes.koordinat.alt as latitude, ' +
@@ -206,7 +206,49 @@ export const show = (id, callback) => {
     })
     .then(
         (res) => {
-            callback(null, res)
+            const fotoQuery = 'SELECT db_fasyankes.t_images.url as urlFoto ' +
+            'FROM db_fasyankes.t_images ' +
+            'WHERE db_fasyankes.t_images.koders = ?'
+            databaseFKRTL.query(fotoQuery, {
+                type: QueryTypes.SELECT,
+                replacements: sqlFilterValue
+            })
+            .then(
+                (resFoto) => {
+                    const results = res.map((value) => {
+                        return {
+                            "kode": value.kode,
+                            "nama": value.nama,
+                            "jenis": value.jenis,
+                            "kelas": value.kelas,
+                            "telepon": value.telepon,
+                            "website": value.website,
+                            "statusBLU": value.statusBLU,
+                            "noSuratIjinOperasional": value.noSuratIjinOperasional,
+                            "tanggalSuratIjinOperasional": value.tanggalSuratIjinOperasional,
+                            "direktur": value.direktur,
+                            "ketersediaanSIMRS": value.ketersediaanSIMRS,
+                            "luasTanah": value.luasTanah,
+                            "luasBangunan": value.luasBangunan,
+                            "kepemilikan": value.kepemilikan,
+                            "urlTarif": value.urlTarif,
+                            "statusValidasiTarif": value.statusValidasiTarif,
+                            "alamat": value.alamat,
+                            "provinsiId": value.provinsiId,
+                            "provinsiNama": value.provinsiNama,
+                            "kabKotaId": value.kabKotaId,
+                            "kabKotaNama": value.kabKotaNama,
+                            "longitude": value.longitude,
+                            "latitude": value.latitude,
+                            "statusAktivasi": value.statusAktivasi,
+                            "gambar": resFoto,
+                            "modified_at": value.modified_at
+                        }
+                    })
+                    callback(null, results)
+                }),(error) => {
+                    throw error
+                }
         },(error) => {
             throw error
         }
