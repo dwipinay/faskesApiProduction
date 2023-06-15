@@ -45,7 +45,8 @@ export const get = (req, callback) => {
     
     const sqlOffSet = 'OFFSET ?'
     
-    const sqlWhere = 'WHERE dbfaskes.trans_final.kode_faskes IS NOT NULL AND '
+    const sqlWhere = 'WHERE dbfaskes.trans_final.kode_faskes IS NOT NULL AND ' +
+        'dbfaskes.trans_final.kode_faskes != "" AND dbfaskes.data_klinik.status_klinik = "Aktif" AND  '
 
     const filter = []
     const sqlFilterValue = []
@@ -80,7 +81,8 @@ export const get = (req, callback) => {
 
     let sqlFilter = ''
     if (filter.length == 0) {
-        sqlFilter = 'WHERE dbfaskes.trans_final.kode_faskes IS NOT NULL'
+        sqlFilter = 'WHERE dbfaskes.trans_final.kode_faskes IS NOT NULL AND ' +
+            'dbfaskes.trans_final.kode_faskes != "" AND dbfaskes.data_klinik.status_klinik = "Aktif"'
     } else {
         filter.forEach((value, index) => {
             if (index == 0) {
