@@ -24,7 +24,8 @@ GET http://localhost/faskes/rumahsakit/337225
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoia290YWtlbGVrdHJvbmlrQGdtYWlsLmNvbSIsImlhdCI6MTY4NjQ2MzYyNSwiZXhwIjoxNjg2NDY0NTI1fQ.ls9V_TuYT41Afqi-LZEYcmFhYhV3nIBPZFZY-WPMrQQ
 
 ### Rumah Sakit Pelayanan
-GET http://localhost/faskes/rumahsakitpelayanan?rsId=317406
+GET http://localhost/faskes/rumahsakitpelayanan?rsId=3174063
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoia290YWtlbGVrdHJvbmlrQGdtYWlsLmNvbSIsImlhdCI6MTY4ODM1NjQyNiwiZXhwIjoxNjg4MzU3MzI2fQ.1iI2ZI5ICyYgMmrEaDzbZbC9K4fZ03kJ4Xho07khpxg
 
 ### Praktek Mandiri
 GET https://api-yankes.kemkes.go.id/faskes/praktekmandiri?provinsiId=31&kabKotaId=&nama=&page=1&limit=6

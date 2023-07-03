@@ -24,7 +24,7 @@ router.get('/faskes/rumahsakit', verifyToken, getRumahSakit)
 router.get('/faskes/rumahsakit/:id', verifyToken, showRumahSakit)
 
 // Rumah Sakit Pelayanan
-router.get('/faskes/rumahsakitpelayanan', getRumahSakitPelayanan)
+router.get('/faskes/rumahsakitpelayanan', verifyToken, getRumahSakitPelayanan)
 
 // Praktek Mandiri
 router.get('/faskes/praktekmandiri', verifyToken, getPraktekMandiri)
