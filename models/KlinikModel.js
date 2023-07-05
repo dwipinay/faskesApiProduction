@@ -29,6 +29,9 @@ export const get = (req, callback) => {
             'dbfaskes.data_klinik.persalinan as persalinan, ' +
             'dbfaskes.data_klinik.latitude,' +
             'dbfaskes.data_klinik.longitude, ' +
+            'CASE ' +
+            'WHEN dbfaskes.data_klinik.status_klinik = "Aktif" THEN 1 ' +
+            'END as statusAktivasi, ' +
             'dbfaskes.data_klinik.created_at, ' +
             'dbfaskes.data_klinik.modified_at '
 
@@ -46,7 +49,7 @@ export const get = (req, callback) => {
     const sqlOffSet = 'OFFSET ?'
     
     const sqlWhere = 'WHERE dbfaskes.trans_final.kode_faskes IS NOT NULL AND ' +
-        'dbfaskes.trans_final.kode_faskes != "" AND dbfaskes.data_klinik.status_klinik = "Aktif" AND  '
+        'dbfaskes.trans_final.kode_faskes != "" AND '
 
     const filter = []
     const sqlFilterValue = []
@@ -82,7 +85,7 @@ export const get = (req, callback) => {
     let sqlFilter = ''
     if (filter.length == 0) {
         sqlFilter = 'WHERE dbfaskes.trans_final.kode_faskes IS NOT NULL AND ' +
-            'dbfaskes.trans_final.kode_faskes != "" AND dbfaskes.data_klinik.status_klinik = "Aktif"'
+            'dbfaskes.trans_final.kode_faskes != "" '
     } else {
         filter.forEach((value, index) => {
             if (index == 0) {

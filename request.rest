@@ -95,8 +95,8 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uY
 }
 
 ### Klinik
-GET  https://api-yankes.kemkes.go.id/faskes/klinik?provinsiId=31&kabKotaId=&jenis=&nama=&page=1
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoia290YWtlbGVrdHJvbmlrQGdtYWlsLmNvbSIsImlhdCI6MTY4NjM3OTQ2MSwiZXhwIjoxNjg2MzgwMzYxfQ.yhjBO-0cqRsC3dptdgCBwv66k7Ar5PxLtH1rPjzwAKM
+GET  http://localhost/faskes/klinik?provinsiId=31&kabKotaId=&jenis=&nama=&page=1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoia290YWtlbGVrdHJvbmlrQGdtYWlsLmNvbSIsImlhdCI6MTY4ODQ0NDAwMSwiZXhwIjoxNjg4NDQ0OTAxfQ.Nv6_hbdKc3HA_dbQRVylTDQr1aGXgPWOJx48M3Yj86s
 
 ### Show Klinik
 GET https://api-yankes.kemkes.go.id/faskes/klinik/12010300004
