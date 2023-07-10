@@ -48,7 +48,7 @@ router.use('/faskes/apidoc-1-info-humas', swaggerUi.serve, (req, res) => {
 })
 
 // Direktorat Fasyankes Aspak
-router.use('/faskes/apiDocsAspak1', swaggerUi.serve, (req, res) => {
+router.use('/faskes/apidocs-1-aspak', swaggerUi.serve, (req, res) => {
     let html = swaggerUi.generateHTML(apiDocsAspak1);
     res.send(html);
 })
