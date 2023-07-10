@@ -29,6 +29,7 @@ router.get('/faskes/rumahsakitpelayanan', verifyToken, getRumahSakitPelayanan)
 // Praktek Mandiri
 router.get('/faskes/praktekmandiri', verifyToken, getPraktekMandiri)
 router.get('/faskes/praktekmandiri/:id', verifyToken, showPraktekMandiri)
+router.get('/faskes/praktekmandirinakes', verifyToken, getPraktekMandiriNakes)
 
 // Praktek Mandiri Review
 router.post('/faskes/praktekmandirireview', verifyToken, insertPraktekMandiriReview)

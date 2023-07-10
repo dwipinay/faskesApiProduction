@@ -23,6 +23,12 @@ const apiDocsInfoHumas1 = JSON.parse(
     })
 )
 
+const apiDocsAspak1 = JSON.parse(
+    fs.readFileSync(new URL("../documentations/apiDocsAspak-1.json", import.meta.url), {
+        encoding: "utf-8",
+    })
+)
+
 // DTO-PUSDATIN
 router.use('/faskes/apidocs-1-dto', swaggerUi.serve, (req, res) => {
     let html = swaggerUi.generateHTML(apiDocsDTO1);
@@ -38,6 +44,12 @@ router.use('/faskes/apidoc-1-ditjen-nakes', swaggerUi.serve, (req, res) => {
 // Ditjen Nakes
 router.use('/faskes/apidoc-1-info-humas', swaggerUi.serve, (req, res) => {
     let html = swaggerUi.generateHTML(apiDocsInfoHumas1);
+    res.send(html);
+})
+
+// Direktorat Fasyankes Aspak
+router.use('/faskes/apiDocsAspak1', swaggerUi.serve, (req, res) => {
+    let html = swaggerUi.generateHTML(apiDocsAspak1);
     res.send(html);
 })
 

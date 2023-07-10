@@ -31,6 +31,7 @@ export const get = (req, callback) => {
             'dbfaskes.data_klinik.longitude, ' +
             'CASE ' +
             'WHEN dbfaskes.data_klinik.status_klinik = "Aktif" THEN 1 ' +
+            'WHEN dbfaskes.data_klinik.status_klinik = "Tidak Aktif" THEN 0 ' +
             'END as statusAktivasi, ' +
             'dbfaskes.data_klinik.created_at, ' +
             'dbfaskes.data_klinik.modified_at '

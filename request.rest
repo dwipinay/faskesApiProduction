@@ -31,6 +31,10 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uY
 GET https://api-yankes.kemkes.go.id/faskes/praktekmandiri?provinsiId=31&kabKotaId=&nama=&page=1&limit=6
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoia290YWtlbGVrdHJvbmlrQGdtYWlsLmNvbSIsImlhdCI6MTY4NjM2NDAxMCwiZXhwIjoxNjg2MzY0OTEwfQ.rxPdXGZugNRvcaco-0g0k6BZWx3GM3UpDA3dDqljFUw
 
+### Praktek Mandiri Nakes
+GET http://localhost/faskes/praktekmandirinakes
+
+
 ### Show Praktek Mandiri
 GET http://192.168.49.40:8000/faskes/praktekmandiri/11010100006
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoia290YWtlbGVrdHJvbmlrQGdtYWlsLmNvbSIsImlhdCI6MTY4Mjc1MTMxMSwiZXhwIjoxNjgyNzUyMjExfQ.sTmu0JAVsyERMQrBRlCfDguik-M92_zlT396ZxgOpko
@@ -96,7 +100,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uY
 
 ### Klinik
 GET  http://localhost/faskes/klinik?provinsiId=31&kabKotaId=&jenis=&nama=&page=1
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoia290YWtlbGVrdHJvbmlrQGdtYWlsLmNvbSIsImlhdCI6MTY4ODQ0NDAwMSwiZXhwIjoxNjg4NDQ0OTAxfQ.Nv6_hbdKc3HA_dbQRVylTDQr1aGXgPWOJx48M3Yj86s
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoia290YWtlbGVrdHJvbmlrQGdtYWlsLmNvbSIsImlhdCI6MTY4ODU0MjA5MSwiZXhwIjoxNjg4NTQyOTkxfQ.eaWOP9mD0sgAZa1J3sVOB_fPrtPOYKoQFcVGJKbMuBM
 
 ### Show Klinik
 GET https://api-yankes.kemkes.go.id/faskes/klinik/12010300004
