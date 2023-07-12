@@ -34,6 +34,10 @@ export const get = (req, callback) => {
             'dbfaskes.data_labkes.id_camat as kecamatanId, ' + 
             'dbfaskes.data_labkes.latitude, ' +
             'dbfaskes.data_labkes.longitude, ' +
+            'CASE ' +
+            'WHEN dbfaskes.data_labkes.status_labkes = "Aktif" THEN 1 ' +
+            'WHEN dbfaskes.data_labkes.status_labkes = "Tidak Aktif" THEN 0 ' +
+            'END as statusAktivasi, ' +
             'dbfaskes.data_labkes.created_at, ' +
             'dbfaskes.data_labkes.modified_at '
 

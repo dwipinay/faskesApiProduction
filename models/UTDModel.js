@@ -28,7 +28,10 @@ export const get = (req, callback) => {
             'dbfaskes.data_utd.latitude, ' +
             'dbfaskes.data_utd.longitude, ' +
             'dbfaskes.data_utd.akreditasi_utd as akreditasiUTD, ' +
-            'dbfaskes.data_utd.status_utd as statusUTD, ' +
+            'CASE ' +
+            'WHEN dbfaskes.data_utd.status_utd = "Aktif" THEN 1 ' +
+            'WHEN dbfaskes.data_utd.status_utd = "Tidak Aktif" THEN 0 ' +
+            'END as statusAktivasi, ' +
             'dbfaskes.data_utd.create_time_data_utd as created_at '
 
     const sqlFrom = 'FROM ' +
