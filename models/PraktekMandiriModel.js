@@ -45,6 +45,11 @@ export const get = (req, callback) => {
         'dbfaskes.data_pm.jam_praktik_minggu_sore as jamPraktikMingguSore, ' +
         'dbfaskes.data_pm.latitude, ' +
         'dbfaskes.data_pm.longitude, ' +
+        'CASE ' +
+            'WHEN dbfaskes.data_pm.status_pm = "Aktif" THEN 1 ' +
+            'WHEN dbfaskes.data_pm.status_pm = "Tidak Aktif" THEN 0 ' +
+            'ELSE "undifined" ' +
+        'END as statusAktivasi, ' +
         'dbfaskes.data_pm.created_at, ' +
         'dbfaskes.data_pm.modified_at '
 
