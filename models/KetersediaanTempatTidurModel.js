@@ -9,7 +9,6 @@ export const get = (req, callback) => {
     const endIndex = limit
 
     const sqlSelect = 'select db_fasyankes.`t_tempat_tidur`.`koders` as rsId, ' +
-        'db_fasyankes.`data`.`RUMAH_SAKIT` as namaRS, ' +
         'db_fasyankes.`m_tempat_tidur`.`tt`,db_fasyankes.`t_tempat_tidur`.`ruang`, ' +
         'db_fasyankes.`t_tempat_tidur`.`jumlah`, db_fasyankes.`t_tempat_tidur`.`terpakai`, ' +
         '(db_fasyankes.`t_tempat_tidur`.`jumlah` - db_fasyankes.`t_tempat_tidur`.`terpakai`) as kosong, ' +
