@@ -13,6 +13,7 @@ import { getKabKota } from '../controllers/KabKotaController.js'
 import { getKlinikPelayanan } from '../controllers/KlinikPelayananController.js'
 import { getPraktekMandiriKategori } from '../controllers/PraktekMandiriKategoriController.js'
 import { getRumahSakitPelayanan } from '../controllers/RumahSakitPelayananController.js'
+import { getKetersediaanTempatTidur } from '../controllers/KetersediaanTempatTidurController.js'
 
 const router = express.Router()
 
@@ -25,6 +26,9 @@ router.get('/faskes/rumahsakit/:id', verifyToken, showRumahSakit)
 
 // Rumah Sakit Pelayanan
 router.get('/faskes/rumahsakitpelayanan', verifyToken, getRumahSakitPelayanan)
+
+// Rumah Sakit Ketersediaan Tempat Tidur
+router.get('/faskes/rumahsakitketersediaantempattidur', verifyToken, getKetersediaanTempatTidur)
 
 // Praktek Mandiri
 router.get('/faskes/praktekmandiri', verifyToken, getPraktekMandiri)
