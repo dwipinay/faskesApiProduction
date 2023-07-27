@@ -26,13 +26,12 @@ export const insert = async (req, callback) => {
             dateFormat(checkInTimeLocaleDateTime, 'yyyy-mm-dd HH:MM:ss'),
             dateFormat(reviewTimeLocaleDateTime, 'yyyy-mm-dd HH:MM:ss'),
             req.body.info['visit-date'],
-            req.body.result.resultDescription,
             req.body.result.resultPoint,
             req.body.userId
         ]
 
         const sqlInsertHeader = 'INSERT INTO dbfaskes.review ' +
-            '(`fasyankes_code`,`nik`,`str_code`,`health_worker_name`,`specialization`,`checkin_time`,`review_time`,`visit_date`,`result_description`,`result_point`,`user_id`) ' +
+            '(`fasyankes_code`,`nik`,`str_code`,`health_worker_name`,`specialization`,`checkin_time`,`review_time`,`visit_date`,`result_point`,`user_id`) ' +
             'VALUES (?)'
 
         const insertHeader = await databaseFKTP.query(sqlInsertHeader, {
@@ -45,15 +44,15 @@ export const insert = async (req, callback) => {
             return [
                 insertHeader[0],
                 value.code,
-                value.aspect,
                 value.questionDescription,
                 value.answer,
-                value.answerPoint
+                value.answerPoint,
+                value.answerDescription
             ]
         })
 
         const sqlInsertDetails = 'INSERT INTO dbfaskes.review_detail ' +
-            '(`review_id`,`qustionId`,`aspect`,`question_description`,`answer`,`answer_point`) ' +
+            '(`review_id`,`qustionId`,`question_description`,`answer`,`answer_point`,`answer_description`) ' +
             'VALUES ?'
 
         const insertDetail = await databaseFKTP.query(sqlInsertDetails, {

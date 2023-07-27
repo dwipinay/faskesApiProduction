@@ -16,8 +16,8 @@ GET https://api-yankes.kemkes.go.id/faskes/kabkota?provinsiId=31
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoia290YWtlbGVrdHJvbmlrQGdtYWlsLmNvbSIsImlhdCI6MTY4NjIxMjExNCwiZXhwIjoxNjg2MjEzMDE0fQ.1nf0R9nVHS-GYJU-e5dHw7clrDirBcyosusK7jMqrCE
 
 ### Rumah Sakit
-GET http://localhost/faskes/rumahsakit?provinsiId=31&pelayanan=jantung&page=1&limit=6
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoia290YWtlbGVrdHJvbmlrQGdtYWlsLmNvbSIsImlhdCI6MTY4NjQ2MzYyNSwiZXhwIjoxNjg2NDY0NTI1fQ.ls9V_TuYT41Afqi-LZEYcmFhYhV3nIBPZFZY-WPMrQQ
+GET http://localhost/faskes/rumahsakit?provinsiId=31&pelayanan=jantung&page=2&limit=6
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoia290YWtlbGVrdHJvbmlrQGdtYWlsLmNvbSIsImlhdCI6MTY5MDI0ODM2MCwiZXhwIjoxNjkwMjQ5MjYwfQ.5zGblkjQXiH_wL6xVvtkcSTBsVURfpvmP7yadPXUPJ8
 
 ### Rumah Sakit Specified
 GET http://localhost/faskes/rumahsakit/337225

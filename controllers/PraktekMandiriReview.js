@@ -16,17 +16,16 @@ export const insertPraktekMandiriReview = async (req, res) => {
             ['visit-date']: Joi.string().required()
         }),
         result: Joi.object().keys({
-            resultDescription: Joi.string().required(),
-            resultPoint: Joi.number().required(),
+            resultPoint: Joi.number().required()
         }),
         userId: Joi.string().required(),
         reviews: Joi.array()
             .items(Joi.object().keys({
                 code: Joi.string().required(),
-                aspect: Joi.string().required(),
                 questionDescription: Joi.string().required(),
                 answer: Joi.string().required(),
-                answerPoint: Joi.number().required()
+                answerPoint: Joi.number().required(),
+                answerDescription: Joi.string().required()
             })
             )
             .required(),
