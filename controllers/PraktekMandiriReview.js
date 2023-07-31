@@ -25,7 +25,7 @@ export const insertPraktekMandiriReview = async (req, res) => {
                 questionDescription: Joi.string().required(),
                 answer: Joi.string().required(),
                 answerPoint: Joi.number().required(),
-                answerDescription: Joi.string().required()
+                answerDescription: Joi.string().allow('')
             })
             )
             .required(),
