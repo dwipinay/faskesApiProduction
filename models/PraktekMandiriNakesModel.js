@@ -35,10 +35,22 @@ export const get = (req, callback) => {
     const sqlFilterValue = []
 
     const praktekMandiriId = req.query.praktekMandiriId || null
+    const startModifiedAt = req.query.startModifiedAt || null
+    const endModifiedAt = req.query.endModifiedAt || null
     
     if (praktekMandiriId != null) {
         filter.push("dbfaskes.trans_final.kode_faskes_baru = ?")
         sqlFilterValue.push(praktekMandiriId)
+    }
+
+    if (startModifiedAt != null) {
+        filter.push("dbfaskes.data_sisdmk_pekerjaan.modified_at >= ?")
+        sqlFilterValue.push(startModifiedAt)
+    }
+
+    if (endModifiedAt != null) {
+        filter.push("dbfaskes.data_sisdmk_pekerjaan.modified_at <= ?")
+        sqlFilterValue.push(endModifiedAt)
     }
 
     sqlFilterValue.push(endIndex)

@@ -5,6 +5,8 @@ import Joi from 'joi'
 export const getPraktekMandiriNakes = (req, res) => {
     const schema = Joi.object({
         praktekMandiriId: Joi.string(),
+        startModifiedAt: Joi.date().format("YYYY-MM-DD"),
+        endModifiedAt: Joi.date().format('YYYY-MM-dd'),
         page: Joi.number(),
         limit: Joi.number()
     })
