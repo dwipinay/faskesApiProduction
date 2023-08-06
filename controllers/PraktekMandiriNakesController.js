@@ -1,14 +1,17 @@
 import { get } from '../models/PraktekMandiriNakesModel.js'
 import paginationDB from '../config/PaginationDB.js'
-import Joi from 'joi'
+import Joi from "joi"
+import joiDate from "@joi/date"
 
 export const getPraktekMandiriNakes = (req, res) => {
-    const schema = Joi.object({
-        praktekMandiriId: Joi.string(),
-        // startModifiedAt: Joi.date().format("YYYY-MM-DD"),
-        // endModifiedAt: Joi.date().format('YYYY-MM-dd'),
-        page: Joi.number(),
-        limit: Joi.number()
+    const joi = Joi.extend(joiDate)  
+
+    const schema = joi.object({
+        praktekMandiriId: joi.string(),
+        startModifiedAt: joi.date().format("YYYY-MM-DD"),
+        endModifiedAt: joi.date().format('YYYY-MM-dd'),
+        page: joi.number(),
+        limit: joi.number()
     })
 
     const { error, value } =  schema.validate(req.query)
