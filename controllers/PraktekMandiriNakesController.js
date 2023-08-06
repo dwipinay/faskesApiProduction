@@ -4,7 +4,9 @@ import Joi from 'joi'
 
 export const getPraktekMandiriNakes = (req, res) => {
     const schema = Joi.object({
-        praktekMandiriId: Joi.string()
+        praktekMandiriId: Joi.string(),
+        page: Joi.number(),
+        limit: Joi.number()
     })
 
     const { error, value } =  schema.validate(req.query)
