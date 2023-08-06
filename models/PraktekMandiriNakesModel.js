@@ -56,7 +56,7 @@ export const get = (req, callback) => {
         const date = endModifiedAt
         const time = "23:59:59"
         const dateTime = date + ' ' + time
-        sqlFilterValue.push(endModifiedAt)
+        sqlFilterValue.push(dateTime)
     }
 
     sqlFilterValue.push(endIndex)
