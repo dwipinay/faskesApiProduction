@@ -16,7 +16,6 @@ export const get = (req, callback) => {
         'dbfaskes.data_sisdmk_pekerjaan.STR, ' +
         'dbfaskes.data_sisdmk_pekerjaan.JENIS_SDMK as jenisSDMK, ' +
         'dbfaskes.data_sisdmk_pekerjaan.is_active as is_active, ' +
-        'dbfaskes.data_sisdmk.modified_at as modified_at_1, ' +
         'dbfaskes.data_sisdmk_pekerjaan.created_at as created_at, ' +
         'dbfaskes.data_sisdmk_pekerjaan.modified_at as modified_at '
 
