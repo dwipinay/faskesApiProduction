@@ -8,8 +8,8 @@ export const getPraktekMandiriNakes = (req, res) => {
 
     const schema = joi.object({
         praktekMandiriId: joi.string(),
-        startModifiedAt: joi.date().format("YYYY-MM-DD"),
-        endModifiedAt: joi.date().format('YYYY-MM-DD'),
+        startModifiedAt: joi.date().format("YYYY-MM-DD HH:mm:SS"),
+        endModifiedAt: joi.date().format('YYYY-MM-DD HH:mm:SS'),
         page: joi.number(),
         limit: joi.number()
     })

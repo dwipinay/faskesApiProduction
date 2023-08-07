@@ -45,18 +45,18 @@ export const get = (req, callback) => {
 
     if (startModifiedAt != null) {
         filter.push("dbfaskes.data_sisdmk_pekerjaan.modified_at >= ?")
-        const date = startModifiedAt
-        const time = "00:00:00"
-        const dateTime = date + ' ' + time
-        sqlFilterValue.push(dateTime)
+        // const date = startModifiedAt
+        // const time = "00:00:00"
+        // const dateTime = date + ' ' + time
+        sqlFilterValue.push(startModifiedAt)
     }
 
     if (endModifiedAt != null) {
         filter.push("dbfaskes.data_sisdmk_pekerjaan.modified_at <= ?")
-        const date = endModifiedAt
-        const time = "23:59:59"
-        const dateTime = date + ' ' + time
-        sqlFilterValue.push(dateTime)
+        // const date = endModifiedAt
+        // const time = "23:59:59"
+        // const dateTime = date + ' ' + time
+        sqlFilterValue.push(endModifiedAt)
     }
 
     sqlFilterValue.push(endIndex)
