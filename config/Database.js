@@ -9,6 +9,7 @@ export const databaseFKTP = new Sequelize(process.env.DB_DATABASE_FKTP, process.
     },
     dialectOptions: {
         // useUTC: false
+        timezone: '+07:00',
         connectTimeout: 60000
     },
     timezone: '+07:00', //for writing to database
@@ -30,6 +31,7 @@ export const databaseFKRTL = new Sequelize(process.env.DB_DATABASE_FKRTL, proces
     },
     dialectOptions: {
         // useUTC: false
+        timezone: '+07:00',
         connectTimeout: 60000
     },
     timezone: '+07:00', //for writing to database
