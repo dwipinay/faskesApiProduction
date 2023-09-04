@@ -15,6 +15,7 @@ import { getPraktekMandiriKategori } from '../controllers/PraktekMandiriKategori
 import { getRumahSakitPelayanan } from '../controllers/RumahSakitPelayananController.js'
 import { getKetersediaanTempatTidur } from '../controllers/KetersediaanTempatTidurController.js'
 import { insertRumahSakitNakes, updateRumahSakitNakes, deleteRumahSakitNakes } from '../controllers/RumahSakitNakesController.js'
+import { pengajuanSurvei, survei, surveiDetail, rekomendasi, sertifikasi, sertifikasiTTE } from '../controllers/RumahSakitAkreditasiController.js'
 
 const router = express.Router()
 
@@ -70,5 +71,13 @@ router.get('/faskes/kabkota', verifyToken, getKabKota)
 
 // Praktek Mandiri Nakes
 // router.get('/faskes/praktekmandirinakes', verifyToken, getPraktekMandiriNakes)
+
+// Akreditasi rumah sakit
+router.get('/faskes/rumahsakitpengajuansurveiakreditasi', verifyToken, pengajuanSurvei)
+router.get('/faskes/rumahsakitsurveiakreditasi', verifyToken, survei)
+router.get('/faskes/rumahsakitsurveidetailakreditasi', verifyToken, surveiDetail)
+router.get('/faskes/rumahsakitrekomendasiakreditasi', verifyToken, rekomendasi)
+router.get('/faskes/rumahsakitsertifikasiakreditasimanual', verifyToken, sertifikasi)
+router.get('/faskes/rumahsakitsertifikasiakreditasielektronik', verifyToken, sertifikasiTTE)
 
 export default router
