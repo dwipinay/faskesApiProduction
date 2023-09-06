@@ -1,15 +1,19 @@
 import { get } from '../models/KetersediaanTempatTidurModel.js'
 import paginationDB from '../config/PaginationDB.js'
 import Joi from 'joi'
+import joiDate from "@joi/date"
 
 export const getKetersediaanTempatTidur = (req, res) => {
-    const schema = Joi.object({
-        provinsiId: Joi.string().required(),
-        kabKotaId: Joi.string(),
-        rsId: Joi.string(),
-        tglUpdate: Joi.string(),
-        page: Joi.number(),
-        limit: Joi.number()
+    const joi = Joi.extend(joiDate)
+
+    const schema = joi.object({
+        provinsiId: joi.string().required(),
+        kabKotaId: joi.string(),
+        rsId: joi.string(),
+        startModifiedAt: joi.date().format("YYYY-MM-DD HH:mm:SS"),
+        endModifiedAt: joi.date().format('YYYY-MM-DD HH:mm:SS'),
+        page: joi.number(),
+        limit: joi.number()
     })
 
     const { error, value } =  schema.validate(req.query)

@@ -12,7 +12,7 @@ export const get = (req, callback) => {
         'db_fasyankes.`m_tempat_tidur`.`tt`,db_fasyankes.`t_tempat_tidur`.`ruang`, ' +
         'db_fasyankes.`t_tempat_tidur`.`jumlah`, db_fasyankes.`t_tempat_tidur`.`terpakai`, ' +
         '(db_fasyankes.`t_tempat_tidur`.`jumlah` - db_fasyankes.`t_tempat_tidur`.`terpakai`) as kosong, ' +
-        'db_fasyankes.`t_tempat_tidur`.`antrian`, db_fasyankes.`t_tempat_tidur`.`tglUpdate` '
+        'db_fasyankes.`t_tempat_tidur`.`antrian`, db_fasyankes.`t_tempat_tidur`.`tglUpdate` as modified_at '
     
     const sqlFrom = 'from db_fasyankes.`t_tempat_tidur` inner join db_fasyankes.`m_tempat_tidur` ' +
         'on db_fasyankes.`m_tempat_tidur`.`id_tt` = db_fasyankes.`t_tempat_tidur`.`id_tt` ' +
@@ -34,6 +34,8 @@ export const get = (req, callback) => {
     const idTt = req.query.id_tt || null
     const tglUpdate = req.query.tglUpdate || null
     const rsId = req.query.rsId || null
+    const startModifiedAt = req.query.startModifiedAt || null
+    const endModifiedAt = req.query.endModifiedAt || null
 
     if (provinsiId != null) {
         filter.push("db_fasyankes.`data`.`provinsi_id` = ?")
@@ -58,6 +60,16 @@ export const get = (req, callback) => {
     if (tglUpdate !== null) {
         filter.push("date_format(db_fasyankes.`t_tempat_tidur`.`tglupdate`, '%Y-%m-%d') = ?")
         sqlFilterValue.push(tglUpdate)
+    }
+
+    if (startModifiedAt != null) {
+        filter.push("db_fasyankes.`t_tempat_tidur`.`tglupdate` >= ?")
+        sqlFilterValue.push(startModifiedAt)
+    }
+
+    if (endModifiedAt != null) {
+        filter.push("db_fasyankes.`t_tempat_tidur`.`tglupdate` <= ?")
+        sqlFilterValue.push(endModifiedAt)
     }
 
     console.log(filter)
