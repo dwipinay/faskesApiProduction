@@ -29,6 +29,8 @@ export const get = (req, callback) => {
             'dbfaskes.data_klinik.persalinan as persalinan, ' +
             'dbfaskes.data_klinik.latitude,' +
             'dbfaskes.data_klinik.longitude, ' +
+            'dbfaskes.sim_pengembang.id as idPengembangSIM, ' +
+            'dbfaskes.sim_pengembang.nameFacility as namaVendorSIM, ' +
             'CASE ' +
             'WHEN dbfaskes.data_klinik.status_klinik = "Aktif" THEN 1 ' +
             'WHEN dbfaskes.data_klinik.status_klinik = "Tidak Aktif" THEN 0 ' +
@@ -39,7 +41,9 @@ export const get = (req, callback) => {
     const sqlFrom = 'FROM dbfaskes.data_klinik ' +
         'INNER JOIN dbfaskes.trans_final ON dbfaskes.trans_final.id_faskes = dbfaskes.data_klinik.id_faskes ' +
         'INNER JOIN dbfaskes.propinsi ON dbfaskes.propinsi.id_prop = dbfaskes.data_klinik.id_prov ' +
-        'INNER JOIN dbfaskes.kota ON dbfaskes.kota.id_kota = dbfaskes.data_klinik.id_kota '
+        'INNER JOIN dbfaskes.kota ON dbfaskes.kota.id_kota = dbfaskes.data_klinik.id_kota ' +
+        'LEFT JOIN dbfaskes.data_rme ON dbfaskes.data_rme.id_faskes = dbfaskes.data_klinik.id_faskes ' +
+        'LEFT JOIN dbfaskes.sim_pengembang ON dbfaskes.data_rme.sim_pengembang_id = dbfaskes.sim_pengembang.id '
 
     const sqlOrder = ' ORDER BY dbfaskes.data_klinik.id_prov,' +
         'dbfaskes.data_klinik.id_kota,' +
@@ -153,6 +157,8 @@ export const show = (id, callback) => {
         'dbfaskes.data_klinik.persalinan as persalinan, ' +
         'dbfaskes.data_klinik.latitude,' +
         'dbfaskes.data_klinik.longitude, ' +
+        'dbfaskes.sim_pengembang.id as idPengembangSIM, ' +
+        'dbfaskes.sim_pengembang.nameFacility as namaVendorSIM, ' +
         'dbfaskes.data_klinik.created_at, ' +
         'dbfaskes.data_klinik.modified_at ' +
     'FROM ' +
@@ -160,6 +166,8 @@ export const show = (id, callback) => {
         'INNER JOIN dbfaskes.trans_final ON dbfaskes.trans_final.id_faskes = dbfaskes.data_klinik.id_faskes ' +
         'INNER JOIN dbfaskes.propinsi ON dbfaskes.propinsi.id_prop = dbfaskes.data_klinik.id_prov ' +
         'INNER JOIN dbfaskes.kota ON dbfaskes.kota.id_kota = dbfaskes.data_klinik.id_kota ' +
+        'LEFT JOIN dbfaskes.data_rme ON dbfaskes.data_rme.id_faskes = dbfaskes.data_klinik.id_faskes ' +
+        'LEFT JOIN dbfaskes.sim_pengembang ON dbfaskes.data_rme.sim_pengembang_id = dbfaskes.sim_pengembang.id ' +
     'WHERE dbfaskes.trans_final.kode_faskes_baru = ?'
 
     const sqlFilterValue = [id]
