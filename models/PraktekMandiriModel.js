@@ -46,6 +46,8 @@ export const get = (req, callback) => {
         'dbfaskes.data_pm.latitude, ' +
         'dbfaskes.data_pm.longitude, ' +
         'dbfaskes.data_pm.status_pm as statusAktivasi, ' +
+        'dbfaskes.sim_pengembang.id as idPengembangSIM, ' +
+        'dbfaskes.sim_pengembang.nameFacility as namaVendorSIM, ' +
         'dbfaskes.data_pm.created_at, ' +
         'dbfaskes.data_pm.modified_at '
 
@@ -53,9 +55,10 @@ export const get = (req, callback) => {
         'INNER JOIN dbfaskes.trans_final ON dbfaskes.trans_final.id_faskes = dbfaskes.data_pm.id_faskes ' +
         'INNER JOIN dbfaskes.propinsi ON dbfaskes.propinsi.id_prop = dbfaskes.data_pm.id_prov_pm ' +
         'INNER JOIN dbfaskes.kota ON dbfaskes.kota.id_kota = dbfaskes.data_pm.id_kota_pm ' +
-        'INNER JOIN dbfaskes.kategori_pm ON dbfaskes.kategori_pm.id = dbfaskes.data_pm.id_kategori '
-
-    const sqlOrder = ' ORDER BY dbfaskes.data_pm.id_prov_pm,' +
+        'INNER JOIN dbfaskes.kategori_pm ON dbfaskes.kategori_pm.id = dbfaskes.data_pm.id_kategori ' +
+        'LEFT JOIN dbfaskes.data_rme ON dbfaskes.data_rme.id_faskes = dbfaskes.data_pm.id_faskes ' +
+        'LEFT JOIN dbfaskes.sim_pengembang ON dbfaskes.data_rme.sim_pengembang_id = dbfaskes.sim_pengembang.id '
+    const sqlOrder = ' ORDER BY dbfaskes.data_pm.id_prov_pm, ' +
         'dbfaskes.data_pm.id_kota_pm '
 
     const sqlLimit = 'LIMIT ? '
@@ -180,6 +183,8 @@ export const show = (id, callback) => {
         'dbfaskes.data_pm.jam_praktik_minggu_sore as jamPraktikMingguSore, ' +
         'dbfaskes.data_pm.latitude, ' +
         'dbfaskes.data_pm.longitude, ' +
+        'dbfaskes.sim_pengembang.id as idPengembangSIM, ' +
+        'dbfaskes.sim_pengembang.nameFacility as namaVendorSIM, ' +
         'dbfaskes.data_pm.created_at, ' +
         'dbfaskes.data_pm.modified_at ' +
     'FROM ' +
@@ -187,7 +192,9 @@ export const show = (id, callback) => {
         'INNER JOIN dbfaskes.propinsi ON dbfaskes.propinsi.id_prop = dbfaskes.data_pm.id_prov_pm ' +
         'INNER JOIN dbfaskes.kota ON dbfaskes.kota.id_kota = dbfaskes.data_pm.id_kota_pm ' +
         'INNER JOIN dbfaskes.kategori_pm ON dbfaskes.kategori_pm.id =  dbfaskes.data_pm.id_kategori ' +
-    'WHERE dbfaskes.trans_final.kode_faskes_baru = ?'
+        'LEFT JOIN dbfaskes.data_rme ON dbfaskes.data_rme.id_faskes = dbfaskes.data_pm.id_faskes ' +
+        'LEFT JOIN dbfaskes.sim_pengembang ON dbfaskes.data_rme.sim_pengembang_id = dbfaskes.sim_pengembang.id ' +
+   'WHERE dbfaskes.trans_final.kode_faskes_baru = ?'
 
     const sqlFilterValue = [id]
     databaseFKTP.query(sql, {

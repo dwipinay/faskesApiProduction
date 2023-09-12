@@ -27,6 +27,8 @@ export const get = (req, callback) => {
             'dbfaskes.data_utd.email as email, ' +
             'dbfaskes.data_utd.latitude, ' +
             'dbfaskes.data_utd.longitude, ' +
+            'dbfaskes.sim_pengembang.id as idPengembangSIM, ' +
+            'dbfaskes.sim_pengembang.nameFacility as namaVendorSIM, ' +
             'dbfaskes.data_utd.akreditasi_utd as akreditasiUTD, ' +
             'CASE ' +
             'WHEN dbfaskes.data_utd.status_utd = "Aktif" THEN 1 ' +
@@ -37,8 +39,10 @@ export const get = (req, callback) => {
     const sqlFrom = 'FROM ' +
         'dbfaskes.data_utd INNER JOIN dbfaskes.trans_final ON dbfaskes.trans_final.id_faskes = dbfaskes.data_utd.id_faskes ' +
         'INNER JOIN dbfaskes.propinsi ON dbfaskes.propinsi.id_prop = dbfaskes.data_utd.id_prov ' +
-        'INNER JOIN dbfaskes.kota ON dbfaskes.kota.id_kota = dbfaskes.data_utd.id_kota '
-
+        'INNER JOIN dbfaskes.kota ON dbfaskes.kota.id_kota = dbfaskes.data_utd.id_kota '+
+        'LEFT JOIN dbfaskes.data_rme ON dbfaskes.data_rme.id_faskes = dbfaskes.data_utd.id_faskes ' +
+        'LEFT JOIN dbfaskes.sim_pengembang ON dbfaskes.data_rme.sim_pengembang_id = dbfaskes.sim_pengembang.id '
+    
     const sqlOrder = ' ORDER BY dbfaskes.data_utd.id_prov,' +
         'dbfaskes.data_utd.id_kota '
 
@@ -140,6 +144,8 @@ export const show = (id, callback) => {
         'dbfaskes.data_utd.email as email, ' +
         'dbfaskes.data_utd.latitude, ' +
         'dbfaskes.data_utd.longitude, ' +
+        'dbfaskes.sim_pengembang.id as idPengembangSIM, ' +
+        'dbfaskes.sim_pengembang.nameFacility as namaVendorSIM, ' +
         'dbfaskes.data_utd.akreditasi_utd as akreditasiUTD, ' +
         'dbfaskes.data_utd.status_utd as statusUTD, ' +
         'dbfaskes.data_utd.create_time_data_utd as created_at ' +
@@ -147,6 +153,8 @@ export const show = (id, callback) => {
         'dbfaskes.data_utd INNER JOIN dbfaskes.trans_final ON dbfaskes.trans_final.id_faskes = dbfaskes.data_utd.id_faskes ' +
         'INNER JOIN dbfaskes.propinsi ON dbfaskes.propinsi.id_prop = dbfaskes.data_utd.id_prov ' +
         'INNER JOIN dbfaskes.kota ON dbfaskes.kota.id_kota = dbfaskes.data_utd.id_kota ' +
+        'LEFT JOIN dbfaskes.data_rme ON dbfaskes.data_rme.id_faskes = dbfaskes.data_utd.id_faskes ' +
+        'LEFT JOIN dbfaskes.sim_pengembang ON dbfaskes.data_rme.sim_pengembang_id = dbfaskes.sim_pengembang.id ' +
     'WHERE dbfaskes.trans_final.kode_faskes_baru = ?'
 
     const sqlFilterValue = [id]
