@@ -156,3 +156,15 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uY
 ### Sertifikasi TTE
 GET http://localhost:8000/faskes/rumahsakitsertifikasiakreditasielektronik?page=1
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoia290YWtlbGVrdHJvbmlrQGdtYWlsLmNvbSIsImlhdCI6MTY5Mzc5NDQ3NiwiZXhwIjoxNjkzNzk1Mzc2fQ.rvs2rlSDuka4tNkzur9NKluk5KaSaLUce0ZZUCV5Ya4
+
+### Post Satu Sehat ID
+POST http://localhost:8000/faskes/satusehatid
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoia290YWtlbGVrdHJvbmlrQGdtYWlsLmNvbSIsImlhdCI6MTY4NTk0NTY5MCwiZXhwIjoxNjg1OTQ2NTkwfQ.2XJ5IYF4YHhm1ovihMlK4mU0l_N7hZUBUXQAE3PpaCI
+
+{
+    "kodeBaru": "36740100AAA",
+    "secretKey": "1234567890",
+    "clientId": "212118181383",
+    "organizationId": "11"
+}

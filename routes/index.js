@@ -16,6 +16,7 @@ import { getRumahSakitPelayanan } from '../controllers/RumahSakitPelayananContro
 import { getKetersediaanTempatTidur } from '../controllers/KetersediaanTempatTidurController.js'
 import { insertRumahSakitNakes, updateRumahSakitNakes, deleteRumahSakitNakes } from '../controllers/RumahSakitNakesController.js'
 import { pengajuanSurvei, survei, surveiDetail, rekomendasi, sertifikasi, sertifikasiTTE } from '../controllers/RumahSakitAkreditasiController.js'
+import { insertSatuSehatId } from '../controllers/SatuSehatController.js'
 
 const router = express.Router()
 
@@ -79,5 +80,9 @@ router.get('/faskes/rumahsakitsurveidetailakreditasi', verifyToken, surveiDetail
 router.get('/faskes/rumahsakitrekomendasiakreditasi', verifyToken, rekomendasi)
 router.get('/faskes/rumahsakitsertifikasiakreditasimanual', verifyToken, sertifikasi)
 router.get('/faskes/rumahsakitsertifikasiakreditasielektronik', verifyToken, sertifikasiTTE)
+
+// Satu Sehat ID
+router.post('/faskes/satusehatid',  insertSatuSehatId)
+
 
 export default router
