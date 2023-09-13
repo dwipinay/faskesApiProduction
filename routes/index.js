@@ -82,7 +82,7 @@ router.get('/faskes/rumahsakitsertifikasiakreditasimanual', verifyToken, sertifi
 router.get('/faskes/rumahsakitsertifikasiakreditasielektronik', verifyToken, sertifikasiTTE)
 
 // Satu Sehat ID
-router.post('/faskes/satusehatid',  insertSatuSehatId)
+router.post('/faskes/satusehatid', verifyToken, insertSatuSehatId)
 
 
 export default router

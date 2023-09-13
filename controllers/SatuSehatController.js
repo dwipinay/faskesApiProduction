@@ -49,7 +49,7 @@ export const insertSatuSehatId = async (req, res) => {
                 })
             } else {
                 console.log(err)
-                res.status(400).send({
+                res.status(403).send({
                     success: false,
                     message: "Gagal Simpan"
                 })
