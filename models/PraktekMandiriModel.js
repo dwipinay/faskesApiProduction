@@ -47,7 +47,7 @@ export const get = (req, callback) => {
         'dbfaskes.data_pm.longitude, ' +
         'dbfaskes.data_pm.status_pm as statusAktivasi, ' +
         'dbfaskes.sim_pengembang.id as idPengembangSIM, ' +
-        'dbfaskes.sim_pengembang.nameFacility as namaVendorSIM, ' +
+        'dbfaskes.sim_pengembang.nameFacility as namaPengembangSIM, ' +
         'dbfaskes.data_pm.created_at, ' +
         'dbfaskes.data_pm.modified_at '
 
@@ -184,7 +184,7 @@ export const show = (id, callback) => {
         'dbfaskes.data_pm.latitude, ' +
         'dbfaskes.data_pm.longitude, ' +
         'dbfaskes.sim_pengembang.id as idPengembangSIM, ' +
-        'dbfaskes.sim_pengembang.nameFacility as namaVendorSIM, ' +
+        'dbfaskes.sim_pengembang.nameFacility as namaPengembangSIM, ' +
         'dbfaskes.data_pm.created_at, ' +
         'dbfaskes.data_pm.modified_at ' +
     'FROM ' +

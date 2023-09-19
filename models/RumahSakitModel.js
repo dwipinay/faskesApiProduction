@@ -34,6 +34,8 @@ export const get = (req, callback) => {
         'db_fasyankes.koordinat.alt as latitude, ' +
         'db_fasyankes.`data`.aktive as statusAktivasi, ' +
         'derivedtable2.url as urlFotoDepan, ' +
+        'derivedtable3.idPengembangSIM, ' +
+        'derivedtable3.namaPengembangSIM, ' +
         'db_fasyankes.`data`.TANGGAL_UPDATE as modified_at '
 
         const sqlFrom = 'FROM ' +
@@ -63,7 +65,13 @@ export const get = (req, callback) => {
             'SELECT db_fasyankes.t_images.koders, db_fasyankes.t_images.url ' +
             'FROM db_fasyankes.t_images ' +
             'WHERE db_fasyankes.t_images.keterangan = "depan" ' +
-        ') derivedtable2 ON derivedtable2.koders = db_fasyankes.`data`.Propinsi '
+        ') derivedtable2 ON derivedtable2.koders = db_fasyankes.`data`.Propinsi ' +
+        'LEFT OUTER JOIN ( ' +
+            'select dbyankes.kondisi.koders as koders, dbyankes.kondisi.sim_pengembang_id as idPengembangSIM, db_fasyankes.sim_pengembang.nameFacility as namaPengembangSIM ' +
+            'from dbyankes.kondisi ' +
+            'LEFT JOIN db_fasyankes.sim_pengembang ON dbyankes.kondisi.sim_pengembang_id = db_fasyankes.sim_pengembang.id ' +
+            'where dbyankes.kondisi.sim_pengembang_id is not null ' +
+        ') derivedtable3 ON derivedtable3.koders = db_fasyankes.`data`.Propinsi '
 
         const sqlOrder = ' ORDER BY db_fasyankes.`data`.RUMAH_SAKIT ' 
 

@@ -30,7 +30,7 @@ export const get = (req, callback) => {
             'dbfaskes.data_klinik.latitude,' +
             'dbfaskes.data_klinik.longitude, ' +
             'dbfaskes.sim_pengembang.id as idPengembangSIM, ' +
-            'dbfaskes.sim_pengembang.nameFacility as namaVendorSIM, ' +
+            'dbfaskes.sim_pengembang.nameFacility as namaPengembangSIM, ' +
             'CASE ' +
             'WHEN dbfaskes.data_klinik.status_klinik = "Aktif" THEN 1 ' +
             'WHEN dbfaskes.data_klinik.status_klinik = "Tidak Aktif" THEN 0 ' +
