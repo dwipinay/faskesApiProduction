@@ -1,5 +1,5 @@
 ### Login
-POST http://localhost/faskes/login
+POST http://localhost:8000/faskes/login
 Content-Type: application/json
 
 {
@@ -168,3 +168,15 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uY
     "clientId": "212118181383",
     "organizationId": "11"
 }
+
+### Sertifikasi Klinik
+GET http://localhost:8000/faskes/kliniksertifikasiakreditasi?page=175
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoia290YWtlbGVrdHJvbmlrQGdtYWlsLmNvbSIsImlhdCI6MTY5NjU2NDY5OCwiZXhwIjoxNjk2NTY1NTk4fQ.5DlmfFMcnmFRfAYdZ0Eug54VXIbSC4ODPTZDp58r2bM
+
+### Sertifikasi Labkes
+GET http://localhost:8000/faskes/labkessertifikasiakreditasi?page=1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoia290YWtlbGVrdHJvbmlrQGdtYWlsLmNvbSIsImlhdCI6MTY5NjU2NDY5OCwiZXhwIjoxNjk2NTY1NTk4fQ.5DlmfFMcnmFRfAYdZ0Eug54VXIbSC4ODPTZDp58r2bM
+
+### Sertifikasi utd
+GET http://localhost:8000/faskes/utdsertifikasiakreditasi?page=2
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoia290YWtlbGVrdHJvbmlrQGdtYWlsLmNvbSIsImlhdCI6MTY5NjU2NDY5OCwiZXhwIjoxNjk2NTY1NTk4fQ.5DlmfFMcnmFRfAYdZ0Eug54VXIbSC4ODPTZDp58r2bM

@@ -17,6 +17,9 @@ import { getKetersediaanTempatTidur } from '../controllers/KetersediaanTempatTid
 import { insertRumahSakitNakes, updateRumahSakitNakes, deleteRumahSakitNakes } from '../controllers/RumahSakitNakesController.js'
 import { pengajuanSurvei, survei, surveiDetail, rekomendasi, sertifikasi, sertifikasiTTE } from '../controllers/RumahSakitAkreditasiController.js'
 import { insertSatuSehatId } from '../controllers/SatuSehatController.js'
+import { sertifikasiKlinik} from '../controllers/KlinikAkreditasiController.js'
+import { sertifikasiLabkes} from '../controllers/LabkesAkreditasiController.js'
+import { sertifikasiUtd} from '../controllers/UtdAkreditasiModel.js'
 
 const router = express.Router()
 
@@ -84,5 +87,13 @@ router.get('/faskes/rumahsakitsertifikasiakreditasielektronik', verifyToken, ser
 // Satu Sehat ID
 router.post('/faskes/satusehatid', verifyToken, insertSatuSehatId)
 
+// Akreditasi Klinik
+router.get('/faskes/kliniksertifikasiakreditasi', verifyToken, sertifikasiKlinik)
+
+// Akreditasi Labkes
+router.get('/faskes/labkessertifikasiakreditasi', verifyToken, sertifikasiLabkes)
+
+// Akreditasi UTD
+router.get('/faskes/utdsertifikasiakreditasi', verifyToken, sertifikasiUtd)
 
 export default router
