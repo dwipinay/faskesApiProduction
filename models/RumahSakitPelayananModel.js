@@ -9,11 +9,14 @@ export const get = (req, callback) => {
     const endIndex = limit
 
     const sqlSelect = 'SELECT ' +
+            'db_fasyankes.t_pelayanan.koders, ' +
             'db_fasyankes.m_pelayanan.pelayanan as pelayananNama  '
 
     const sqlFrom = 'FROM ' +
         'db_fasyankes.t_pelayanan INNER JOIN db_fasyankes.m_pelayanan ' +
         'ON db_fasyankes.m_pelayanan.kode_pelayanan = db_fasyankes.t_pelayanan.kode_pelayanan '
+
+    const sqlOrder = ' ORDER BY db_fasyankes.t_pelayanan.koders ' 
 
     const sqlLimit = 'LIMIT ? '
 
@@ -43,7 +46,7 @@ export const get = (req, callback) => {
         }
     })
 
-    const sql = sqlSelect.concat(sqlFrom).concat(sqlFilter).concat(sqlLimit).concat(sqlOffSet)
+    const sql = sqlSelect.concat(sqlFrom).concat(sqlFilter).concat(sqlOrder).concat(sqlLimit).concat(sqlOffSet)
     databaseFKRTL.query(sql, {
         type: QueryTypes.SELECT,
         replacements: sqlFilterValue

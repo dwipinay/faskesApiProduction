@@ -31,7 +31,7 @@ router.get('/faskes/rumahsakit', verifyToken, getRumahSakit)
 router.get('/faskes/rumahsakit/:id', verifyToken, showRumahSakit)
 
 // Rumah Sakit Pelayanan
-router.get('/faskes/rumahsakitpelayanan', verifyToken, getRumahSakitPelayanan)
+router.get('/faskes/rumahsakitketersediaanpelayanan', verifyToken, getRumahSakitPelayanan)
 
 // Rumah Sakit Ketersediaan Tempat Tidur
 router.get('/faskes/rumahsakitketersediaantempattidur', verifyToken, getKetersediaanTempatTidur)
