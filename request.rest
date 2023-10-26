@@ -7,6 +7,10 @@ Content-Type: application/json
     "password": "p5fuNGds"
 }
 
+### Puskesmas
+GET http://localhost:8000/faskes/puskesmas
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoia290YWtlbGVrdHJvbmlrQGdtYWlsLmNvbSIsImlhdCI6MTY5ODMyNDkzMiwiZXhwIjoxNjk4MzI1ODMyfQ.lPVo-QAvtNHpyKWPF4WimbT1S-6Ynp9AqbERCt-gfsM
+
 ### Provinsi
 GET https://api-yankes.kemkes.go.id/faskes/provinsi
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoia290YWtlbGVrdHJvbmlrQGdtYWlsLmNvbSIsImlhdCI6MTY4NjIxMTA3MiwiZXhwIjoxNjg2MjExOTcyfQ.e43k5J9SNNhNBWhyKoq_jw1xCZVpB3f_44onsmtjU0k
@@ -17,7 +21,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uY
 
 ### Rumah Sakit
 GET http://localhost/faskes/rumahsakit?provinsiId=31&pelayanan=jantung&page=2&limit=6&startModifiedAt=01-01-2023
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoia290YWtlbGVrdHJvbmlrQGdtYWlsLmNvbSIsImlhdCI6MTY5MTMxMjQ0MCwiZXhwIjoxNjkxMzEzMzQwfQ.XY2eRO6gjBevj4HNCxsDa0v-IugHK7Z1pBAZrxFt6dw
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoia290YWtlbGVrdHJvbmlrQGdtYWlsLmNvbSIsImlhdCI6MTY5ODMwNDMxMSwiZXhwIjoxNjk4MzA1MjExfQ.2jLQUA4BLBXvJ4nOTKlqsoEZv06PlOaD4x0Wjvyhm8Q
 
 ### Rumah Sakit Specified
 GET http://localhost/faskes/rumahsakit/3174063
@@ -32,8 +36,8 @@ GET http://localhost/faskes/rumahsakitketersediaantempattidur?provinsiId=31&kabK
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoia290YWtlbGVrdHJvbmlrQGdtYWlsLmNvbSIsImlhdCI6MTY4OTkxMjU1MywiZXhwIjoxNjg5OTEzNDUzfQ.JSO75mB3igF06Tt_gXuwyMzfHOgm6zUIjAp5JwNav7k
 
 ### Praktek Mandiri
-GET https://api-yankes.kemkes.go.id/faskes/praktekmandiri?provinsiId=31&kabKotaId=&nama=&page=1&limit=6
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoia290YWtlbGVrdHJvbmlrQGdtYWlsLmNvbSIsImlhdCI6MTY4NjM2NDAxMCwiZXhwIjoxNjg2MzY0OTEwfQ.rxPdXGZugNRvcaco-0g0k6BZWx3GM3UpDA3dDqljFUw
+GET http://localhost/faskes/praktekmandiri?provinsiId=31&kabKotaId=&nama=&page=1&limit=6
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoia290YWtlbGVrdHJvbmlrQGdtYWlsLmNvbSIsImlhdCI6MTY5ODMyNDkzMiwiZXhwIjoxNjk4MzI1ODMyfQ.lPVo-QAvtNHpyKWPF4WimbT1S-6Ynp9AqbERCt-gfsM
 
 ### Praktek Mandiri Nakes
 GET http://localhost/faskes/praktekmandirinakes
@@ -104,7 +108,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uY
 
 ### Klinik
 GET  http://localhost/faskes/klinik?provinsiId=31&kabKotaId=&jenis=&nama=&page=1
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoia290YWtlbGVrdHJvbmlrQGdtYWlsLmNvbSIsImlhdCI6MTY4ODU0MjA5MSwiZXhwIjoxNjg4NTQyOTkxfQ.eaWOP9mD0sgAZa1J3sVOB_fPrtPOYKoQFcVGJKbMuBM
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoia290YWtlbGVrdHJvbmlrQGdtYWlsLmNvbSIsImlhdCI6MTY5ODMyNDkzMiwiZXhwIjoxNjk4MzI1ODMyfQ.lPVo-QAvtNHpyKWPF4WimbT1S-6Ynp9AqbERCt-gfsM
 
 ### Show Klinik
 GET https://api-yankes.kemkes.go.id/faskes/klinik/12010300004
@@ -116,14 +120,14 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uY
 
 ### LabKes
 GET http://localhost/faskes/labkes
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoia290YWtlbGVrdHJvbmlrQGdtYWlsLmNvbSIsImlhdCI6MTY4OTEzMDUzMSwiZXhwIjoxNjg5MTMxNDMxfQ.nD_lGzBB2uUjcYOqBd5FtQ9iSq37BGi7uql5k74mzPk
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoia290YWtlbGVrdHJvbmlrQGdtYWlsLmNvbSIsImlhdCI6MTY5ODMyNDkzMiwiZXhwIjoxNjk4MzI1ODMyfQ.lPVo-QAvtNHpyKWPF4WimbT1S-6Ynp9AqbERCt-gfsM
 
 ### Show LabKes
 GET http://localhost:5000/labkes/11040700001
 
 ### UTD
-GET http://localhost:5000/utd
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoia290YWtlbGVrdHJvbmlrQGdtYWlsLmNvbSIsImlhdCI6MTY4MjM5ODQzMywiZXhwIjoxNjgyMzk5MzMzfQ.iGHZc2U5dl3_TyakT1Dy6RVcR1FjNuK2B8F3dVv92zg
+GET http://localhost/faskes/utd
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoia290YWtlbGVrdHJvbmlrQGdtYWlsLmNvbSIsImlhdCI6MTY5ODMyNDkzMiwiZXhwIjoxNjk4MzI1ODMyfQ.lPVo-QAvtNHpyKWPF4WimbT1S-6Ynp9AqbERCt-gfsM
 
 ### Show UTD
 GET http://localhost:5000/utd/11010600001

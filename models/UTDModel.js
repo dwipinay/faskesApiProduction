@@ -28,8 +28,9 @@ export const get = (req, callback) => {
             'dbfaskes.data_utd.latitude, ' +
             'dbfaskes.data_utd.longitude, ' +
             'dbfaskes.sim_pengembang.id as idPengembangSIM, ' +
-            'dbfaskes.sim_pengembang.nameFacility as namaVendorSIM, ' +
+            'dbfaskes.sim_pengembang.nameFacility as namaPengembangSIM, ' +
             'dbfaskes.data_utd.akreditasi_utd as akreditasiUTD, ' +
+            'dbfaskes.data_rme.persetujuan_ketentuan_satset_id as idPersetujuanKetentuanAPISatSet, ' +
             'CASE ' +
             'WHEN dbfaskes.data_utd.status_utd = "Aktif" THEN 1 ' +
             'WHEN dbfaskes.data_utd.status_utd = "Tidak Aktif" THEN 0 ' +

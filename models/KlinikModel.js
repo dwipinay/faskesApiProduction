@@ -31,6 +31,7 @@ export const get = (req, callback) => {
             'dbfaskes.data_klinik.longitude, ' +
             'dbfaskes.sim_pengembang.id as idPengembangSIM, ' +
             'dbfaskes.sim_pengembang.nameFacility as namaPengembangSIM, ' +
+            'dbfaskes.data_rme.persetujuan_ketentuan_satset_id as idPersetujuanKetentuanAPISatSet, ' +
             'CASE ' +
             'WHEN dbfaskes.data_klinik.status_klinik = "Aktif" THEN 1 ' +
             'WHEN dbfaskes.data_klinik.status_klinik = "Tidak Aktif" THEN 0 ' +

@@ -48,6 +48,7 @@ export const get = (req, callback) => {
         'dbfaskes.data_pm.status_pm as statusAktivasi, ' +
         'dbfaskes.sim_pengembang.id as idPengembangSIM, ' +
         'dbfaskes.sim_pengembang.nameFacility as namaPengembangSIM, ' +
+        'dbfaskes.data_rme.persetujuan_ketentuan_satset_id as idPersetujuanKetentuanAPISatSet, ' +
         'dbfaskes.data_pm.created_at, ' +
         'dbfaskes.data_pm.modified_at '
 

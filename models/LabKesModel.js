@@ -35,7 +35,8 @@ export const get = (req, callback) => {
             'dbfaskes.data_labkes.latitude, ' +
             'dbfaskes.data_labkes.longitude, ' +
             'dbfaskes.sim_pengembang.id as idPengembangSIM, ' +
-            'dbfaskes.sim_pengembang.nameFacility as namaVendorSIM, ' +
+            'dbfaskes.sim_pengembang.nameFacility as namaPengembangSIM, ' +
+            'dbfaskes.data_rme.persetujuan_ketentuan_satset_id as idPersetujuanKetentuanAPISatSet, ' +
             'CASE ' +
             'WHEN dbfaskes.data_labkes.status_labkes = "Aktif" THEN 1 ' +
             'WHEN dbfaskes.data_labkes.status_labkes = "Tidak Aktif" THEN 0 ' +
@@ -49,7 +50,7 @@ export const get = (req, callback) => {
             'INNER JOIN dbfaskes.kota ON dbfaskes.kota.id_kota = dbfaskes.data_labkes.id_kota '+
             'LEFT JOIN dbfaskes.data_rme ON dbfaskes.data_rme.id_faskes = dbfaskes.data_labkes.id_faskes ' +
             'LEFT JOIN dbfaskes.sim_pengembang ON dbfaskes.data_rme.sim_pengembang_id = dbfaskes.sim_pengembang.id ' 
-       
+
         const sqlOrder = ' ORDER BY dbfaskes.data_labkes.id_prov,' +
             'dbfaskes.data_labkes.id_kota '
 

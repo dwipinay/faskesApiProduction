@@ -20,6 +20,7 @@ import { insertSatuSehatId } from '../controllers/SatuSehatController.js'
 import { sertifikasiKlinik} from '../controllers/KlinikAkreditasiController.js'
 import { sertifikasiLabkes} from '../controllers/LabkesAkreditasiController.js'
 import { sertifikasiUtd} from '../controllers/UtdAkreditasiModel.js'
+import { getPuskesmas } from '../controllers/PuskesmasController.js'
 
 const router = express.Router()
 
@@ -40,6 +41,9 @@ router.get('/faskes/rumahsakitketersediaantempattidur', verifyToken, getKetersed
 router.post('/faskes/ketersediaannakes', verifyToken, insertRumahSakitNakes)
 router.patch('/faskes/ketersediaannakes/:id', verifyToken, updateRumahSakitNakes)
 router.delete('/faskes/ketersediaannakes/:id', verifyToken, deleteRumahSakitNakes)
+
+// Puskesmas
+router.get('/faskes/puskesmas', verifyToken, getPuskesmas)
 
 // Praktek Mandiri
 router.get('/faskes/praktekmandiri', verifyToken, getPraktekMandiri)
