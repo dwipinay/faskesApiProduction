@@ -21,6 +21,7 @@ import { sertifikasiKlinik} from '../controllers/KlinikAkreditasiController.js'
 import { sertifikasiLabkes} from '../controllers/LabkesAkreditasiController.js'
 import { sertifikasiUtd} from '../controllers/UtdAkreditasiModel.js'
 import { getPuskesmas } from '../controllers/PuskesmasController.js'
+import { showDataDasar, showDataDokumen, showDataAlkes, getPembiayaan, getPrognas, getHipertensi, getOhis  } from '../controllers/PraktekMandiriInmController.js'
 
 const router = express.Router()
 
@@ -99,5 +100,14 @@ router.get('/faskes/labkessertifikasiakreditasi', verifyToken, sertifikasiLabkes
 
 // Akreditasi UTD
 router.get('/faskes/utdsertifikasiakreditasi', verifyToken, sertifikasiUtd)
+
+// Praktek Mandiri INM
+router.get('/faskes/praktekmandiridatadasar/:id', verifyToken, showDataDasar)
+router.get('/faskes/praktekmandiridatadokumen/', verifyToken, showDataDokumen)
+router.get('/faskes/praktekmandiridataalkes/', verifyToken, showDataAlkes)
+router.get('/faskes/praktekmandiridatapembiayaan', verifyToken, getPembiayaan)
+router.get('/faskes/praktekmandiridataprognas', verifyToken, getPrognas)
+router.get('/faskes/praktekmandiridatahipertensi', verifyToken, getHipertensi)
+router.get('/faskes/praktekmandiridataohis', verifyToken, getOhis)
 
 export default router
