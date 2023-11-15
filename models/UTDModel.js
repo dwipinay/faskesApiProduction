@@ -9,7 +9,6 @@ export const get = (req, callback) => {
     const endIndex = limit
 
     const sqlSelect = 'SELECT ' +
-            'dbfaskes.trans_final.kode_faskes as id, ' +
             'dbfaskes.trans_final.kode_faskes_baru as idBaru, ' +
             'dbfaskes.data_utd.nama_utd as nama, ' +
             'dbfaskes.data_utd.alamat_faskes as alamat, ' +
@@ -27,13 +26,17 @@ export const get = (req, callback) => {
             'dbfaskes.data_utd.email as email, ' +
             'dbfaskes.data_utd.latitude, ' +
             'dbfaskes.data_utd.longitude, ' +
+            'CASE ' +
+                'WHEN dbfaskes.data_rme.status = 1 THEN "Ya" ' +
+                'WHEN dbfaskes.data_rme.status = 0 THEN "Tidak" ' +
+            'END as statusRME, ' +
             'dbfaskes.sim_pengembang.id as idPengembangSIM, ' +
             'dbfaskes.sim_pengembang.nameFacility as namaPengembangSIM, ' +
             'dbfaskes.data_utd.akreditasi_utd as akreditasiUTD, ' +
             'dbfaskes.data_rme.persetujuan_ketentuan_satset_id as idPersetujuanKetentuanAPISatSet, ' +
             'CASE ' +
-            'WHEN dbfaskes.data_utd.status_utd = "Aktif" THEN 1 ' +
-            'WHEN dbfaskes.data_utd.status_utd = "Tidak Aktif" THEN 0 ' +
+                'WHEN dbfaskes.data_utd.status_utd = "Aktif" THEN 1 ' +
+                'WHEN dbfaskes.data_utd.status_utd = "Tidak Aktif" THEN 0 ' +
             'END as statusAktivasi, ' +
             'dbfaskes.data_utd.create_time_data_utd as created_at '
 
@@ -127,7 +130,6 @@ export const get = (req, callback) => {
 
 export const show = (id, callback) => {
     const sql = 'SELECT ' +
-        'dbfaskes.trans_final.kode_faskes as id, ' +
         'dbfaskes.trans_final.kode_faskes_baru as idBaru, ' +
         'dbfaskes.data_utd.nama_utd as nama, ' +
         'dbfaskes.data_utd.alamat_faskes as alamat, ' +

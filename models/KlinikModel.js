@@ -8,7 +8,7 @@ export const get = (req, callback) => {
     const startIndex = (page - 1) * limit
     const endIndex = limit
 
-    const sqlSelect = 'SELECT dbfaskes.trans_final.kode_faskes as id, ' +
+    const sqlSelect = 'SELECT ' +
             'dbfaskes.trans_final.kode_faskes_baru as idBaru, ' +
             'dbfaskes.data_klinik.nama_klinik as nama,' +
             'dbfaskes.data_klinik.pemilik as pemilik,' +
@@ -29,12 +29,16 @@ export const get = (req, callback) => {
             'dbfaskes.data_klinik.persalinan as persalinan, ' +
             'dbfaskes.data_klinik.latitude,' +
             'dbfaskes.data_klinik.longitude, ' +
+            'CASE ' +
+                'WHEN dbfaskes.data_rme.status = 1 THEN "Ya" ' +
+                'WHEN dbfaskes.data_rme.status = 0 THEN "Tidak" ' +
+            'END as statusRME, ' +
             'dbfaskes.sim_pengembang.id as idPengembangSIM, ' +
             'dbfaskes.sim_pengembang.nameFacility as namaPengembangSIM, ' +
             'dbfaskes.data_rme.persetujuan_ketentuan_satset_id as idPersetujuanKetentuanAPISatSet, ' +
             'CASE ' +
-            'WHEN dbfaskes.data_klinik.status_klinik = "Aktif" THEN 1 ' +
-            'WHEN dbfaskes.data_klinik.status_klinik = "Tidak Aktif" THEN 0 ' +
+                'WHEN dbfaskes.data_klinik.status_klinik = "Aktif" THEN 1 ' +
+                'WHEN dbfaskes.data_klinik.status_klinik = "Tidak Aktif" THEN 0 ' +
             'END as statusAktivasi, ' +
             'dbfaskes.data_klinik.created_at, ' +
             'dbfaskes.data_klinik.modified_at '
@@ -137,7 +141,7 @@ export const get = (req, callback) => {
 }
 
 export const show = (id, callback) => {
-    const sql = 'SELECT dbfaskes.trans_final.kode_faskes as faskesId,' +
+    const sql = 'SELECT ' +
         'dbfaskes.trans_final.kode_faskes_baru as idBaru, ' +
         'dbfaskes.data_klinik.nama_klinik as nama,' +
         'dbfaskes.data_klinik.pemilik as pemilik,' +
@@ -158,8 +162,16 @@ export const show = (id, callback) => {
         'dbfaskes.data_klinik.persalinan as persalinan, ' +
         'dbfaskes.data_klinik.latitude,' +
         'dbfaskes.data_klinik.longitude, ' +
+        'CASE ' +
+            'WHEN dbfaskes.data_rme.status = 1 THEN "Ya" ' +
+            'WHEN dbfaskes.data_rme.status = 0 THEN "Tidak" ' +
+        'END as statusRME, ' +
         'dbfaskes.sim_pengembang.id as idPengembangSIM, ' +
         'dbfaskes.sim_pengembang.nameFacility as namaVendorSIM, ' +
+        'CASE ' +
+            'WHEN dbfaskes.data_klinik.status_klinik = "Aktif" THEN 1 ' +
+            'WHEN dbfaskes.data_klinik.status_klinik = "Tidak Aktif" THEN 0 ' +
+        'END as statusAktivasi, ' +
         'dbfaskes.data_klinik.created_at, ' +
         'dbfaskes.data_klinik.modified_at ' +
     'FROM ' +

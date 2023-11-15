@@ -9,7 +9,6 @@ export const get = (req, callback) => {
     const endIndex = limit
 
     const sqlSelect = 'SELECT ' +
-        'dbfaskes.trans_final.kode_faskes as id, ' +
         'dbfaskes.trans_final.kode_faskes_baru as idBaru, ' +
         'dbfaskes.data_pm.nama_pm as nama, ' +
         'dbfaskes.kategori_pm.kategori_user as kategori, ' +
@@ -45,10 +44,14 @@ export const get = (req, callback) => {
         'dbfaskes.data_pm.jam_praktik_minggu_sore as jamPraktikMingguSore, ' +
         'dbfaskes.data_pm.latitude, ' +
         'dbfaskes.data_pm.longitude, ' +
-        'dbfaskes.data_pm.status_pm as statusAktivasi, ' +
+        'CASE ' +
+            'WHEN dbfaskes.data_rme.status = 1 THEN "Ya" ' +
+            'WHEN dbfaskes.data_rme.status = 0 THEN "Tidak" ' +
+        'END as statusRME, ' +
         'dbfaskes.sim_pengembang.id as idPengembangSIM, ' +
         'dbfaskes.sim_pengembang.nameFacility as namaPengembangSIM, ' +
         'dbfaskes.data_rme.persetujuan_ketentuan_satset_id as idPersetujuanKetentuanAPISatSet, ' +
+        'dbfaskes.data_pm.status_pm as statusAktivasi, ' +
         'dbfaskes.data_pm.created_at, ' +
         'dbfaskes.data_pm.modified_at '
 
@@ -184,8 +187,13 @@ export const show = (id, callback) => {
         'dbfaskes.data_pm.jam_praktik_minggu_sore as jamPraktikMingguSore, ' +
         'dbfaskes.data_pm.latitude, ' +
         'dbfaskes.data_pm.longitude, ' +
+        'CASE ' +
+            'WHEN dbfaskes.data_rme.status = 1 THEN "Ya" ' +
+            'WHEN dbfaskes.data_rme.status = 0 THEN "Tidak" ' +
+        'END as statusRME, ' +
         'dbfaskes.sim_pengembang.id as idPengembangSIM, ' +
         'dbfaskes.sim_pengembang.nameFacility as namaPengembangSIM, ' +
+        'dbfaskes.data_pm.status_pm as statusAktivasi, ' +
         'dbfaskes.data_pm.created_at, ' +
         'dbfaskes.data_pm.modified_at ' +
     'FROM ' +
