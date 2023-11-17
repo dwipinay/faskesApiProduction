@@ -11,13 +11,19 @@ export const get = (req, callback) => {
     const sqlSelect = 'SELECT ' +
         'daftar_puskesmas_master_sarana.`KODE KMK` as id, ' +
         'daftar_puskesmas_master_sarana.PUSKESMAS as nama, ' +
+        'CASE ' +
+            'WHEN dbfaskes.data_rme.status = 1 THEN "Ya" ' +
+            'WHEN dbfaskes.data_rme.status = 0 THEN "Tidak" ' +
+        'END as statusRME, ' +
+        'dbfaskes.m_jenis_vendor.nama as jenisPengembangSIM, ' +
         'dbfaskes.sim_pengembang.id as idPengembangSIM, ' +
         'dbfaskes.sim_pengembang.nameFacility as namaPengembangSIM, ' +
         'dbfaskes.data_rme.persetujuan_ketentuan_satset_id as idPersetujuanKetentuanAPISatSet '
 
     const sqlFrom = 'FROM dbfaskes.daftar_puskesmas_master_sarana ' +
         'LEFT OUTER JOIN dbfaskes.data_rme ON dbfaskes.data_rme.id_faskes = dbfaskes.daftar_puskesmas_master_sarana.KODE ' +
-        'LEFT OUTER JOIN dbfaskes.sim_pengembang ON dbfaskes.data_rme.sim_pengembang_id = dbfaskes.sim_pengembang.id '
+        'LEFT OUTER JOIN dbfaskes.sim_pengembang ON dbfaskes.data_rme.sim_pengembang_id = dbfaskes.sim_pengembang.id ' +
+        'LEFT JOIN dbfaskes.m_jenis_vendor ON dbfaskes.m_jenis_vendor.id = dbfaskes.data_rme.jenis_vendor_id '
     
     const sqlOrder = ' ORDER BY id '
 
