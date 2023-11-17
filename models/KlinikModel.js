@@ -33,6 +33,7 @@ export const get = (req, callback) => {
                 'WHEN dbfaskes.data_rme.status = 1 THEN "Ya" ' +
                 'WHEN dbfaskes.data_rme.status = 0 THEN "Tidak" ' +
             'END as statusRME, ' +
+            'dbfaskes.m_jenis_vendor.nama as jenisPengembangSIM, ' +
             'dbfaskes.sim_pengembang.id as idPengembangSIM, ' +
             'dbfaskes.sim_pengembang.nameFacility as namaPengembangSIM, ' +
             'dbfaskes.data_rme.persetujuan_ketentuan_satset_id as idPersetujuanKetentuanAPISatSet, ' +
@@ -48,7 +49,8 @@ export const get = (req, callback) => {
         'INNER JOIN dbfaskes.propinsi ON dbfaskes.propinsi.id_prop = dbfaskes.data_klinik.id_prov ' +
         'INNER JOIN dbfaskes.kota ON dbfaskes.kota.id_kota = dbfaskes.data_klinik.id_kota ' +
         'LEFT JOIN dbfaskes.data_rme ON dbfaskes.data_rme.id_faskes = dbfaskes.data_klinik.id_faskes ' +
-        'LEFT JOIN dbfaskes.sim_pengembang ON dbfaskes.data_rme.sim_pengembang_id = dbfaskes.sim_pengembang.id '
+        'LEFT JOIN dbfaskes.sim_pengembang ON dbfaskes.data_rme.sim_pengembang_id = dbfaskes.sim_pengembang.id ' +
+        'LEFT JOIN dbfaskes.m_jenis_vendor ON dbfaskes.m_jenis_vendor.id = dbfaskes.data_rme.jenis_vendor_id '
 
     const sqlOrder = ' ORDER BY dbfaskes.data_klinik.id_prov,' +
         'dbfaskes.data_klinik.id_kota,' +

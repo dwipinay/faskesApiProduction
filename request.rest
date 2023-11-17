@@ -37,7 +37,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uY
 
 ### Praktek Mandiri
 GET http://localhost/faskes/praktekmandiri?provinsiId=31&kabKotaId=&nama=&page=1&limit=6
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoia290YWtlbGVrdHJvbmlrQGdtYWlsLmNvbSIsImlhdCI6MTY5ODMyNDkzMiwiZXhwIjoxNjk4MzI1ODMyfQ.lPVo-QAvtNHpyKWPF4WimbT1S-6Ynp9AqbERCt-gfsM
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoia290YWtlbGVrdHJvbmlrQGdtYWlsLmNvbSIsImlhdCI6MTcwMDAyNzg5MywiZXhwIjoxNzAwMDI4NzkzfQ.5DtPA6c5qFGMyWr8QOq5tFRnsfwwk0CjCy2lEAMXoRo
 
 ### Praktek Mandiri Nakes
 GET http://localhost/faskes/praktekmandirinakes
@@ -108,7 +108,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uY
 
 ### Klinik
 GET  http://localhost/faskes/klinik?provinsiId=31&kabKotaId=&jenis=&nama=&page=1
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoia290YWtlbGVrdHJvbmlrQGdtYWlsLmNvbSIsImlhdCI6MTY5ODMyNDkzMiwiZXhwIjoxNjk4MzI1ODMyfQ.lPVo-QAvtNHpyKWPF4WimbT1S-6Ynp9AqbERCt-gfsM
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoia290YWtlbGVrdHJvbmlrQGdtYWlsLmNvbSIsImlhdCI6MTcwMDAyNzg5MywiZXhwIjoxNzAwMDI4NzkzfQ.5DtPA6c5qFGMyWr8QOq5tFRnsfwwk0CjCy2lEAMXoRo
 
 ### Show Klinik
 GET https://api-yankes.kemkes.go.id/faskes/klinik/12010300004
@@ -120,7 +120,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uY
 
 ### LabKes
 GET http://localhost/faskes/labkes
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoia290YWtlbGVrdHJvbmlrQGdtYWlsLmNvbSIsImlhdCI6MTY5ODMyNDkzMiwiZXhwIjoxNjk4MzI1ODMyfQ.lPVo-QAvtNHpyKWPF4WimbT1S-6Ynp9AqbERCt-gfsM
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoia290YWtlbGVrdHJvbmlrQGdtYWlsLmNvbSIsImlhdCI6MTcwMDAyNzg5MywiZXhwIjoxNzAwMDI4NzkzfQ.5DtPA6c5qFGMyWr8QOq5tFRnsfwwk0CjCy2lEAMXoRo
 
 ### Show LabKes
 GET http://localhost:5000/labkes/11040700001
