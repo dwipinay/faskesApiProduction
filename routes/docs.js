@@ -23,6 +23,12 @@ const apiDocsInfoHumas1 = JSON.parse(
     })
 )
 
+const apiDocsInfoSisrute1 = JSON.parse(
+    fs.readFileSync(new URL("../documentations/apiDocsInfoSisrute-1.json", import.meta.url), {
+        encoding: "utf-8",
+    })
+)
+
 const apiDocsAspak1 = JSON.parse(
     fs.readFileSync(new URL("../documentations/apiDocsAspak-1.json", import.meta.url), {
         encoding: "utf-8",
@@ -50,6 +56,12 @@ router.use('/faskes/apidoc-1-ditjen-nakes', swaggerUi.serve, (req, res) => {
 // Ditjen Nakes
 router.use('/faskes/apidoc-1-info-humas', swaggerUi.serve, (req, res) => {
     let html = swaggerUi.generateHTML(apiDocsInfoHumas1);
+    res.send(html);
+})
+
+// Ditjen Nakes
+router.use('/faskes/apidoc-1-sisrute', swaggerUi.serve, (req, res) => {
+    let html = swaggerUi.generateHTML(apiDocsInfoSisrute1);
     res.send(html);
 })
 

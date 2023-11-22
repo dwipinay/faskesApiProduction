@@ -89,6 +89,8 @@ export const get = (req, callback) => {
         const kabKotaId = req.query.kabKotaId || null
         const nama = req.query.nama || null
         const aktive = req.query.aktive || null
+        const startModifiedAt = req.query.startModifiedAt || null
+        const endModifiedAt = req.query.endModifiedAt || null
 
         if (pelayananNama != null) {
             sqlFilterValue.push('%'.concat(pelayananNama).concat('%'))
@@ -112,6 +114,16 @@ export const get = (req, callback) => {
         if (aktive != null) {
             filter.push("db_fasyankes.`data`.aktive = ?")
             sqlFilterValue.push(aktive)
+        }
+
+        if (startModifiedAt != null) {
+            filter.push("db_fasyankes.`data`.TANGGAL_UPDATE >= ?")
+            sqlFilterValue.push(startModifiedAt)
+        }
+    
+        if (endModifiedAt != null) {
+            filter.push("db_fasyankes.`data`.TANGGAL_UPDATE <= ?")
+            sqlFilterValue.push(endModifiedAt)
         }
 
         sqlFilterValue.push(endIndex)

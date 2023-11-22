@@ -1,16 +1,21 @@
 import { get, show } from '../models/RumahSakitModel.js'
 import paginationDB from '../config/PaginationDB.js'
 import Joi from 'joi'
+import joiDate from "@joi/date"
 
 export const getRumahSakit = (req, res) => {
-    const schema = Joi.object({
-        provinsiId: Joi.string().allow(''),
-        kabKotaId: Joi.string().allow('').allow(null),
-        nama: Joi.string().allow(''),
-        pelayanan: Joi.string().allow(''),
-        aktive: Joi.number(),
-        page: Joi.number(),
-        limit: Joi.number()
+    const joi = Joi.extend(joiDate) 
+
+    const schema = joi.object({
+        provinsiId: joi.string().allow(''),
+        kabKotaId: joi.string().allow('').allow(null),
+        nama: joi.string().allow(''),
+        pelayanan: joi.string().allow(''),
+        aktive: joi.number(),
+        startModifiedAt: joi.date().format("YYYY-MM-DD"),
+        endModifiedAt: joi.date().format('YYYY-MM-DD'),
+        page: joi.number(),
+        limit: joi.number()
     })
 
     const { error, value } =  schema.validate(req.query)
