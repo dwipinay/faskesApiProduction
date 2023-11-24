@@ -22,6 +22,7 @@ import { sertifikasiLabkes} from '../controllers/LabkesAkreditasiController.js'
 import { sertifikasiUtd} from '../controllers/UtdAkreditasiModel.js'
 import { getPuskesmas } from '../controllers/PuskesmasController.js'
 import { showDataDasar, showDataDokumen, showDataAlkes, getPembiayaan, getPrognas, getHipertensi, getOhis  } from '../controllers/PraktekMandiriInmController.js'
+import { getRumahSakitRME } from '../controllers/RumahSakitRMEController.js'
 
 const router = express.Router()
 
@@ -31,6 +32,9 @@ router.post('/faskes/login', login)
 // Rumah Sakit
 router.get('/faskes/rumahsakit', verifyToken, getRumahSakit)
 router.get('/faskes/rumahsakit/:id', verifyToken, showRumahSakit)
+
+// Rumah Sakit RME
+router.get('/faskes/rumahsakitketersediaanrme', verifyToken, getRumahSakitRME)
 
 // Rumah Sakit Pelayanan
 router.get('/faskes/rumahsakitketersediaanpelayanan', verifyToken, getRumahSakitPelayanan)
