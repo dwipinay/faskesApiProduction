@@ -1,3 +1,5 @@
+
+
 import { get } from '../models/PuskesmasModel.js'
 import paginationDB from '../config/PaginationDB.js'
 import Joi from 'joi'
@@ -29,6 +31,27 @@ export const getPuskesmas = (req, res) => {
             return
         }
 
+        const group = results.data.reduce((acc, curr) => {
+
+            const key = `${curr.id}-${curr.nama}-${curr.statusRME}-${curr.jenisPengembangSIM}-${curr.idPengembangSIM}-${curr.namaPengembangSIM}-${curr.idPersetujuanKetentuanAPISatSet}`;
+                if (!acc[key]) {
+                    acc[key] = {
+                        id: curr.id,
+                        nama: curr.nama,
+                        statusRME : curr.statusRME,
+                    jenisPengembangSIM : curr.jenisPengembangSIM,
+                    idPengembangSIM : curr.idPengembangSIM,
+                    namaPengembangSIM : curr.namaPengembangSIM,
+                    idPersetujuanKetentuanAPISatSet : curr.idPersetujuanKetentuanAPISatSet,
+                        daftarEmail: []
+                    };
+                }
+                acc[key].daftarEmail.push(
+                    curr.email,
+                   );
+                return acc
+            }, {})
+
         const paginationDBObject = new paginationDB(results.totalRowCount, results.page, results.limit, results.data)
         const remarkPagination = paginationDBObject.getRemarkPagination()
         const message = results.data.length ? 'data found' : 'data not found'
@@ -37,7 +60,7 @@ export const getPuskesmas = (req, res) => {
             status: true,
             message: message,
             pagination: remarkPagination,
-            data: results.data
+            data: Object.values(group)
         })
     })
 }

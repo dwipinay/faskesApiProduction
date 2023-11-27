@@ -9,29 +9,31 @@ export const get = (req, callback) => {
     const endIndex = limit
 
     const sqlSelect = 'SELECT ' +
-        'daftar_puskesmas_master_sarana.`KODE KMK` as id, ' +
-        'daftar_puskesmas_master_sarana.PUSKESMAS as nama, ' +
-        'CASE ' +
-            'WHEN dbfaskes.data_rme.status = 1 THEN "Ya" ' +
-            'WHEN dbfaskes.data_rme.status = 0 THEN "Tidak" ' +
-        'END as statusRME, ' +
-        'dbfaskes.m_jenis_vendor.nama as jenisPengembangSIM, ' +
-        'dbfaskes.sim_pengembang.id as idPengembangSIM, ' +
-        'dbfaskes.sim_pengembang.nameFacility as namaPengembangSIM, ' +
-        'dbfaskes.data_rme.persetujuan_ketentuan_satset_id as idPersetujuanKetentuanAPISatSet '
+    'dbfaskes.puskesmas_pusdatin.`kode_baru` as id, ' +
+    'dbfaskes.puskesmas_pusdatin.`name` as nama, ' +
+    'dbfaskes.registrasi_user.email, ' +
+    'CASE ' +
+    'WHEN dbfaskes.data_rme.status = 1 THEN "Ya" ' +
+    'WHEN dbfaskes.data_rme.status = 0 THEN "Tidak" ' +
+    'END as statusRME, ' +
+    'dbfaskes.m_jenis_vendor.nama as jenisPengembangSIM, ' +
+    'dbfaskes.sim_pengembang.id as idPengembangSIM, ' +
+    'dbfaskes.sim_pengembang.nameFacility as namaPengembangSIM, ' +
+    'dbfaskes.data_rme.persetujuan_ketentuan_satset_id as idPersetujuanKetentuanAPISatSet '
 
-    const sqlFrom = 'FROM dbfaskes.daftar_puskesmas_master_sarana ' +
-        'LEFT OUTER JOIN dbfaskes.data_rme ON dbfaskes.data_rme.id_faskes = dbfaskes.daftar_puskesmas_master_sarana.KODE ' +
-        'LEFT OUTER JOIN dbfaskes.sim_pengembang ON dbfaskes.data_rme.sim_pengembang_id = dbfaskes.sim_pengembang.id ' +
-        'LEFT JOIN dbfaskes.m_jenis_vendor ON dbfaskes.m_jenis_vendor.id = dbfaskes.data_rme.jenis_vendor_id '
+    const sqlFrom = 'FROM dbfaskes.puskesmas_pusdatin ' +
+'LEFT OUTER JOIN dbfaskes.data_rme ON dbfaskes.data_rme.id_faskes = dbfaskes.puskesmas_pusdatin.kode_sarana ' +
+'		LEFT OUTER JOIN dbfaskes.registrasi_user ON dbfaskes.registrasi_user.id_faskes = dbfaskes.puskesmas_pusdatin.kode_sarana ' +
+'LEFT OUTER JOIN dbfaskes.sim_pengembang ON dbfaskes.data_rme.sim_pengembang_id = dbfaskes.sim_pengembang.id ' +
+'LEFT JOIN dbfaskes.m_jenis_vendor ON dbfaskes.m_jenis_vendor.id = dbfaskes.data_rme.jenis_vendor_id ' 
     
-    const sqlOrder = ' ORDER BY id '
+    const sqlOrder = ' ORDER BY dbfaskes.puskesmas_pusdatin.`kode_baru` '
 
     const sqlLimit = 'LIMIT ? '
     
-    const sqlOffSet = 'OFFSET ?'
+    const sqlOffSet = 'OFFSET ? '
     
-    const sqlWhere = ''
+    const sqlWhere = ' WHERE dbfaskes.puskesmas_pusdatin.operasional = "TRUE" AND dbfaskes.puskesmas_pusdatin.`kode_baru` is not null  AND dbfaskes.puskesmas_pusdatin.`kode_baru` != "#N/A" '
 
     const filter = []
     const sqlFilterValue = []
@@ -40,12 +42,12 @@ export const get = (req, callback) => {
     const kabKotaId = req.query.kabKotaId || null
 
     if (provinsiId != null) {
-        filter.push("dbfaskes.data_pm.id_prov_pm = ?")
+        filter.push("dbfaskes.puskesmas_pusdatin.provinsi_code = ?")
         sqlFilterValue.push(provinsiId)
     }
 
     if (kabKotaId != null) {
-        filter.push("dbfaskes.data_pm.id_kota_pm = ?")
+        filter.push("dbfaskes.puskesmas_pusdatin.kabkot_code = ?")
         sqlFilterValue.push(kabKotaId)
     }
 
@@ -54,7 +56,7 @@ export const get = (req, callback) => {
 
     let sqlFilter = ''
     if (filter.length == 0) {
-        sqlFilter = ''
+        sqlFilter = ' WHERE dbfaskes.puskesmas_pusdatin.operasional = "TRUE" AND dbfaskes.puskesmas_pusdatin.`kode_baru` is not null  AND dbfaskes.puskesmas_pusdatin.`kode_baru` != "#N/A" '
     } else {
         filter.forEach((value, index) => {
             if (index == 0) {
@@ -71,7 +73,7 @@ export const get = (req, callback) => {
         type: QueryTypes.SELECT,
         replacements: sqlFilterValue
     }).then((res) => {
-        const sqlSelectCount = 'SELECT count(dbfaskes.daftar_puskesmas_master_sarana.`KODE KMK`) as total_row_count '
+        const sqlSelectCount = 'SELECT count(dbfaskes.puskesmas_pusdatin.`kode_baru`) as total_row_count '
         const sqlCount = sqlSelectCount.concat(sqlFrom).concat(sqlFilter)
         databaseFKTP.query(sqlCount, {
             type: QueryTypes.SELECT,
@@ -109,3 +111,6 @@ export const get = (req, callback) => {
         callback(error, null)
     })
 }
+
+
+
