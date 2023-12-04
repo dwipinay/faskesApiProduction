@@ -54,7 +54,7 @@ router.get('/faskes/puskesmas', verifyToken, getPuskesmas)
 router.get('/faskes/praktekmandiri', verifyToken, getPraktekMandiri)
 router.get('/faskes/praktekmandiri/:id', verifyToken, showPraktekMandiri)
 router.get('/faskes/praktekmandirinakes', verifyToken, getPraktekMandiriNakes)
-router.get('/faskes/praktekmandiriasri', verifyToken, getPraktekMandiriAsri)
+router.get('/faskes/tpmdpenggunaasri', verifyToken, getPraktekMandiriAsri)
 
 // Praktek Mandiri Review
 router.post('/faskes/praktekmandirireview', verifyToken, insertPraktekMandiriReview)
