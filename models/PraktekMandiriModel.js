@@ -224,3 +224,91 @@ export const show = (id, callback) => {
         }
     )
 }
+
+export const getAsri = (req, callback) => {
+    const page = parseInt(req.query.page) || 1
+    const limit = parseInt(req.query.limit) > 100 ? 100 : parseInt(req.query.limit) || 100
+
+    const startIndex = (page - 1) * limit
+    const endIndex = limit
+
+    const sqlSelect = 'SELECT '+
+    'dbfaskes.trans_final.kode_faskes_baru as id, '+
+    'dbfaskes.data_pm.nama_pm as nama, '+
+    'dbfaskes.data_pm.email as email, '+
+    'dbfaskes.kategori_pm.kategori_user as kategori, '+
+    'dbfaskes.data_sisdmk.NAMA as namaNakes,'+
+    'dbfaskes.data_sisdmk_pekerjaan.JENIS_SDMK as profesiNakes'
+
+        const sqlFrom = ' FROM dbfaskes.data_pm '+
+        ' INNER JOIN dbfaskes.trans_final ON dbfaskes.trans_final.id_faskes = dbfaskes.data_pm.id_faskes '+
+        ' INNER JOIN dbfaskes.kategori_pm ON dbfaskes.kategori_pm.id = dbfaskes.data_pm.id_kategori '+
+        ' LEFT JOIN dbfaskes.data_rme ON dbfaskes.data_rme.id_faskes = dbfaskes.data_pm.id_faskes '+
+        ' INNER JOIN dbfaskes.data_sisdmk ON dbfaskes.data_sisdmk.id_faskes = dbfaskes.data_pm.id_faskes'+
+        ' INNER JOIN dbfaskes.data_sisdmk_pekerjaan ON dbfaskes.data_sisdmk.id = dbfaskes.data_sisdmk_pekerjaan.data_sisdmk_id'
+    const sqlOrder = ' ORDER BY dbfaskes.trans_final.kode_faskes_baru '
+
+    const sqlLimit = 'LIMIT ? '
+    
+    const sqlOffSet = 'OFFSET ?'
+    
+    const sqlWhere = ' WHERE dbfaskes.trans_final.kode_faskes IS NOT NULL AND dbfaskes.trans_final.kode_faskes_baru IS NOT NULL AND dbfaskes.trans_final.kode_faskes <> "" AND dbfaskes.data_rme.jenis_vendor_id = 34 '
+    const filter = []
+    const sqlFilterValue = []
+
+    const kodeFaskes = req.query.provinsiId || null
+
+    if (kodeFaskes != null) {
+        filter.push(" dbfaskes.trans_final.kode_faskes_baru = ?")
+        sqlFilterValue.push(kodeFaskes)
+    }
+
+    sqlFilterValue.push(endIndex)
+    sqlFilterValue.push(startIndex)
+
+    let sqlFilter = ''
+    if (filter.length == 0) {
+        sqlFilter = ' WHERE dbfaskes.trans_final.kode_faskes IS NOT NULL AND dbfaskes.trans_final.kode_faskes IS NOT NULL AND dbfaskes.trans_final.kode_faskes <> "" AND dbfaskes.data_rme.jenis_vendor_id = 34 '
+    } else {
+        filter.forEach((value, index) => {
+            if (index == 0) {
+                sqlFilter = sqlWhere.concat(value)
+            } else if (index > 0) {
+                sqlFilter = sqlFilter.concat(' and ').concat(value)
+            }
+        })
+    }
+
+    const sql = sqlSelect.concat(sqlFrom).concat(sqlFilter).concat(sqlOrder).concat(sqlLimit).concat(sqlOffSet)
+
+    databaseFKTP.query(sql, {
+        type: QueryTypes.SELECT,
+        replacements: sqlFilterValue
+    }).then((res) => {
+        const sqlSelectCount = 'SELECT count(dbfaskes.trans_final.kode_faskes) as total_row_count '
+        const sqlCount = sqlSelectCount.concat(sqlFrom).concat(sqlFilter)
+        databaseFKTP.query(sqlCount, {
+            type: QueryTypes.SELECT,
+            replacements: sqlFilterValue
+        })
+        .then(
+            (resCount) => {
+                const data = {
+                    totalRowCount: resCount[0].total_row_count,
+                    page: page,
+                    limit: limit,
+                    data: res
+                }
+                callback(null, data)
+            },(error) => {
+                throw error
+            }
+        )
+        .catch((error) => {
+            throw error
+        })
+    })
+    .catch((error) => {
+        callback(error, null)
+    })
+}

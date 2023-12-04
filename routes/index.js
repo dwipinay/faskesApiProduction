@@ -2,7 +2,7 @@ import express from 'express'
 import { login } from '../controllers/UserController.js'
 import { verifyToken } from '../middleware/VerifyToken.js'
 import { getRumahSakit, showRumahSakit } from '../controllers/RumahSakitController.js'
-import { getPraktekMandiri, showPraktekMandiri  } from '../controllers/PraktekMandiriController.js'
+import { getPraktekMandiri, getPraktekMandiriAsri, showPraktekMandiri  } from '../controllers/PraktekMandiriController.js'
 import { getKlinik, showKlinik  } from '../controllers/KlinikController.js'
 import { getLabKes, showLabKes } from '../controllers/LabKesController.js'
 import { getUTD,showUTD } from '../controllers/UTDController.js'
@@ -54,6 +54,7 @@ router.get('/faskes/puskesmas', verifyToken, getPuskesmas)
 router.get('/faskes/praktekmandiri', verifyToken, getPraktekMandiri)
 router.get('/faskes/praktekmandiri/:id', verifyToken, showPraktekMandiri)
 router.get('/faskes/praktekmandirinakes', verifyToken, getPraktekMandiriNakes)
+router.get('/faskes/praktekmandiriasri', verifyToken, getPraktekMandiriAsri)
 
 // Praktek Mandiri Review
 router.post('/faskes/praktekmandirireview', verifyToken, insertPraktekMandiriReview)
