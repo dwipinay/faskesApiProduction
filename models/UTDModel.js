@@ -31,7 +31,7 @@ export const get = (req, callback) => {
                 'WHEN dbfaskes.data_rme.status = 0 THEN "Tidak" ' +
             'END as statusRME, ' +
             'dbfaskes.m_jenis_vendor.nama as jenisPengembangSIM, ' +
-            'dbfaskes.sim_pengembang.id as idPengembangSIM, ' +
+            'dbfaskes.sim_pengembang.dtoId as idPengembangSIM, ' +
             'dbfaskes.sim_pengembang.nameFacility as namaPengembangSIM, ' +
             'dbfaskes.data_utd.akreditasi_utd as akreditasiUTD, ' +
             'dbfaskes.data_rme.persetujuan_ketentuan_satset_id as idPersetujuanKetentuanAPISatSet, ' +

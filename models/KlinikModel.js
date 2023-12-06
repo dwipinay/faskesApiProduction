@@ -168,7 +168,7 @@ export const show = (id, callback) => {
             'WHEN dbfaskes.data_rme.status = 1 THEN "Ya" ' +
             'WHEN dbfaskes.data_rme.status = 0 THEN "Tidak" ' +
         'END as statusRME, ' +
-        'dbfaskes.sim_pengembang.id as idPengembangSIM, ' +
+        'dbfaskes.sim_pengembang.dtoId as idPengembangSIM, ' +
         'dbfaskes.sim_pengembang.nameFacility as namaVendorSIM, ' +
         'CASE ' +
             'WHEN dbfaskes.data_klinik.status_klinik = "Aktif" THEN 1 ' +
