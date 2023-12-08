@@ -6,29 +6,10 @@ export const insertSatuSehatId = async (req, res) => {
             kodeBaru: Joi.string().required(),
             secretKey: Joi.string().required(),
             clientId: Joi.string().required(),
-            organizationId: Joi.string().required()
+            organizationId: Joi.string().required(),
+            simPengembangId: Joi.number().required(),
+            simPengembangNama: Joi.string().required()
         })
-    //     resultReviews: Joi.array()
-    //         .items(Joi.object().keys({
-    //             code: Joi.string().required(),
-    //             type: Joi.string().required(),
-    //             questionDescription: Joi.string().required(),
-    //             answer: Joi.string().required(),
-    //             answerPoint: Joi.number().required(),
-    //             answerTime: Joi.string().required(),
-    //             subQuestion: Joi.array().items(Joi.object().keys({
-    //                 code: Joi.string().required(),
-    //                 type: Joi.string().required(),
-    //                 questionDescription: Joi.string().required(),
-    //                 answer: Joi.string().required(),
-    //                 answerPoint: Joi.number().required(),
-    //                 answerTime: Joi.string().allow(''),
-    //             })
-    //             )
-    //         })
-    //         )
-    //         .required(),
-    // });
 
     const { error, value } = schema.validate(req.body);
     if (error) {

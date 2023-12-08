@@ -5,14 +5,16 @@ export const insert = async (req, callback) => {
     const trans = await databaseFKTP.transaction();
     try {
         const header = [
-        req.body.kodeBaru,
-        req.body.secretKey,
-        req.body.clientId,
-        req.body.organizationId
+            req.body.kodeBaru,
+            req.body.secretKey,
+            req.body.clientId,
+            req.body.organizationId,
+            req.body.simPengembangId,
+            req.body.simPengembangNama
         ]
 
         const sqlInsertHeader = 'INSERT INTO dbfaskes.satu_sehat_id ' +
-            '(`kode_baru_faskes`, `secret_key`, `client_id`, `organization_id`) ' +
+            '(`kode_baru_faskes`, `secret_key`, `client_id`, `organization_id`,`sim_pengembang_id`,`sim_pengembang_nama`) ' +
             'VALUES (?)'
 
         const insertHeader = await databaseFKTP.query(sqlInsertHeader, {
