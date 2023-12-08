@@ -15,6 +15,10 @@ export const get = (req, callback) => {
     'from dbyankes.kondisi k ' +
     'left join dbyankes.m_jenis_vendor mj ON mj.id=k.jenis_vendor ' +
     'WHERE k.koders=db_fasyankes.`data`.Propinsi LIMIT 1) as `jenisPengembangSIM`, ' +
+    '(select sm.id ' +
+    'from dbyankes.kondisi k ' +
+    'left join db_fasyankes.sim_pengembang sm ON sm.id=k.sim_pengembang_id ' +
+    'WHERE k.koders=db_fasyankes.`data`.Propinsi LIMIT 1) as `idPengembangSIM`, ' +
     '(select sm.nameFacility ' +
     'from dbyankes.kondisi k ' +
     'left join db_fasyankes.sim_pengembang sm ON sm.id=k.sim_pengembang_id ' +
