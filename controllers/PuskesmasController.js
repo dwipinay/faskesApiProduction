@@ -1,6 +1,6 @@
 
 
-import { get } from '../models/PuskesmasModel.js'
+import { get, show } from '../models/PuskesmasModel.js'
 import paginationDB from '../config/PaginationDB.js'
 import Joi from 'joi'
 
@@ -61,6 +61,29 @@ export const getPuskesmas = (req, res) => {
             message: message,
             pagination: remarkPagination,
             data: Object.values(group)
+        })
+    })
+}
+
+
+
+export const showPuskesmas = (req, res) => {
+    show(req.params.id, (err, results) => {
+        if (err) {
+            res.status(422).send({
+                status: false,
+                message: err
+            })
+            return
+        }
+
+        const message = results.length ? 'data found' : 'data not found'
+        const data = results.length ? results[0] : null
+
+        res.status(200).send({
+            status: true,
+            message: message,
+            data: data
         })
     })
 }

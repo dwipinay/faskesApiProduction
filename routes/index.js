@@ -20,7 +20,7 @@ import { insertSatuSehatId } from '../controllers/SatuSehatController.js'
 import { sertifikasiKlinik} from '../controllers/KlinikAkreditasiController.js'
 import { sertifikasiLabkes} from '../controllers/LabkesAkreditasiController.js'
 import { sertifikasiUtd} from '../controllers/UtdAkreditasiModel.js'
-import { getPuskesmas } from '../controllers/PuskesmasController.js'
+import { getPuskesmas, showPuskesmas } from '../controllers/PuskesmasController.js'
 import { showDataDasar, showDataDokumen, showDataAlkes, getPembiayaan, getPrognas, getHipertensi, getOhis  } from '../controllers/PraktekMandiriInmController.js'
 import { getRumahSakitRME } from '../controllers/RumahSakitRMEController.js'
 
@@ -49,6 +49,7 @@ router.delete('/faskes/ketersediaannakes/:id', verifyToken, deleteRumahSakitNake
 
 // Puskesmas
 router.get('/faskes/puskesmas', verifyToken, getPuskesmas)
+router.get('/faskes/puskesmas/:id', verifyToken, showPuskesmas)
 
 // Praktek Mandiri
 router.get('/faskes/praktekmandiri', verifyToken, getPraktekMandiri)
