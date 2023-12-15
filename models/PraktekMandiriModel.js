@@ -193,7 +193,7 @@ export const show = (id, callback) => {
             'WHEN dbfaskes.data_rme.status = 1 THEN "Ya" ' +
             'WHEN dbfaskes.data_rme.status = 0 THEN "Tidak" ' +
         'END as statusRME, ' +
-        'dbfaskes.sim_pengembang.id as idPengembangSIM, ' +
+        'dbfaskes.sim_pengembang.dtoId as idPengembangSIM, ' +
         'dbfaskes.sim_pengembang.nameFacility as namaPengembangSIM, ' +
         'dbfaskes.data_pm.status_pm as statusAktivasi, ' +
         'dbfaskes.data_pm.created_at, ' +
@@ -205,7 +205,7 @@ export const show = (id, callback) => {
         'INNER JOIN dbfaskes.kategori_pm ON dbfaskes.kategori_pm.id =  dbfaskes.data_pm.id_kategori ' +
         'LEFT JOIN dbfaskes.data_rme ON dbfaskes.data_rme.id_faskes = dbfaskes.data_pm.id_faskes ' +
         'LEFT JOIN dbfaskes.sim_pengembang ON dbfaskes.data_rme.sim_pengembang_id = dbfaskes.sim_pengembang.id ' +
-   'WHERE dbfaskes.trans_final.kode_faskes_baru = ?'
+    'WHERE dbfaskes.trans_final.kode_faskes_baru = ?'
 
     const sqlFilterValue = [id]
     databaseFKTP.query(sql, {

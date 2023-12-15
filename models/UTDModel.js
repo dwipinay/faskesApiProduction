@@ -149,7 +149,7 @@ export const show = (id, callback) => {
         'dbfaskes.data_utd.email as email, ' +
         'dbfaskes.data_utd.latitude, ' +
         'dbfaskes.data_utd.longitude, ' +
-        'dbfaskes.sim_pengembang.id as idPengembangSIM, ' +
+        'dbfaskes.sim_pengembang.dtoId as idPengembangSIM, ' +
         'dbfaskes.sim_pengembang.nameFacility as namaVendorSIM, ' +
         'dbfaskes.data_utd.akreditasi_utd as akreditasiUTD, ' +
         'dbfaskes.data_utd.status_utd as statusUTD, ' +
