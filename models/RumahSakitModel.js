@@ -13,6 +13,7 @@ export const get = (req, callback) => {
         'db_fasyankes.m_jenis.alias AS jenis, ' +
         'db_fasyankes.m_kelas.kelas AS kelas, ' +
         'db_fasyankes.`data`.TELEPON AS telepon, ' +
+        'db_fasyankes.`data`.EMAIL as email, ' +
         'db_fasyankes.`data`.WEBSITE AS website, ' +
         'db_fasyankes.`m_blu`.blu AS statusBLU, ' +
         'db_fasyankes.`data`.NO_SURAT_IJIN AS noSuratIjinOperasional, ' +
@@ -182,6 +183,7 @@ export const show = (id, callback) => {
         'db_fasyankes.m_jenis.alias AS jenis, ' +
         'db_fasyankes.m_kelas.kelas AS kelas, ' +
         'db_fasyankes.`data`.TELEPON AS telepon, ' +
+        'db_fasyankes.`data`.EMAIL as email, ' +
         'db_fasyankes.`data`.WEBSITE AS website, ' +
         'db_fasyankes.`m_blu`.blu AS statusBLU, ' +
         'db_fasyankes.`data`.NO_SURAT_IJIN AS noSuratIjinOperasional, ' +
