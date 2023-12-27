@@ -38,6 +38,7 @@ export const getPuskesmas = (req, res) => {
                     acc[key] = {
                         id: curr.id,
                         nama: curr.nama,
+                        emailInstitusi:curr.email_institusi,
                         statusRME : curr.statusRME,
                     jenisPengembangSIM : curr.jenisPengembangSIM,
                     idPengembangSIM : curr.idPengembangSIM,

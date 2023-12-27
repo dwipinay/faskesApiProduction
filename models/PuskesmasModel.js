@@ -12,6 +12,7 @@ export const get = (req, callback) => {
     'dbfaskes.puskesmas_pusdatin.`kode_baru` as id, ' +
     'dbfaskes.puskesmas_pusdatin.`name` as nama, ' +
     'dbfaskes.registrasi_user.email, ' +
+    'dbfaskes.puskesmas_pusdatin.email as email_institusi, ' +
     'CASE ' +
     'WHEN dbfaskes.data_rme.status = 1 THEN "Ya" ' +
     'WHEN dbfaskes.data_rme.status = 0 THEN "Tidak" ' +
@@ -119,6 +120,7 @@ export const show = (id, callback) => {
     'dbfaskes.puskesmas_pusdatin.`kode_baru` as id, ' +
     'dbfaskes.puskesmas_pusdatin.`name` as nama, ' +
     'dbfaskes.registrasi_user.email, ' +
+    'dbfaskes.puskesmas_pusdatin.email as email_institusi, ' +
     'CASE ' +
     'WHEN dbfaskes.data_rme.status = 1 THEN "Ya" ' +
     'WHEN dbfaskes.data_rme.status = 0 THEN "Tidak" ' +
