@@ -253,7 +253,7 @@ export const getAsri = (req, callback) => {
     
     const sqlOffSet = 'OFFSET ?'
     
-    const sqlWhere = ' WHERE dbfaskes.trans_final.kode_faskes IS NOT NULL AND dbfaskes.trans_final.kode_faskes_baru IS NOT NULL AND dbfaskes.trans_final.kode_faskes <> "" AND dbfaskes.data_rme.sim_pengembang_id = 323  AND dbfaskes.data_rme.status = 1 '
+    const sqlWhere = ' WHERE dbfaskes.trans_final.kode_faskes IS NOT NULL AND dbfaskes.trans_final.kode_faskes_baru IS NOT NULL AND dbfaskes.trans_final.kode_faskes <> "" AND dbfaskes.data_rme.sim_pengembang_id = 323  AND dbfaskes.data_rme.status = 1 AND dbfaskes.data_sisdmk.is_active = 1 '
     const filter = []
     const sqlFilterValue = []
 
@@ -269,7 +269,7 @@ export const getAsri = (req, callback) => {
 
     let sqlFilter = ''
     if (filter.length == 0) {
-        sqlFilter = ' WHERE dbfaskes.trans_final.kode_faskes IS NOT NULL AND dbfaskes.trans_final.kode_faskes_baru IS NOT NULL AND dbfaskes.trans_final.kode_faskes <> "" AND dbfaskes.data_rme.sim_pengembang_id = 323  AND dbfaskes.data_rme.status = 1 '
+        sqlFilter = ' WHERE dbfaskes.trans_final.kode_faskes IS NOT NULL AND dbfaskes.trans_final.kode_faskes_baru IS NOT NULL AND dbfaskes.trans_final.kode_faskes <> "" AND dbfaskes.data_rme.sim_pengembang_id = 323  AND dbfaskes.data_rme.status = 1 AND dbfaskes.data_sisdmk.is_active = 1 '
     } else {
         filter.forEach((value, index) => {
             if (index == 0) {
