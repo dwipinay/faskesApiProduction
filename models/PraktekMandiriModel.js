@@ -245,14 +245,15 @@ export const getAsri = (req, callback) => {
         ' INNER JOIN dbfaskes.kategori_pm ON dbfaskes.kategori_pm.id = dbfaskes.data_pm.id_kategori '+
         ' LEFT JOIN dbfaskes.data_rme ON dbfaskes.data_rme.id_faskes = dbfaskes.data_pm.id_faskes '+
         ' INNER JOIN dbfaskes.data_sisdmk ON dbfaskes.data_sisdmk.id_faskes = dbfaskes.data_pm.id_faskes'+
-        ' INNER JOIN dbfaskes.data_sisdmk_pekerjaan ON dbfaskes.data_sisdmk.id = dbfaskes.data_sisdmk_pekerjaan.data_sisdmk_id'
+        ' INNER JOIN dbfaskes.data_sisdmk_pekerjaan ON dbfaskes.data_sisdmk.id = dbfaskes.data_sisdmk_pekerjaan.data_sisdmk_id' +
+        ' INNER JOIN dbfaskes.asri_verifikasi ON dbfaskes.asri_verifikasi.kode_faskes = dbfaskes.trans_final.kode_faskes_baru'
     const sqlOrder = ' ORDER BY dbfaskes.trans_final.kode_faskes_baru '
 
     const sqlLimit = 'LIMIT ? '
     
     const sqlOffSet = 'OFFSET ?'
     
-    const sqlWhere = ' WHERE dbfaskes.trans_final.kode_faskes IS NOT NULL AND dbfaskes.trans_final.kode_faskes_baru IS NOT NULL AND dbfaskes.trans_final.kode_faskes <> "" AND dbfaskes.data_rme.jenis_vendor_id = 34 '
+    const sqlWhere = ' WHERE dbfaskes.trans_final.kode_faskes IS NOT NULL AND dbfaskes.trans_final.kode_faskes_baru IS NOT NULL AND dbfaskes.trans_final.kode_faskes <> "" AND dbfaskes.data_rme.sim_pengembang_id = 323  AND dbfaskes.data_rme.status = 1 '
     const filter = []
     const sqlFilterValue = []
 
@@ -268,7 +269,7 @@ export const getAsri = (req, callback) => {
 
     let sqlFilter = ''
     if (filter.length == 0) {
-        sqlFilter = ' WHERE dbfaskes.trans_final.kode_faskes IS NOT NULL AND dbfaskes.trans_final.kode_faskes IS NOT NULL AND dbfaskes.trans_final.kode_faskes <> "" AND dbfaskes.data_rme.jenis_vendor_id = 34 '
+        sqlFilter = ' WHERE dbfaskes.trans_final.kode_faskes IS NOT NULL AND dbfaskes.trans_final.kode_faskes_baru IS NOT NULL AND dbfaskes.trans_final.kode_faskes <> "" AND dbfaskes.data_rme.sim_pengembang_id = 323  AND dbfaskes.data_rme.status = 1 '
     } else {
         filter.forEach((value, index) => {
             if (index == 0) {
