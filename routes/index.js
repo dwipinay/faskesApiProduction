@@ -23,6 +23,7 @@ import { sertifikasiUtd} from '../controllers/UtdAkreditasiModel.js'
 import { getPuskesmas, showPuskesmas } from '../controllers/PuskesmasController.js'
 import { showDataDasar, showDataDokumen, showDataAlkes, getPembiayaan, getPrognas, getHipertensi, getOhis  } from '../controllers/PraktekMandiriInmController.js'
 import { getRumahSakitRME } from '../controllers/RumahSakitRMEController.js'
+import { sertifikasiPuskesmas } from '../controllers/PuskesmasAkreditasiController.js'
 
 const router = express.Router()
 
@@ -106,6 +107,9 @@ router.get('/faskes/labkessertifikasiakreditasi', verifyToken, sertifikasiLabkes
 
 // Akreditasi UTD
 router.get('/faskes/utdsertifikasiakreditasi', verifyToken, sertifikasiUtd)
+
+// Akreditasi Puskesmas
+router.get('/faskes/puskesmassertifikasiakreditasi', verifyToken, sertifikasiPuskesmas)
 
 // Praktek Mandiri INM
 router.get('/faskes/praktekmandiridatadasar/:id', verifyToken, showDataDasar)
