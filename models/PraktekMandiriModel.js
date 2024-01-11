@@ -236,6 +236,9 @@ export const getAsri = (req, callback) => {
     'dbfaskes.trans_final.kode_faskes_baru as id, '+
     'dbfaskes.data_pm.nama_pm as nama, '+
     'dbfaskes.data_pm.email as email, '+
+    'satu_sehat_id.secret_key, '+
+    'satu_sehat_id.client_id, '+
+    'satu_sehat_id.organization_id, '+
     'dbfaskes.kategori_pm.kategori_user as kategori, '+
     'dbfaskes.data_sisdmk.NAMA as namaNakes,'+
     'dbfaskes.data_sisdmk_pekerjaan.JENIS_SDMK as profesiNakes, '+
@@ -247,7 +250,12 @@ export const getAsri = (req, callback) => {
         ' LEFT JOIN dbfaskes.data_rme ON dbfaskes.data_rme.id_faskes = dbfaskes.data_pm.id_faskes '+
         ' INNER JOIN dbfaskes.data_sisdmk ON dbfaskes.data_sisdmk.id_faskes = dbfaskes.data_pm.id_faskes'+
         ' INNER JOIN dbfaskes.data_sisdmk_pekerjaan ON dbfaskes.data_sisdmk.id = dbfaskes.data_sisdmk_pekerjaan.data_sisdmk_id' +
-        ' INNER JOIN dbfaskes.asri_verifikasi ON dbfaskes.asri_verifikasi.kode_faskes = dbfaskes.trans_final.kode_faskes_baru'
+        ' INNER JOIN dbfaskes.asri_verifikasi ON dbfaskes.asri_verifikasi.kode_faskes = dbfaskes.trans_final.kode_faskes_baru' +
+        ' INNER JOIN ( ' +
+' SELECT DISTINCT(dbfaskes.satu_sehat_id.kode_baru_faskes), dbfaskes.satu_sehat_id.secret_key, dbfaskes.satu_sehat_id.client_id, dbfaskes.satu_sehat_id.organization_id  from dbfaskes.satu_sehat_id ORDER BY dbfaskes.satu_sehat_id.kode_baru_faskes ' +
+' )satu_sehat_id ' +
+' ON dbfaskes.asri_verifikasi.kode_faskes = satu_sehat_id.kode_baru_faskes ' 
+        
     const sqlOrder = ' ORDER BY dbfaskes.trans_final.kode_faskes_baru '
 
     const sqlLimit = 'LIMIT ? '

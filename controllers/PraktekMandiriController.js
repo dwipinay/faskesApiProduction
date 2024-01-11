@@ -98,6 +98,9 @@ export const getPraktekMandiriAsri = (req, res) => {
                         id: curr.id,
                         nama: curr.nama,
                         email : curr.email,
+                        secret_key : curr.secret_key,
+                        client_id : curr.client_id,
+                        organization_id : curr.organization_id,
                         kategori : curr.kategori,
                         daftarNakes: []
                     };
