@@ -238,7 +238,8 @@ export const getAsri = (req, callback) => {
     'dbfaskes.data_pm.email as email, '+
     'dbfaskes.kategori_pm.kategori_user as kategori, '+
     'dbfaskes.data_sisdmk.NAMA as namaNakes,'+
-    'dbfaskes.data_sisdmk_pekerjaan.JENIS_SDMK as profesiNakes'
+    'dbfaskes.data_sisdmk_pekerjaan.JENIS_SDMK as profesiNakes, '+
+    'dbfaskes.data_sisdmk.email as emailNakes ' 
 
         const sqlFrom = ' FROM dbfaskes.data_pm '+
         ' INNER JOIN dbfaskes.trans_final ON dbfaskes.trans_final.id_faskes = dbfaskes.data_pm.id_faskes '+
