@@ -244,6 +244,7 @@ export const show = (id, callback) => {
                             "jenis": value.jenis,
                             "kelas": value.kelas,
                             "telepon": value.telepon,
+                            "email": value.email,
                             "website": value.website,
                             "statusBLU": value.statusBLU,
                             "noSuratIjinOperasional": value.noSuratIjinOperasional,
