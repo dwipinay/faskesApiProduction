@@ -107,6 +107,7 @@ export const getPraktekMandiriAsri = (req, res) => {
                 }
                 acc[key].daftarNakes.push({
                     namaNakes : curr.namaNakes,
+                    nikNakes : curr.nikNakes,
                     profesiNakes :curr.profesiNakes,
                     emailNakes : curr.emailNakes
                 }

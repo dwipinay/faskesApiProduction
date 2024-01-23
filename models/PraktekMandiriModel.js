@@ -241,6 +241,7 @@ export const getAsri = (req, callback) => {
     'satu_sehat_id.organization_id, '+
     'dbfaskes.kategori_pm.kategori_user as kategori, '+
     'dbfaskes.data_sisdmk.NAMA as namaNakes,'+
+    'dbfaskes.data_sisdmk.NIK as nikNakes, ' +
     'dbfaskes.data_sisdmk_pekerjaan.JENIS_SDMK as profesiNakes, '+
     'dbfaskes.data_sisdmk.email as emailNakes ' 
 
