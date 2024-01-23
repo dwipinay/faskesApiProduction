@@ -11,6 +11,7 @@ export const getPengajuanSurvei = (req, callback) => {
     const sqlSelect = 'SELECT db_akreditasi.pengajuan_survei.id, ' +
         'db_akreditasi.pengajuan_survei.kode_rs, ' +
         'db_akreditasi.pengajuan_survei.lembaga_akreditasi_id, ' +
+        'db_akreditasi.pengajuan_survei.tanggal_pengajuan_survei, ' +
         'db_akreditasi.pengajuan_survei.created_at, ' +
         'db_akreditasi.pengajuan_survei.modified_at '
     
