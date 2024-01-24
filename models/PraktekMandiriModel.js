@@ -323,3 +323,17 @@ export const getAsri = (req, callback) => {
         callback(error, null)
     })
 }
+
+export const insertAsriVerif= (req, callback) => {
+    const sqlInsert = 'INSERT INTO dbfaskes.asri_verifikasi (kode_faskes) VALUES ( ? )'
+    databaseFKTP.query(sqlInsert, {
+        type: QueryTypes.INSERT,
+        replacements: [req]
+    })
+        .then((res) => {
+            callback(null, res)
+        })
+        .catch((error) => {
+            callback(error, null)
+        })
+}

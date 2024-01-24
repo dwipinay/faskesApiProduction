@@ -1,4 +1,4 @@
-import { get, getAsri, show } from '../models/PraktekMandiriModel.js'
+import { get, getAsri, insertAsriVerif, show } from '../models/PraktekMandiriModel.js'
 import paginationDB from '../config/PaginationDB.js'
 import Joi from 'joi'
 
@@ -126,4 +126,41 @@ export const getPraktekMandiriAsri = (req, res) => {
             data: Object.values(group)
         })
     })
+}
+
+
+
+export const insertAsriVerified = (req, res) => {
+    const schema = Joi.object({
+        kode_faskes: Joi.string()
+            .required(),
+    })
+
+    const { error, value } =  schema.validate(req.body)
+    
+    if (error) {
+        res.status(404).send({
+            status: false,
+            message: error.details[0].message
+        })
+        return
+    }
+        const data =  req.body.kode_faskes
+        
+        insertAsriVerif(data, (err, results) => {
+            if (err) {
+                res.status(422).send({
+                    status: false,
+                    message: err
+                })
+                return
+            }
+            res.status(201).send({
+                status: true,
+                message: "data created",
+                data: {
+                    id: results[0]
+                }
+            })
+        })
 }

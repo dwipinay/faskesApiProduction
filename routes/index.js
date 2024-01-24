@@ -2,7 +2,7 @@ import express from 'express'
 import { login } from '../controllers/UserController.js'
 import { verifyToken } from '../middleware/VerifyToken.js'
 import { getRumahSakit, showRumahSakit } from '../controllers/RumahSakitController.js'
-import { getPraktekMandiri, getPraktekMandiriAsri, showPraktekMandiri  } from '../controllers/PraktekMandiriController.js'
+import { getPraktekMandiri, getPraktekMandiriAsri, insertAsriVerified, showPraktekMandiri  } from '../controllers/PraktekMandiriController.js'
 import { getKlinik, showKlinik  } from '../controllers/KlinikController.js'
 import { getLabKes, showLabKes } from '../controllers/LabKesController.js'
 import { getUTD,showUTD } from '../controllers/UTDController.js'
@@ -57,6 +57,7 @@ router.get('/faskes/praktekmandiri', verifyToken, getPraktekMandiri)
 router.get('/faskes/praktekmandiri/:id', verifyToken, showPraktekMandiri)
 router.get('/faskes/praktekmandirinakes', verifyToken, getPraktekMandiriNakes)
 router.get('/faskes/tpmdpenggunaasri', verifyToken, getPraktekMandiriAsri)
+router.post('/faskes/tpmdasriverified', verifyToken, insertAsriVerified)
 
 // Praktek Mandiri Review
 router.post('/faskes/praktekmandirireview', verifyToken, insertPraktekMandiriReview)
@@ -119,5 +120,7 @@ router.get('/faskes/praktekmandiridatapembiayaan', verifyToken, getPembiayaan)
 router.get('/faskes/praktekmandiridataprognas', verifyToken, getPrognas)
 router.get('/faskes/praktekmandiridatahipertensi', verifyToken, getHipertensi)
 router.get('/faskes/praktekmandiridataohis', verifyToken, getOhis)
+
+
 
 export default router
