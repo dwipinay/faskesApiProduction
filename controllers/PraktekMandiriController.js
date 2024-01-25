@@ -68,6 +68,8 @@ export const showPraktekMandiri = (req, res) => {
 export const getPraktekMandiriAsri = (req, res) => {
     const schema = Joi.object({
         kodeFaskes: Joi.string().allow(''),
+        page: Joi.number(),
+        limit: Joi.number()
     })
 
     const { error, value } =  schema.validate(req.query)
