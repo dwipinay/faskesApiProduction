@@ -124,7 +124,7 @@ export const getPraktekMandiriAsri = (req, res) => {
         res.status(200).send({
             status: true,
             message: message,
-            pagination: remarkPagination,
+            // pagination: remarkPagination,
             data: Object.values(group)
         })
     })

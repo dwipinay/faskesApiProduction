@@ -259,9 +259,9 @@ export const getAsri = (req, callback) => {
         
     const sqlOrder = ' ORDER BY dbfaskes.trans_final.kode_faskes_baru '
 
-    const sqlLimit = 'LIMIT ? '
+    // const sqlLimit = 'LIMIT ? '
     
-    const sqlOffSet = 'OFFSET ?'
+    // const sqlOffSet = 'OFFSET ?'
     
     const sqlWhere = ' WHERE dbfaskes.trans_final.kode_faskes IS NOT NULL AND dbfaskes.trans_final.kode_faskes_baru IS NOT NULL AND dbfaskes.trans_final.kode_faskes <> "" AND dbfaskes.data_rme.sim_pengembang_id = 323  AND dbfaskes.data_rme.status = 1 AND dbfaskes.data_sisdmk.is_active = 1 '
     const filter = []
@@ -290,7 +290,8 @@ export const getAsri = (req, callback) => {
         })
     }
 
-    const sql = sqlSelect.concat(sqlFrom).concat(sqlFilter).concat(sqlOrder).concat(sqlLimit).concat(sqlOffSet)
+    const sql = sqlSelect.concat(sqlFrom).concat(sqlFilter).concat(sqlOrder)
+    // .concat(sqlLimit).concat(sqlOffSet)
 
     databaseFKTP.query(sql, {
         type: QueryTypes.SELECT,
