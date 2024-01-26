@@ -87,3 +87,72 @@ export const getSertifikasiLabkes = (req, callback) => {
     })
 }
 
+
+export const getLabkesAkreditasi = (req, callback) => {
+    const page = parseInt(req.query.page) || 1
+    const limit = parseInt(req.query.limit) > 100 ? 100 : parseInt(req.query.limit) || 100
+
+    const startIndex = (page - 1) * limit
+    const endIndex = limit
+
+    const sqlSelect = 'SELECT  '+
+    'db_akreditasi_non_rs.data_sertifikat.nama_faskes, '+
+    'db_akreditasi_non_rs.data_sertifikat.provinsi , '+
+    'db_akreditasi_non_rs.data_sertifikat.kabkot , '+
+    'db_akreditasi_non_rs.data_sertifikat.alamat, '+
+    'db_akreditasi_non_rs.data_sertifikat.status_akreditasi, '+
+    'db_akreditasi_non_rs.data_sertifikat.tgl_survei as tgl_mulai_sertifikat, '+
+    'DATE_ADD( db_akreditasi_non_rs.data_sertifikat.tgl_survei, INTERVAL 5 YEAR ) as tgl_akhir_sertifikat '
+    
+    const sqlFrom = 'FROM db_akreditasi_non_rs.data_sertifikat '+
+    'INNER JOIN db_akreditasi_non_rs.tte_dirjen ON db_akreditasi_non_rs.data_sertifikat.kode_faskes = tte_dirjen.id_faskes '
+    
+    const sqlOrder = ' ORDER BY db_akreditasi_non_rs.data_sertifikat.provinsi ' 
+
+    const sqlLimit = 'LIMIT ? '
+            
+    const sqlOffSet = 'OFFSET ?'
+
+    const sqlWhere = 'WHERE data_sertifikat.jenis_faskes = "Laboratorium Kesehatan" '
+
+    const filter = []
+    const sqlFilterValue = []
+
+    
+
+    sqlFilterValue.push(endIndex)
+    sqlFilterValue.push(startIndex)
+
+    const sql = sqlSelect.concat(sqlFrom).concat(sqlWhere).concat(sqlOrder).concat(sqlLimit).concat(sqlOffSet)
+
+    databaseFKTP.query(sql, {
+        type: QueryTypes.SELECT,
+        replacements: sqlFilterValue
+    }).then((res) => {
+        const sqlSelectCount = 'SELECT count(db_akreditasi_non_rs.data_sertifikat.kode_faskes) as total_row_count '
+        const sqlCount = sqlSelectCount.concat(sqlFrom).concat(sqlWhere)
+        databaseFKTP.query(sqlCount, {
+            type: QueryTypes.SELECT,
+            replacements: sqlFilterValue
+        })
+        .then(
+            (resCount) => {
+                const data = {
+                    totalRowCount: resCount[0].total_row_count,
+                    page: page,
+                    limit: limit,
+                    data: res
+                }
+                callback(null, data)
+            },(error) => {
+                throw error
+            }
+        )
+        .catch((error) => {
+            throw error
+        })
+    })
+    .catch((error) => {
+        callback(error, null)
+    })
+}

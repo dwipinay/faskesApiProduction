@@ -17,13 +17,13 @@ import { getKetersediaanTempatTidur } from '../controllers/KetersediaanTempatTid
 import { insertRumahSakitNakes, updateRumahSakitNakes, deleteRumahSakitNakes } from '../controllers/RumahSakitNakesController.js'
 import { pengajuanSurvei, survei, surveiDetail, rekomendasi, sertifikasi, sertifikasiTTE } from '../controllers/RumahSakitAkreditasiController.js'
 import { insertSatuSehatId } from '../controllers/SatuSehatController.js'
-import { sertifikasiKlinik} from '../controllers/KlinikAkreditasiController.js'
-import { sertifikasiLabkes} from '../controllers/LabkesAkreditasiController.js'
+import { akreditasiKlinik, sertifikasiKlinik} from '../controllers/KlinikAkreditasiController.js'
+import { akreditasiLabkes, sertifikasiLabkes} from '../controllers/LabkesAkreditasiController.js'
 import { sertifikasiUtd} from '../controllers/UtdAkreditasiModel.js'
 import { getPuskesmas, showPuskesmas } from '../controllers/PuskesmasController.js'
 import { showDataDasar, showDataDokumen, showDataAlkes, getPembiayaan, getPrognas, getHipertensi, getOhis  } from '../controllers/PraktekMandiriInmController.js'
 import { getRumahSakitRME } from '../controllers/RumahSakitRMEController.js'
-import { sertifikasiPuskesmas } from '../controllers/PuskesmasAkreditasiController.js'
+import { akreditasiPuskesmas, sertifikasiPuskesmas } from '../controllers/PuskesmasAkreditasiController.js'
 
 const router = express.Router()
 
@@ -120,6 +120,20 @@ router.get('/faskes/praktekmandiridatapembiayaan', verifyToken, getPembiayaan)
 router.get('/faskes/praktekmandiridataprognas', verifyToken, getPrognas)
 router.get('/faskes/praktekmandiridatahipertensi', verifyToken, getHipertensi)
 router.get('/faskes/praktekmandiridataohis', verifyToken, getOhis)
+
+
+
+// Akreditasi Klinik
+router.get('/faskes/klinikakreditasi', verifyToken, akreditasiKlinik)
+
+// Akreditasi Labkes
+router.get('/faskes/labkesakreditasi', verifyToken, akreditasiLabkes)
+
+// Akreditasi Puskesmas
+router.get('/faskes/puskesmasakreditasi', verifyToken, akreditasiPuskesmas)
+
+// // Akreditasi UTD
+// router.get('/faskes/utdakreditasi', verifyToken, Utd)
 
 
 
