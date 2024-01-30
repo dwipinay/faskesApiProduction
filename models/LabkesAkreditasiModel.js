@@ -113,24 +113,56 @@ export const getLabkesAkreditasi = (req, callback) => {
             
     const sqlOffSet = 'OFFSET ?'
 
-    const sqlWhere = 'WHERE data_sertifikat.jenis_faskes = "Laboratorium Kesehatan" '
+    const sqlWhere = 'WHERE data_sertifikat.jenis_faskes = "Laboratorium Kesehatan" and '
 
     const filter = []
     const sqlFilterValue = []
 
+    const provinsi = req.query.provinsi || null
+    const kabKota = req.query.kabKota || null
+    const namaFaskes = req.query.namaFaskes || null
+
+    
+    if (provinsi != null) {
+        filter.push(" db_akreditasi_non_rs.data_sertifikat.provinsi like ? ")
+        sqlFilterValue.push('%'.concat(provinsi).concat('%'))
+    }
+
+    if (kabKota != null) {
+        filter.push(" db_akreditasi_non_rs.data_sertifikat.kabkot like ? ")
+        sqlFilterValue.push('%'.concat(kabKota).concat('%'))
+    }
+
+    if (namaFaskes != null) {
+        filter.push(" db_akreditasi_non_rs.data_sertifikat.nama_faskes like ? ")
+        sqlFilterValue.push('%'.concat(namaFaskes).concat('%'))
+    }
     
 
     sqlFilterValue.push(endIndex)
     sqlFilterValue.push(startIndex)
 
-    const sql = sqlSelect.concat(sqlFrom).concat(sqlWhere).concat(sqlOrder).concat(sqlLimit).concat(sqlOffSet)
+    let sqlFilter = ''
+    if (filter.length == 0) {
+        sqlFilter = 'WHERE data_sertifikat.jenis_faskes = "Laboratorium Kesehatan" ' 
+    } else {
+        filter.forEach((value, index) => {
+            if (index == 0) {
+                sqlFilter = sqlWhere.concat(value)
+            } else if (index > 0) {
+                sqlFilter = sqlFilter.concat(' and ').concat(value)
+            }
+        })
+    }
+
+    const sql = sqlSelect.concat(sqlFrom).concat(sqlFilter).concat(sqlOrder).concat(sqlLimit).concat(sqlOffSet)
 
     databaseFKTP.query(sql, {
         type: QueryTypes.SELECT,
         replacements: sqlFilterValue
     }).then((res) => {
         const sqlSelectCount = 'SELECT count(db_akreditasi_non_rs.data_sertifikat.kode_faskes) as total_row_count '
-        const sqlCount = sqlSelectCount.concat(sqlFrom).concat(sqlWhere)
+        const sqlCount = sqlSelectCount.concat(sqlFrom).concat(sqlFilter)
         databaseFKTP.query(sqlCount, {
             type: QueryTypes.SELECT,
             replacements: sqlFilterValue

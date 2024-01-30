@@ -1,5 +1,6 @@
 import { getLabkesAkreditasi, getSertifikasiLabkes } from '../models/LabkesAkreditasiModel.js'
 import paginationDB from '../config/PaginationDB.js'
+import Joi from 'joi'
 
 export const sertifikasiLabkes = (req, res) => { 
     getSertifikasiLabkes(req, (err, results) => {
@@ -25,6 +26,25 @@ export const sertifikasiLabkes = (req, res) => {
 }
 
 export const akreditasiLabkes = (req, res) => { 
+
+    const schema = Joi.object({
+        provinsi: Joi.string().allow(''),
+        kabKota: Joi.string().allow('').allow(null),
+        namaFaskes: Joi.string().allow(''),
+        page: Joi.number(),
+        limit: Joi.number()
+    })
+
+    const { error, value } =  schema.validate(req.query)
+
+    if (error) {
+        res.status(400).send({
+            status: false,
+            message: error.details[0].message
+        })
+        return
+    }
+
     getLabkesAkreditasi(req, (err, results) => {
         if (err) {
             res.status(422).send({
