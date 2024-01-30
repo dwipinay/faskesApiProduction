@@ -99,7 +99,9 @@ export const getPuskesmasAkreditasi = (req, callback) => {
 
     const sqlSelect = 'SELECT  '+
     'db_akreditasi_non_rs.data_sertifikat.nama_faskes, '+
+    'dbfaskes.puskesmas_pusdatin.provinsi_code as id_prov, '+
     'db_akreditasi_non_rs.data_sertifikat.provinsi , '+
+    'dbfaskes.puskesmas_pusdatin.kabkot_code as id_kota, '+
     'db_akreditasi_non_rs.data_sertifikat.kabkot , '+
     'db_akreditasi_non_rs.data_sertifikat.alamat, '+
     'db_akreditasi_non_rs.data_sertifikat.status_akreditasi, '+
@@ -107,7 +109,8 @@ export const getPuskesmasAkreditasi = (req, callback) => {
     'DATE_ADD( db_akreditasi_non_rs.data_sertifikat.tgl_survei, INTERVAL 5 YEAR ) as tgl_akhir_sertifikat '
     
     const sqlFrom = 'FROM db_akreditasi_non_rs.data_sertifikat '+
-    'INNER JOIN db_akreditasi_non_rs.tte_dirjen ON db_akreditasi_non_rs.data_sertifikat.kode_faskes = tte_dirjen.id_faskes '
+    'INNER JOIN db_akreditasi_non_rs.tte_dirjen ON db_akreditasi_non_rs.data_sertifikat.kode_faskes = db_akreditasi_non_rs.tte_dirjen.id_faskes '+
+    'JOIN dbfaskes.puskesmas_pusdatin ON db_akreditasi_non_rs.data_sertifikat.kode_faskes = dbfaskes.puskesmas_pusdatin.kode_sarana '
     
     const sqlOrder = ' ORDER BY db_akreditasi_non_rs.data_sertifikat.provinsi ' 
 
@@ -120,19 +123,19 @@ export const getPuskesmasAkreditasi = (req, callback) => {
     const filter = []
     const sqlFilterValue = []
 
-    const provinsi = req.query.provinsi || null
-    const kabKota = req.query.kabKota || null
+    const provinsiId = req.query.provinsiId || null
+    const kabKotaId = req.query.kabKotaId || null
     const namaFaskes = req.query.namaFaskes || null
 
     
-    if (provinsi != null) {
-        filter.push(" db_akreditasi_non_rs.data_sertifikat.provinsi like ? ")
-        sqlFilterValue.push('%'.concat(provinsi).concat('%'))
+    if (provinsiId != null) {
+        filter.push(" dbfaskes.puskesmas_pusdatin.provinsi_code = ? ")
+        sqlFilterValue.push((provinsiId))
     }
 
-    if (kabKota != null) {
-        filter.push(" db_akreditasi_non_rs.data_sertifikat.kabkot like ? ")
-        sqlFilterValue.push('%'.concat(kabKota).concat('%'))
+    if (kabKotaId != null) {
+        filter.push(" dbfaskes.puskesmas_pusdatin.kabkot_code = ? ")
+        sqlFilterValue.push((kabKotaId))
     }
 
     if (namaFaskes != null) {

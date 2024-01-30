@@ -29,8 +29,8 @@ export const sertifikasiPuskesmas = (req, res) => {
 export const akreditasiPuskesmas = (req, res) => { 
 
     const schema = Joi.object({
-        provinsi: Joi.string().allow(''),
-        kabKota: Joi.string().allow('').allow(null),
+        provinsiId: Joi.string().allow(''),
+        kabKotaId: Joi.string().allow('').allow(null),
         namaFaskes: Joi.string().allow(''),
         page: Joi.number(),
         limit: Joi.number()

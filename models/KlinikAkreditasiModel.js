@@ -96,7 +96,9 @@ export const getKlinikAkreditasi = (req, callback) => {
 
     const sqlSelect = 'SELECT  '+
     'db_akreditasi_non_rs.data_sertifikat.nama_faskes, '+
+    'dbfaskes.data_klinik.id_prov, '+
     'db_akreditasi_non_rs.data_sertifikat.provinsi , '+
+    'dbfaskes.data_klinik.id_kota, '+
     'db_akreditasi_non_rs.data_sertifikat.kabkot , '+
     'db_akreditasi_non_rs.data_sertifikat.alamat, '+
     'db_akreditasi_non_rs.data_sertifikat.status_akreditasi, '+
@@ -104,7 +106,9 @@ export const getKlinikAkreditasi = (req, callback) => {
     'DATE_ADD( db_akreditasi_non_rs.data_sertifikat.tgl_survei, INTERVAL 5 YEAR ) as tgl_akhir_sertifikat '
     
     const sqlFrom = 'FROM db_akreditasi_non_rs.data_sertifikat '+
-    'INNER JOIN db_akreditasi_non_rs.tte_dirjen ON db_akreditasi_non_rs.data_sertifikat.kode_faskes = tte_dirjen.id_faskes '
+    'INNER JOIN db_akreditasi_non_rs.tte_dirjen ON db_akreditasi_non_rs.data_sertifikat.kode_faskes = db_akreditasi_non_rs.tte_dirjen.id_faskes '+
+    'JOIN dbfaskes.trans_final ON db_akreditasi_non_rs.data_sertifikat.kode_faskes = dbfaskes.trans_final.kode_faskes '+
+    'JOIN dbfaskes.data_klinik ON dbfaskes.trans_final.id_faskes = dbfaskes.data_klinik.id_faskes '
     
     const sqlOrder = ' ORDER BY db_akreditasi_non_rs.data_sertifikat.provinsi ' 
 
@@ -117,19 +121,19 @@ export const getKlinikAkreditasi = (req, callback) => {
     const filter = []
     const sqlFilterValue = []
 
-    const provinsi = req.query.provinsi || null
-    const kabKota = req.query.kabKota || null
+    const provinsiId = req.query.provinsiId || null
+    const kabKotaId = req.query.kabKotaId || null
     const namaFaskes = req.query.namaFaskes || null
 
     
-    if (provinsi != null) {
-        filter.push(" db_akreditasi_non_rs.data_sertifikat.provinsi like ? ")
-        sqlFilterValue.push('%'.concat(provinsi).concat('%'))
+    if (provinsiId != null) {
+        filter.push(" dbfaskes.data_klinik.id_prov = ? ")
+        sqlFilterValue.push((provinsiId))
     }
 
-    if (kabKota != null) {
-        filter.push(" db_akreditasi_non_rs.data_sertifikat.kabkot like ? ")
-        sqlFilterValue.push('%'.concat(kabKota).concat('%'))
+    if (kabKotaId != null) {
+        filter.push(" dbfaskes.data_klinik.id_kota = ? ")
+        sqlFilterValue.push((kabKotaId))
     }
 
     if (namaFaskes != null) {
