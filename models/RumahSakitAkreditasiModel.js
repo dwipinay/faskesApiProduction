@@ -411,3 +411,139 @@ export const getSertifikasiTTE = (req, callback) => {
         callback(error, null)
     })
 }
+
+export const getRumahSakitAkreditasi = (req, callback) => {
+    const page = parseInt(req.query.page) || 1
+    const limit = parseInt(req.query.limit) > 100 ? 100 : parseInt(req.query.limit) || 100
+
+    const startIndex = (page - 1) * limit
+    const endIndex = limit
+
+    const sqlSelect = 'SELECT * '
+    
+
+        const sqlFrom = 'FROM ('+
+        'SELECT '+
+        'db_fasyankes.`data`.RUMAH_SAKIT as nama_faskes, '+
+        'db_fasyankes.`data`.provinsi_id, '+
+        'db_fasyankes.provinsi.nama as propinsi, '+
+        'db_fasyankes.`data`.kab_kota_id, '+
+        'db_fasyankes.kab_kota.nama as kabkot, '+
+        'db_fasyankes.`data`.ALAMAT as alamat, '+
+        'db_akreditasi.capaian_akreditasi.nama AS `status`, '+
+        'db_akreditasi.sertifikasi.tanggal_terbit, '+
+        'db_akreditasi.sertifikasi.tanggal_kadaluarsa,   '+
+        'db_akreditasi.pengajuan_survei.kode_rs '+
+        'FROM  db_akreditasi.sertifikasi '+
+        'INNER JOIN db_akreditasi.capaian_akreditasi ON  db_akreditasi.sertifikasi.capaian_akreditasi_id = db_akreditasi.capaian_akreditasi.id '+
+        'INNER JOIN db_akreditasi.rekomendasi ON  db_akreditasi.sertifikasi.rekomendasi_id = db_akreditasi.rekomendasi.id '+
+        'INNER JOIN db_akreditasi.survei ON db_akreditasi.rekomendasi.survei_id = db_akreditasi.survei.id '+
+        'INNER JOIN db_akreditasi.pengajuan_survei ON db_akreditasi.survei.pengajuan_survei_id = db_akreditasi.pengajuan_survei.id '+
+        'INNER JOIN db_fasyankes.`data` ON db_akreditasi.pengajuan_survei.kode_rs = db_fasyankes.`data`.Propinsi '+
+        'INNER JOIN db_fasyankes.kab_kota ON db_fasyankes.kab_kota.id = db_fasyankes.`data`.kab_kota_id '+
+        'INNER JOIN db_fasyankes.provinsi ON db_fasyankes.provinsi.id = db_fasyankes.`data`.provinsi_id '+
+        'UNION DISTINCT '+
+        'SELECT  '+
+        'db_fasyankes.`data`.RUMAH_SAKIT as nama_faskes, '+
+        'db_fasyankes.`data`.provinsi_id, '+
+        'db_fasyankes.provinsi.nama as propinsi, '+
+        'db_fasyankes.`data`.kab_kota_id, '+
+        'db_fasyankes.kab_kota.nama as kabkot, '+
+        'db_fasyankes.`data`.ALAMAT as alamat, '+
+        'db_akreditasi.capaian_akreditasi.nama AS `status`, '+
+        'db_akreditasi.rekomendasi.tanggal_terbit_sertifikat as tanggal_terbit, '+
+        'db_akreditasi.rekomendasi.tanggal_kadaluarsa_sertifikat as tanggal_kadaluarsa,   '+
+        'db_akreditasi.pengajuan_survei.kode_rs '+
+        'FROM  db_akreditasi.Sertifikat_progres1 '+
+        'INNER JOIN db_akreditasi.rekomendasi ON  db_akreditasi.Sertifikat_progres1.id_rekomendasi = db_akreditasi.rekomendasi.id '+
+        'INNER JOIN db_akreditasi.capaian_akreditasi ON  db_akreditasi.rekomendasi.capaian_akreditasi_Id = db_akreditasi.capaian_akreditasi.id '+
+        'INNER JOIN db_akreditasi.survei ON db_akreditasi.rekomendasi.survei_id = db_akreditasi.survei.id '+
+        'INNER JOIN db_akreditasi.pengajuan_survei ON db_akreditasi.survei.pengajuan_survei_id = db_akreditasi.pengajuan_survei.id '+
+        'INNER JOIN db_fasyankes.`data` ON db_akreditasi.pengajuan_survei.kode_rs = db_fasyankes.`data`.Propinsi '+
+        'INNER JOIN db_fasyankes.kab_kota ON db_fasyankes.kab_kota.id = db_fasyankes.`data`.kab_kota_id '+
+        'INNER JOIN db_fasyankes.provinsi ON db_fasyankes.provinsi.id = db_fasyankes.`data`.provinsi_id '+
+        ') akreditasi'
+
+    const sqlOrder = 'ORDER BY akreditasi.kode_rs ' 
+
+    const sqlLimit = 'LIMIT ? ' 
+            
+    const sqlOffSet = 'OFFSET ?'
+    const sqlWhere = ' WHERE '
+
+    const filter = []
+    const sqlFilterValue = []
+
+    const provinsiId = req.query.provinsiId || null
+    const kabKotaId = req.query.kabKotaId || null
+    const namaFaskes = req.query.namaFaskes || null
+
+    
+    if (provinsiId != null) {
+        filter.push(" akreditasi.provinsi_id = ? ")
+        sqlFilterValue.push((provinsiId))
+    }
+
+    if (kabKotaId != null) {
+        filter.push(" akreditasi.kab_kota_id = ? ")
+        sqlFilterValue.push((kabKotaId))
+    }
+
+    if (namaFaskes != null) {
+        filter.push(" akreditasi.nama_faskes like ? ")
+        sqlFilterValue.push('%'.concat(namaFaskes).concat('%'))
+    }
+
+    sqlFilterValue.push(endIndex)
+    sqlFilterValue.push(startIndex)
+
+
+    let sqlFilter = ''
+    if (filter.length == 0) {
+        sqlFilter = ' ' 
+    } else {
+        filter.forEach((value, index) => {
+            if (index == 0) {
+                sqlFilter = sqlWhere.concat(value)
+            } else if (index > 0) {
+                sqlFilter = sqlFilter.concat(' and ').concat(value)
+            }
+        })
+    }
+
+    const sql = sqlSelect.concat(sqlFrom).concat(sqlFilter).concat(sqlOrder).concat(sqlLimit).concat(sqlOffSet)
+
+    const from = 
+
+
+    databaseFKRTL.query(sql, {
+        type: QueryTypes.SELECT,
+        replacements: sqlFilterValue
+    }).then((res) => {
+        const sqlSelectCount = 'SELECT count(akreditasi.nama_faskes) as total_row_count '
+        const sqlCount = sqlSelectCount.concat(sqlFrom)
+        databaseFKRTL.query(sqlCount, {
+            type: QueryTypes.SELECT,
+            replacements: sqlFilterValue
+        })
+        .then(
+            (resCount) => {
+                const data = {
+                    totalRowCount: resCount[0].total_row_count,
+                    page: page,
+                    limit: limit,
+                    data: res
+                }
+                callback(null, data)
+            },(error) => {
+                throw error
+            }
+        )
+        .catch((error) => {
+            throw error
+        })
+    })
+    .catch((error) => {
+        callback(error, null)
+    })
+}
