@@ -15,7 +15,7 @@ import { getPraktekMandiriKategori } from '../controllers/PraktekMandiriKategori
 import { getRumahSakitPelayanan } from '../controllers/RumahSakitPelayananController.js'
 import { getKetersediaanTempatTidur } from '../controllers/KetersediaanTempatTidurController.js'
 import { insertRumahSakitNakes, updateRumahSakitNakes, deleteRumahSakitNakes } from '../controllers/RumahSakitNakesController.js'
-import { pengajuanSurvei, survei, surveiDetail, rekomendasi, sertifikasi, sertifikasiTTE } from '../controllers/RumahSakitAkreditasiController.js'
+import { pengajuanSurvei, survei, surveiDetail, rekomendasi, sertifikasi, sertifikasiTTE, akreditasiRumahSakit } from '../controllers/RumahSakitAkreditasiController.js'
 import { insertSatuSehatId } from '../controllers/SatuSehatController.js'
 import { akreditasiKlinik, sertifikasiKlinik} from '../controllers/KlinikAkreditasiController.js'
 import { akreditasiLabkes, sertifikasiLabkes} from '../controllers/LabkesAkreditasiController.js'
@@ -122,6 +122,8 @@ router.get('/faskes/praktekmandiridatahipertensi', verifyToken, getHipertensi)
 router.get('/faskes/praktekmandiridataohis', verifyToken, getOhis)
 
 
+// Akreditasi Rumah Sakit
+router.get('/faskes/rumahsakitakreditasi', verifyToken, akreditasiRumahSakit)
 
 // Akreditasi Klinik
 router.get('/faskes/klinikakreditasi', verifyToken, akreditasiKlinik)
