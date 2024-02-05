@@ -431,8 +431,8 @@ export const getRumahSakitAkreditasi = (req, callback) => {
         'db_fasyankes.kab_kota.nama as kabkot, '+
         'db_fasyankes.`data`.ALAMAT as alamat, '+
         'db_akreditasi.capaian_akreditasi.nama AS `status`, '+
-        'db_akreditasi.sertifikasi.tanggal_terbit, '+
-        'db_akreditasi.sertifikasi.tanggal_kadaluarsa,   '+
+        'db_akreditasi.sertifikasi.tanggal_terbit as tgl_mulai_sertifikat, '+
+        'db_akreditasi.sertifikasi.tanggal_kadaluarsa as tgl_akhir_sertifikat,   '+
         'db_akreditasi.pengajuan_survei.kode_rs '+
         'FROM  db_akreditasi.sertifikasi '+
         'INNER JOIN db_akreditasi.capaian_akreditasi ON  db_akreditasi.sertifikasi.capaian_akreditasi_id = db_akreditasi.capaian_akreditasi.id '+
