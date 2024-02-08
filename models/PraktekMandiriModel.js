@@ -253,7 +253,25 @@ export const getAsri = (req, callback) => {
         ' INNER JOIN dbfaskes.data_sisdmk_pekerjaan ON dbfaskes.data_sisdmk.id = dbfaskes.data_sisdmk_pekerjaan.data_sisdmk_id' +
         ' INNER JOIN dbfaskes.asri_verifikasi ON dbfaskes.asri_verifikasi.kode_faskes = dbfaskes.trans_final.kode_faskes_baru' +
         ' INNER JOIN ( ' +
-' SELECT DISTINCT(dbfaskes.satu_sehat_id.kode_baru_faskes), dbfaskes.satu_sehat_id.secret_key, dbfaskes.satu_sehat_id.client_id, dbfaskes.satu_sehat_id.organization_id  from dbfaskes.satu_sehat_id ORDER BY dbfaskes.satu_sehat_id.kode_baru_faskes ' +
+        'select  '+
+        'temp1.id,  '+
+        'temp1.kode_baru_faskes,  '+
+        'temp1.secret_key,  '+
+        'temp1.client_id,  '+
+        'temp1.organization_id, '+
+        'temp1.created_at  '+
+        'from dbfaskes.satu_sehat_id temp1  '+
+        'JOIN( '+
+        '   SELECT  '+
+        '   dbfaskes.satu_sehat_id.kode_baru_faskes, '+
+        '   MAX(dbfaskes.satu_sehat_id.created_at) as created_at '+
+        '   FROM  '+
+        '   dbfaskes.satu_sehat_id '+
+        '   GROUP BY '+
+        '   dbfaskes.satu_sehat_id.kode_baru_faskes '+
+        ') temp '+
+        'on '+
+        'temp1.kode_baru_faskes = temp.kode_baru_faskes and temp1.created_at = temp.created_at '+
 ' )satu_sehat_id ' +
 ' ON dbfaskes.asri_verifikasi.kode_faskes = satu_sehat_id.kode_baru_faskes ' 
         
