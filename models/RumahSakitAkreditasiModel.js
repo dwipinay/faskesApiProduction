@@ -526,7 +526,7 @@ export const getRumahSakitAkreditasi = (req, callback) => {
 
     const sql = sqlSelect.concat(sqlFrom).concat(sqlFilter).concat(sqlOrder).concat(sqlLimit).concat(sqlOffSet)
 
-    const from = 
+    // const from = 
 
 
     databaseFKRTL.query(sql, {
@@ -534,7 +534,7 @@ export const getRumahSakitAkreditasi = (req, callback) => {
         replacements: sqlFilterValue
     }).then((res) => {
         const sqlSelectCount = 'SELECT count(akreditasi.nama_faskes) as total_row_count '
-        const sqlCount = sqlSelectCount.concat(sqlFrom)
+        const sqlCount = sqlSelectCount.concat(sqlFrom).concat(sqlFilter)
         databaseFKRTL.query(sqlCount, {
             type: QueryTypes.SELECT,
             replacements: sqlFilterValue
