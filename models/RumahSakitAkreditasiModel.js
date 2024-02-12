@@ -419,7 +419,17 @@ export const getRumahSakitAkreditasi = (req, callback) => {
     const startIndex = (page - 1) * limit
     const endIndex = limit
 
-    const sqlSelect = 'SELECT * '
+    const sqlSelect = 'SELECT '+
+    'akreditasi.nama_faskes, '+
+    'akreditasi.provinsi_id, '+
+    'akreditasi.propinsi, '+
+    'akreditasi.kab_kota_id, '+
+    'akreditasi.kabkot, '+
+    'akreditasi.alamat, '+
+    'akreditasi.status_akreditasi, '+
+    'MAX(akreditasi.tgl_mulai_sertifikat) as tgl_mulai_sertifikat, '+
+    'akreditasi.tgl_akhir_sertifikat, '+  
+    'akreditasi.kode_rs ' 
     
 
         const sqlFrom = 'FROM ('+
@@ -431,7 +441,7 @@ export const getRumahSakitAkreditasi = (req, callback) => {
         'db_fasyankes.kab_kota.nama as kabkot, '+
         'db_fasyankes.`data`.ALAMAT as alamat, '+
         'db_akreditasi.capaian_akreditasi.nama AS `status_akreditasi`, '+
-        'db_akreditasi.sertifikasi.tanggal_terbit as tgl_mulai_sertifikat, '+
+        ' MAX(db_akreditasi.sertifikasi.tanggal_terbit) as tgl_mulai_sertifikat, '+
         'db_akreditasi.sertifikasi.tanggal_kadaluarsa as tgl_akhir_sertifikat,   '+
         'db_akreditasi.pengajuan_survei.kode_rs '+
         'FROM  db_akreditasi.sertifikasi '+
@@ -442,7 +452,8 @@ export const getRumahSakitAkreditasi = (req, callback) => {
         'INNER JOIN db_fasyankes.`data` ON db_akreditasi.pengajuan_survei.kode_rs = db_fasyankes.`data`.Propinsi '+
         'INNER JOIN db_fasyankes.kab_kota ON db_fasyankes.kab_kota.id = db_fasyankes.`data`.kab_kota_id '+
         'INNER JOIN db_fasyankes.provinsi ON db_fasyankes.provinsi.id = db_fasyankes.`data`.provinsi_id '+
-        'UNION DISTINCT '+
+        'GROUP BY db_akreditasi.pengajuan_survei.kode_rs '+
+        'UNION '+
         'SELECT  '+
         'db_fasyankes.`data`.RUMAH_SAKIT as nama_faskes, '+
         'db_fasyankes.`data`.provinsi_id, '+
@@ -451,7 +462,7 @@ export const getRumahSakitAkreditasi = (req, callback) => {
         'db_fasyankes.kab_kota.nama as kabkot, '+
         'db_fasyankes.`data`.ALAMAT as alamat, '+
         'db_akreditasi.capaian_akreditasi.nama AS `status`, '+
-        'db_akreditasi.rekomendasi.tanggal_terbit_sertifikat as tanggal_terbit, '+
+        'MAX(db_akreditasi.rekomendasi.tanggal_terbit_sertifikat) as tanggal_terbit, '+
         'db_akreditasi.rekomendasi.tanggal_kadaluarsa_sertifikat as tanggal_kadaluarsa,   '+
         'db_akreditasi.pengajuan_survei.kode_rs '+
         'FROM  db_akreditasi.Sertifikat_progres1 '+
@@ -462,7 +473,9 @@ export const getRumahSakitAkreditasi = (req, callback) => {
         'INNER JOIN db_fasyankes.`data` ON db_akreditasi.pengajuan_survei.kode_rs = db_fasyankes.`data`.Propinsi '+
         'INNER JOIN db_fasyankes.kab_kota ON db_fasyankes.kab_kota.id = db_fasyankes.`data`.kab_kota_id '+
         'INNER JOIN db_fasyankes.provinsi ON db_fasyankes.provinsi.id = db_fasyankes.`data`.provinsi_id '+
-        ') akreditasi'
+        'GROUP BY db_akreditasi.pengajuan_survei.kode_rs '+
+        ') akreditasi '+
+        'GROUP BY akreditasi.kode_rs'
 
     const sqlOrder = 'ORDER BY akreditasi.kode_rs ' 
 
