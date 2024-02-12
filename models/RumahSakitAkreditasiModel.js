@@ -474,8 +474,8 @@ export const getRumahSakitAkreditasi = (req, callback) => {
         'INNER JOIN db_fasyankes.kab_kota ON db_fasyankes.kab_kota.id = db_fasyankes.`data`.kab_kota_id '+
         'INNER JOIN db_fasyankes.provinsi ON db_fasyankes.provinsi.id = db_fasyankes.`data`.provinsi_id '+
         'GROUP BY db_akreditasi.pengajuan_survei.kode_rs '+
-        ') akreditasi '+
-        'GROUP BY akreditasi.kode_rs'
+        ') akreditasi '
+        // 'GROUP BY akreditasi.kode_rs'
 
     const sqlOrder = 'ORDER BY akreditasi.kode_rs ' 
 
@@ -483,6 +483,7 @@ export const getRumahSakitAkreditasi = (req, callback) => {
             
     const sqlOffSet = 'OFFSET ?'
     const sqlWhere = ' WHERE '
+    const sqlGroupBy = 'GROUP BY akreditasi.kode_rs '
 
     const filter = []
     const sqlFilterValue = []
@@ -524,7 +525,7 @@ export const getRumahSakitAkreditasi = (req, callback) => {
         })
     }
 
-    const sql = sqlSelect.concat(sqlFrom).concat(sqlFilter).concat(sqlOrder).concat(sqlLimit).concat(sqlOffSet)
+    const sql = sqlSelect.concat(sqlFrom).concat(sqlFilter).concat(sqlGroupBy).concat(sqlOrder).concat(sqlLimit).concat(sqlOffSet)
 
     // const from = 
 
@@ -534,7 +535,7 @@ export const getRumahSakitAkreditasi = (req, callback) => {
         replacements: sqlFilterValue
     }).then((res) => {
         const sqlSelectCount = 'SELECT count(akreditasi.nama_faskes) as total_row_count '
-        const sqlCount = sqlSelectCount.concat(sqlFrom).concat(sqlFilter)
+        const sqlCount = sqlSelectCount.concat(sqlFrom).concat(sqlFilter).concat(sqlGroupBy)
         databaseFKRTL.query(sqlCount, {
             type: QueryTypes.SELECT,
             replacements: sqlFilterValue
