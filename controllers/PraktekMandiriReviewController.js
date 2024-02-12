@@ -6,7 +6,7 @@ export const insertPraktekMandiriReview = async (req, res) => {
         doctor: Joi.object().keys({
             fasyankes_code: Joi.string().required(),
             nik: Joi.string().required(),
-            str_code: Joi.string(),
+            str_code: Joi.string().allow('').allow(null),
             health_worker_name: Joi.string().required(),
             specialization: Joi.string().required(),
         }),
