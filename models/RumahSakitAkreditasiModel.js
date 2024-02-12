@@ -434,7 +434,7 @@ export const getRumahSakitAkreditasi = (req, callback) => {
 
         const sqlFrom = 'FROM ('+
         'SELECT '+
-        'db_fasyankes.`data`.RUMAH_SAKIT as nama_faskes, '+
+        'db_fasyankes.`data`.RUMAH_SAKIT as nama_faske, '+
         'db_fasyankes.`data`.provinsi_id, '+
         'db_fasyankes.provinsi.nama as propinsi, '+
         'db_fasyankes.`data`.kab_kota_id, '+
@@ -504,7 +504,7 @@ export const getRumahSakitAkreditasi = (req, callback) => {
     }
 
     if (namaFaskes != null) {
-        filter.push(" akreditasi.nama_faskes like ? ")
+        filter.push(" akreditasi.nama_faske like ? ")
         sqlFilterValue.push('%'.concat(namaFaskes).concat('%'))
     }
 
