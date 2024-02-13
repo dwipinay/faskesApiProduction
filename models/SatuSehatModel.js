@@ -13,9 +13,10 @@ export const insert = async (req, callback) => {
             req.body.simPengembangNama
         ]
 
-        const sqlInsertHeader = 'INSERT INTO dbfaskes.satu_sehat_id ' +
+        const sqlInsertHeader = 'INSERT INTO dbfaskes.satu_sehat ' +
             '(`kode_baru_faskes`, `secret_key`, `client_id`, `organization_id`,`sim_pengembang_id`,`sim_pengembang_nama`) ' +
-            'VALUES (?)'
+            'VALUES (?)'+
+            'ON DUPLICATE KEY UPDATE secret_key = VALUES(secret_key), client_id = VALUES(client_id), organization_id = VALUES(sim_pengembang_id) , organization_id = VALUES(sim_pengembang_id), sim_pengembang_nama = VALUES(sim_pengembang_nama)'
 
         const insertHeader = await databaseFKTP.query(sqlInsertHeader, {
             type: QueryTypes.INSERT,

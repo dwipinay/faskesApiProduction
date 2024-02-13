@@ -248,7 +248,7 @@ export const getAsri = (req, callback) => {
         const sqlFrom = ' FROM dbfaskes.data_pm '+
         ' INNER JOIN dbfaskes.trans_final ON dbfaskes.trans_final.id_faskes = dbfaskes.data_pm.id_faskes '+
         ' INNER JOIN dbfaskes.kategori_pm ON dbfaskes.kategori_pm.id = dbfaskes.data_pm.id_kategori '+
-        ' LEFT JOIN dbfaskes.data_rme ON dbfaskes.data_rme.id_faskes = dbfaskes.data_pm.id_faskes '+
+        ' INNER JOIN dbfaskes.data_rme ON dbfaskes.data_rme.id_faskes = dbfaskes.data_pm.id_faskes '+
         ' INNER JOIN dbfaskes.data_sisdmk ON dbfaskes.data_sisdmk.id_faskes = dbfaskes.data_pm.id_faskes'+
         ' INNER JOIN dbfaskes.data_sisdmk_pekerjaan ON dbfaskes.data_sisdmk.id = dbfaskes.data_sisdmk_pekerjaan.data_sisdmk_id' +
         ' INNER JOIN dbfaskes.asri_verifikasi ON dbfaskes.asri_verifikasi.kode_faskes = dbfaskes.trans_final.kode_faskes_baru' +
