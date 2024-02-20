@@ -80,7 +80,7 @@ export const get = (req, callback) => {
             
         const sqlOffSet = 'OFFSET ?'
 
-        const sqlWhere = 'WHERE db_fasyankes.`data`.Propinsi NOT IN ("9999999","7371435","7371121","") AND db_fasyankes.`data`.JENIS <> 20 AND '
+        const sqlWhere = 'WHERE db_fasyankes.`data`.Propinsi NOT IN ("9999999","7371435","7371121","") AND '
 
         const filter = []
         const sqlFilterValue = []
